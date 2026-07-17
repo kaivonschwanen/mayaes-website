@@ -276,7 +276,7 @@ const toggleMute = () => {
               Contact
             </span>
             <p className="mt-3 text-sm leading-relaxed">
-              mayaes2016@gmail.com
+              mayaes2018@gmail.com
               <br />
               +49 151 53590868
               <br />

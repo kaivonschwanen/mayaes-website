@@ -16,9 +16,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "NOX Studio — Fashion. Film. Music. Art.",
+  title: "MAYA ES — Fashion. Film. Music. Art.",
   description:
-    "NOX Studio builds worlds at the intersection of fashion, film, music, and artificial intelligence.",
+    "MAYA ES builds worlds at the intersection of fashion, film, music, and artificial intelligence.",
 };
 
 export default function RootLayout({
