@@ -69,7 +69,7 @@ const toggleMute = () => {
       {/* HERO */}
       <section className="relative mx-auto grid max-w-[1400px] grid-cols-1 gap-10 px-6 pb-16 md:grid-cols-2 md:px-10 md:pb-24">
         <div className="flex flex-col justify-center">
-          <h1 className="font-display text-[15vw] leading-[0.9] tracking-tight md:text-[6.2vw]">
+          <h1 className="font-display text-[15vw] leading-[0.85] tracking-tight md:text-[6.2vw]">
             FASHION.
             <br />
             <span className="text-blood">FILM.</span>
@@ -116,7 +116,7 @@ const toggleMute = () => {
         <div className="group relative flex min-h-[420px] flex-col justify-end overflow-hidden bg-ink p-8">
           <video
             ref={videoRef}
-            src="/videos/Casino Glam-4K.mp4"
+            src="https://www.mayaesai.com/Casino Glam-A.mp4"
             loop
             muted
             playsInline
@@ -252,7 +252,7 @@ const toggleMute = () => {
             SOMETHING GREAT.
           </h2>
           <a
-            href="mailto:hello@nox.studio"
+            href="mailto:mayaes2018@gmail.com"
             className="mt-6 inline-flex w-fit items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] transition-colors hover:text-ink/60"
           >
             Get In Touch <span aria-hidden>↗</span>
