@@ -116,7 +116,7 @@ const toggleMute = () => {
         <div className="group relative flex min-h-[420px] flex-col justify-end overflow-hidden bg-ink p-8">
           <video
             ref={videoRef}
-            src="https://www.mayaesai.com/Casino Glam-A.mp4"
+            src="https://media.mayaesai.com/Casino Glam-A.mp4"
             loop
             muted
             playsInline
