@@ -72,13 +72,21 @@ const toggleMute = () => {
           <h1 className="font-display text-[15vw] leading-[0.85] tracking-tight md:text-[6.2vw]">
             FASHION.
             <br />
-            <span className="text-blood">FILM.</span>
+            FILM.
             <br />
             MUSIC.
             <br />
             <span className="text-blood">3D ART.</span>
           </h1>
 
+          <p>
+          <br />
+          <span className="text-2xl font-medium uppercase tracking-[0.8em] text-blood">
+            powered by AI
+          </span>
+          </p>
+
+ 
           <p className="mt-8 max-w-sm text-sm leading-relaxed text-mute">
             I build worlds at the intersection of fashion, film, music, and
             artificial intelligence.
@@ -300,6 +308,7 @@ const toggleMute = () => {
         </div>
       </section>
 
+      
       <footer className="mx-auto flex max-w-[1400px] flex-col-reverse items-center justify-between gap-4 px-6 py-6 text-[11px] uppercase tracking-[0.18em] text-mute md:flex-row md:px-10">
         <span>© 2026 MAYA ES. All rights reserved.</span>
         <div className="flex gap-6">
@@ -392,7 +401,7 @@ function RotatingBadge() {
           </textPath>
         </text>
       </svg>
-      <span className="font-display absolute text-3xl text-blood">N</span>
+      <span className="font-display absolute text-3xl text-blood">ES</span>
     </div>
   );
 }
