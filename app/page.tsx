@@ -69,14 +69,14 @@ const toggleMute = () => {
       {/* HERO */}
       <section className="relative mx-auto grid max-w-[1400px] grid-cols-1 gap-10 px-6 pb-16 md:grid-cols-2 md:px-10 md:pb-24">
         <div className="flex flex-col justify-center">
-          <h1 className="font-display text-[15vw] leading-[0.85] tracking-tight md:text-[6.2vw]">
+          <h1 className="font-display text-[15vw] leading-[0.9] tracking-tight md:text-[6.2vw]">
             FASHION.
             <br />
-            FILM.
+            <span className="text-blood">FILM.</span>
             <br />
             MUSIC.
             <br />
-            <span className="text-blood">ART.</span>
+            <span className="text-blood">3D ART.</span>
           </h1>
 
           <p className="mt-8 max-w-sm text-sm leading-relaxed text-mute">
