@@ -295,14 +295,40 @@ const toggleMute = () => {
             </p>
           </div>
           <div className="flex flex-col gap-2 text-xs font-medium uppercase tracking-[0.18em]">
-            <a href="#" className="flex items-center justify-between border-t border-ink/10 py-2 hover:text-blood">
+            <a
+              href="https://www.instagram.com/m.a.y.a_es/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-between border-t border-ink/10 py-2 hover:text-blood"
+            >
               Instagram <span aria-hidden>↗</span>
             </a>
-            <a href="#" className="flex items-center justify-between border-t border-ink/10 py-2 hover:text-blood">
-              Vimeo <span aria-hidden>↗</span>
+
+            <a
+              href="https://open.spotify.com/artist/4Ps4f6CwOBFmSrqiQQKO7q"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-between border-t border-ink/10 py-2 hover:text-blood"
+            >
+              Spotify <span aria-hidden>↗</span>
             </a>
-            <a href="#" className="flex items-center justify-between border-t border-b border-ink/10 py-2 hover:text-blood">
-              Soundcloud <span aria-hidden>↗</span>
+
+            <a
+              href="https://music.youtube.com/channel/UCe0ROKE7s9fwY3u_orDxUDw"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-between border-t border-ink/10 py-2 hover:text-blood"
+            >
+              YouTube Music <span aria-hidden>↗</span>
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/maya-es-525728150/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-between border-t border-b border-ink/10 py-2 hover:text-blood"
+            >
+              LinkedIn <span aria-hidden>↗</span>
             </a>
           </div>
         </div>
