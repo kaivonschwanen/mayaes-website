@@ -117,9 +117,12 @@ const toggleMute = () => {
           <video
             ref={videoRef}
             src="https://media.mayaesai.com/Casino Glam-A.mp4"
+            autoPlay
             loop
             muted
             playsInline
+            preload="metadata"
+            onContextMenu={(e) => e.preventDefault()}
             className="absolute inset-0 h-full w-full object-cover"
           />
           <div className="relative z-10 flex items-center gap-4">
