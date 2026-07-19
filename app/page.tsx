@@ -16,367 +16,367 @@ export default function Home() {
   const introVideoRef = useRef<HTMLVideoElement>(null);
 
   const togglePlay = () => {
-  if (!videoRef.current) return;
-  if (isPlaying) {
-    videoRef.current.pause();
-  } else {
-    videoRef.current.play();
-  }
-  setIsPlaying(!isPlaying);
-};
+    if (!videoRef.current) return;
+    if (isPlaying) {
+      videoRef.current.pause();
+    } else {
+      videoRef.current.play();
+    }
+    setIsPlaying(!isPlaying);
+  };
 
-const toggleMute = () => {
-  if (!videoRef.current) return;
-  const nextMuted = !videoRef.current.muted;
-  videoRef.current.muted = nextMuted;
-  setIsMuted(nextMuted);
+  const toggleMute = () => {
+    if (!videoRef.current) return;
+    const nextMuted = !videoRef.current.muted;
+    videoRef.current.muted = nextMuted;
+    setIsMuted(nextMuted);
 
-  // beim Entstummen: Intro-Video automatisch stummschalten
-  if (!nextMuted && introVideoRef.current) {
-    introVideoRef.current.muted = true;
-    setIntroMuted(true);
-  }
-};
+    // beim Entstummen: Intro-Video automatisch stummschalten
+    if (!nextMuted && introVideoRef.current) {
+      introVideoRef.current.muted = true;
+      setIntroMuted(true);
+    }
+  };
 
-const toggleIntroMute = () => {
-  if (!introVideoRef.current) return;
-  const nextMuted = !introVideoRef.current.muted;
-  introVideoRef.current.muted = nextMuted;
-  setIntroMuted(nextMuted);
+  const toggleIntroMute = () => {
+    if (!introVideoRef.current) return;
+    const nextMuted = !introVideoRef.current.muted;
+    introVideoRef.current.muted = nextMuted;
+    setIntroMuted(nextMuted);
 
-  // beim Entstummen: Featured-Video automatisch stummschalten
-  if (!nextMuted && videoRef.current) {
-    videoRef.current.muted = true;
-    setIsMuted(true);
-  }
-};
+    // beim Entstummen: Featured-Video automatisch stummschalten
+    if (!nextMuted && videoRef.current) {
+      videoRef.current.muted = true;
+      setIsMuted(true);
+    }
+  };
 
   return (
-  <main className="bg-ink text-bone">
-    <IntroVideo
-      introVideoRef={introVideoRef}
-      introMuted={introMuted}
-      toggleIntroMute={toggleIntroMute}
-    />
+    <main className="bg-ink text-bone">
+      <IntroVideo
+        introVideoRef={introVideoRef}
+        introMuted={introMuted}
+        toggleIntroMute={toggleIntroMute}
+      />
 
-    <div className="h-16 bg-ink md:h-24" />
+      <div className="h-16 bg-ink md:h-24" />
 
-    <div id="site-content">
-      {/* HEADER */}
-      <header className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-6 md:px-10">
-        <a href="#" className="font-display text-2xl tracking-wide">
-          MAYA ES<span className="text-blood">.</span>
-        </a>
-
-        <nav className="hidden items-center gap-10 text-xs font-medium uppercase tracking-[0.18em] text-mute md:flex">
-          {NAV_LINKS.map((link) => (
-            <a key={link} href="#" className="transition-colors hover:text-bone">
-              {link}
-            </a>
-          ))}
-        </nav>
-
-        <button
-          onClick={() => setMenuOpen((v) => !v)}
-          className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.18em]"
-          aria-expanded={menuOpen}
-          aria-label="Open menu"
-        >
-          Menu
-          <span className="text-lg leading-none">{menuOpen ? "×" : "+"}</span>
-        </button>
-      </header>
-
-      {menuOpen && (
-        <nav className="mx-6 mb-6 flex flex-col gap-4 border-t border-white/10 pt-6 text-sm uppercase tracking-[0.18em] text-mute md:hidden">
-          {NAV_LINKS.map((link) => (
-            <a key={link} href="#" onClick={() => setMenuOpen(false)}>
-              {link}
-            </a>
-          ))}
-        </nav>
-      )}
-
-      {/* HERO */}
-      <section className="relative mx-auto grid max-w-[1400px] grid-cols-1 gap-10 px-6 pb-16 md:grid-cols-2 md:px-10 md:pb-24">
-        <div className="flex flex-col justify-center">
-          <h1 className="font-display text-[15vw] leading-[0.85] tracking-tight md:text-[6.2vw]">
-            FASHION.
-            <br />
-            FILM.
-            <br />
-            MUSIC.
-            <br />
-            <span className="text-blood">3D ART.</span>
-          </h1>
-
-          <p>
-          <br />
-          <span className="text-2xl font-medium uppercase tracking-[0.8em] text-blood">
-            powered by AI
-          </span>
-          </p>
-
- 
-          <p className="mt-8 max-w-sm text-sm leading-relaxed text-mute">
-            I build worlds at the intersection of fashion, film, music, and
-            artificial intelligence.
-            <br />
-            <span className="text-blood">Visionary. Creator. Storyteller.</span>
-          </p>
-
-          <a
-            href="#work"
-            className="mt-8 inline-flex w-fit items-center gap-2 border border-white/25 px-6 py-3 text-xs font-medium uppercase tracking-[0.18em] transition-colors hover:border-blood hover:text-blood"
-          >
-            View My Work
-            <span aria-hidden>↗</span>
+      <div id="site-content">
+        {/* HEADER */}
+        <header className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-6 md:px-10">
+          <a href="#" className="font-display text-2xl tracking-wide">
+            MAYA ES<span className="text-blood">.</span>
           </a>
-        </div>
 
-        <div className="relative flex min-h-[420px] items-center justify-center overflow-hidden border border-white/10 bg-ink-soft md:min-h-0">
-          <Image
-            src="/hero1.jpg"
-            alt="Portrait"
-            fill
-            priority
-            className="object-cover"
-            sizes="(min-width: 768px) 50vw, 100vw"
-          />
-          <span className="absolute right-4 top-4 z-10 text-[10px] uppercase tracking-[0.3em] text-mute [writing-mode:vertical-rl]">
-            MAYA ES / MANNHEIM / DE
-          </span>
-        </div>
-      </section>
+          <nav className="hidden items-center gap-10 text-base font-medium uppercase tracking-[0.18em] text-mute md:flex">
+            {NAV_LINKS.map((link) => (
+              <a key={link} href="#" className="transition-colors hover:text-bone">
+                {link}
+              </a>
+            ))}
+          </nav>
 
-      {/* FEATURED WORK GRID */}
-      <section id="work" className="mx-auto grid max-w-[1400px] grid-cols-1 gap-px bg-white/10 md:grid-cols-2">
-        {/* AI Film & Music */}
-        <div className="group relative flex min-h-[420px] flex-col justify-end overflow-hidden bg-ink p-8">
-          <video
-            ref={videoRef}
-            src="https://media.mayaesai.com/Casino Glam-A.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="metadata"
-            onContextMenu={(e) => e.preventDefault()}
-            className="absolute inset-0 h-full w-full object-cover"
-          />
-          <div className="relative z-10 flex items-center gap-4">
-            <button
-              onClick={togglePlay}
-              aria-label={isPlaying ? "Pause video" : "Play video"}
-              className="flex h-12 w-12 items-center justify-center rounded-full border border-white/40 bg-black/30 text-lg backdrop-blur-sm transition-colors hover:border-blood"
+          <button
+            onClick={() => setMenuOpen((v) => !v)}
+            className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.18em]"
+            aria-expanded={menuOpen}
+            aria-label="Open menu"
+          >
+            Menu
+            <span className="text-lg leading-none">{menuOpen ? "×" : "+"}</span>
+          </button>
+        </header>
+
+        {menuOpen && (
+          <nav className="mx-6 mb-6 flex flex-col gap-4 border-t border-white/10 pt-6 text-sm uppercase tracking-[0.18em] text-mute md:hidden">
+            {NAV_LINKS.map((link) => (
+              <a key={link} href="#" onClick={() => setMenuOpen(false)}>
+                {link}
+              </a>
+            ))}
+          </nav>
+        )}
+
+        {/* HERO */}
+        <section className="relative mx-auto grid max-w-[1400px] grid-cols-1 gap-10 px-6 pb-16 md:grid-cols-2 md:items-start md:px-10 md:pb-24">
+          <div className="flex flex-col justify-center">
+            <h1 className="font-display text-[15vw] leading-[0.85] tracking-tight md:text-[6.2vw]">
+              FASHION.
+              <br />
+              FILM.
+              <br />
+              MUSIC.
+              <br />
+              <span className="text-blood">3D ART.</span>
+            </h1>
+
+            <p>
+              <br />
+              <span className="text-2xl font-medium uppercase tracking-[0.8em] text-blood">
+                powered by AI
+              </span>
+            </p>
+
+
+            <p className="mt-8 max-w-sm text-sm leading-relaxed text-mute">
+              I build worlds at the intersection of fashion, film, music, and
+              artificial intelligence.
+              <br />
+              <span className="text-blood">Visionary. Creator. Storyteller.</span>
+            </p>
+
+            <a
+              href="#work"
+              className="mt-8 inline-flex w-fit items-center gap-2 border border-white/25 px-6 py-3 text-xs font-medium uppercase tracking-[0.18em] transition-colors hover:border-blood hover:text-blood"
             >
-              {isPlaying ? "❚❚" : "▶"}
-            </button>
+              View My Work
+              <span aria-hidden>↗</span>
+            </a>
+          </div>
 
-            <button
-              onClick={toggleMute}
-              aria-label={isMuted ? "Unmute video" : "Mute video"}
-              className="flex h-12 w-12 items-center justify-center rounded-full border border-white/40 bg-black/30 text-sm backdrop-blur-sm transition-colors hover:border-blood"
-            >
-              {isMuted ? "🔇" : "🔊"}
-            </button>
-
-            <span className="text-xs uppercase tracking-[0.2em] text-mute">
-              AI Film &amp; Music
+          <div className="relative flex aspect-[1/2] items-center justify-center overflow-hidden border border-white/10 bg-ink-soft">
+            <Image
+              src="/Maya Avatar Homepage.jpg"
+              alt="Portrait"
+              fill
+              priority
+              className="object-cover"
+              sizes="(min-width: 768px) 50vw, 100vw"
+            />
+            <span className="absolute right-4 top-4 z-10 text-[10px] uppercase tracking-[0.3em] text-mute [writing-mode:vertical-rl]">
+              MAYA ES / MILAN / IT
             </span>
           </div>
-        </div>
+        </section>
 
-        <div className="flex flex-col justify-center bg-ink p-8 md:p-14">
-          <span className="text-xs font-medium uppercase tracking-[0.2em] text-blood">
-            Featured Project
-          </span>
-          <h2 className="font-display mt-4 text-5xl leading-[0.9] md:text-6xl">
-            CASINO
-            <br />
-            GLAM
-          </h2>
-          <p className="mt-6 max-w-xs text-sm leading-relaxed text-mute">
-            An AI-generated short film paired with an original soundtrack.
-          </p>
-          <a
-            href="#"
-            className="mt-6 inline-flex w-fit items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-bone transition-colors hover:text-blood"
-          >
-            View Project <span aria-hidden>↗</span>
-          </a>
-        </div>
+        {/* FEATURED WORK GRID */}
+        <section id="work" className="mx-auto grid max-w-[1400px] grid-cols-1 gap-px bg-white/10 md:grid-cols-2">
+          {/* AI Film & Music */}
+          <div className="group relative flex min-h-[420px] flex-col justify-end overflow-hidden bg-ink p-8">
+            <video
+              ref={videoRef}
+              src="https://media.mayaesai.com/Casino Glam-A.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="metadata"
+              onContextMenu={(e) => e.preventDefault()}
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+            <div className="relative z-10 flex items-center gap-4">
+              <button
+                onClick={togglePlay}
+                aria-label={isPlaying ? "Pause video" : "Play video"}
+                className="flex h-12 w-12 items-center justify-center rounded-full border border-white/40 bg-black/30 text-lg backdrop-blur-sm transition-colors hover:border-blood"
+              >
+                {isPlaying ? "❚❚" : "▶"}
+              </button>
 
-        {/* 3D Fashion */}
-        <div className="flex flex-col justify-center bg-paper p-8 text-ink md:p-14">
-          <h2 className="font-display text-4xl leading-[0.9] md:text-5xl">
-            3D
-            <br />
-            FASHION
-          </h2>
-          <p className="mt-6 max-w-xs text-sm leading-relaxed text-ink/60">
-            Digital couture between sculpture, technology, and futuristic
-            aesthetics.
-          </p>
-          <a
-            href="#"
-            className="mt-6 inline-flex w-fit items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] transition-colors hover:text-blood"
-          >
-            Explore Projects <span aria-hidden>↗</span>
-          </a>
-        </div>
+              <button
+                onClick={toggleMute}
+                aria-label={isMuted ? "Unmute video" : "Mute video"}
+                className="flex h-12 w-12 items-center justify-center rounded-full border border-white/40 bg-black/30 text-sm backdrop-blur-sm transition-colors hover:border-blood"
+              >
+                {isMuted ? "🔇" : "🔊"}
+              </button>
 
-        {/* Art & Story */}
-        <div className="relative flex min-h-[280px] flex-col justify-center overflow-hidden bg-blood p-8 md:p-14">
-          <div className="absolute inset-0 opacity-30">
-            <NoiseTexture />
+              <span className="text-xs uppercase tracking-[0.2em] text-mute">
+                AI Film &amp; Music
+              </span>
+            </div>
           </div>
-          <div className="relative z-10">
-            <h2 className="font-display text-4xl leading-[0.9] text-ink md:text-5xl">
-              ART &amp;
+
+          <div className="flex flex-col justify-center bg-ink p-8 md:p-14">
+            <span className="text-xs font-medium uppercase tracking-[0.2em] text-blood">
+              Featured Project
+            </span>
+            <h2 className="font-display mt-4 text-5xl leading-[0.9] md:text-6xl">
+              CASINO
               <br />
-              STORY
+              GLAM
             </h2>
-            <p className="mt-6 max-w-xs text-sm leading-relaxed text-ink/70">
-              Painting, screenwriting, and visual experiments beyond the
-              boundaries.
+            <p className="mt-6 max-w-xs text-sm leading-relaxed text-mute">
+              An AI-generated short film paired with an original soundtrack.
             </p>
             <a
               href="#"
-              className="mt-6 inline-flex w-fit items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-ink transition-colors hover:text-ink/60"
+              className="mt-6 inline-flex w-fit items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-bone transition-colors hover:text-blood"
             >
-              Learn More <span aria-hidden>↗</span>
+              View Project <span aria-hidden>↗</span>
             </a>
           </div>
-        </div>
-      </section>
 
-      {/* MANIFESTO */}
-      <section className="mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-10 px-6 py-20 md:grid-cols-[1fr_1.2fr_auto] md:px-10">
-        <div className="text-xs uppercase tracking-[0.2em] text-mute">
-          <p>Artist</p>
-          <p>Designer</p>
-          <p>Filmmaker</p>
-          <p>Producer</p>
-        </div>
-
-        <div>
-          <h2 className="font-display text-4xl leading-[0.95] md:text-6xl">
-            I CREATE
-            <br />
-            <span className="text-blood">THE FUTURE.</span>
-          </h2>
-          <p className="mt-6 max-w-md text-sm leading-relaxed text-mute">
-            My work merges artificial intelligence with human emotion to
-            shape new realities. Every project is a journey into the
-            unknown.
-          </p>
-          <a
-            href="#"
-            className="mt-6 inline-flex w-fit items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] transition-colors hover:text-blood"
-          >
-            My Journey <span aria-hidden>↗</span>
-          </a>
-        </div>
-
-        <RotatingBadge />
-      </section>
-
-      {/* CONTACT / FOOTER */}
-      <section className="mx-auto grid max-w-[1400px] grid-cols-1 gap-px bg-white/10 md:grid-cols-[1.1fr_1fr_1fr]">
-        <div className="flex flex-col justify-center bg-blood p-8 text-ink md:p-14">
-          <span className="text-xs font-medium uppercase tracking-[0.2em]">
-            Collaboration
-          </span>
-          <h2 className="font-display mt-4 text-4xl leading-[0.95] md:text-5xl">
-            LET&apos;S CREATE
-            <br />
-            SOMETHING GREAT.
-          </h2>
-          <a
-            href="mailto:mayaes2018@gmail.com"
-            className="mt-6 inline-flex w-fit items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] transition-colors hover:text-ink/60"
-          >
-            Get In Touch <span aria-hidden>↗</span>
-          </a>
-        </div>
-
-        <div className="flex flex-col justify-center bg-ink p-8 md:p-14">
-          <span className="text-xs uppercase tracking-[0.2em] text-mute">
-            Clients &amp; Partners
-          </span>
-          <ul className="mt-6 grid grid-cols-2 gap-x-4 gap-y-5 text-lg font-semibold tracking-tight text-bone/80">
-            {CLIENTS.map((c) => (
-              <li key={c}>{c}</li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="flex flex-col justify-center gap-6 bg-paper p-8 text-ink md:p-14">
-          <div>
-            <span className="text-xs uppercase tracking-[0.2em] text-ink/50">
-              Contact
-            </span>
-            <p className="mt-3 text-sm leading-relaxed">
-              mayaes2018@gmail.com
+          {/* 3D Fashion */}
+          <div className="flex flex-col justify-center bg-paper p-8 text-ink md:p-14">
+            <h2 className="font-display text-4xl leading-[0.9] md:text-5xl">
+              3D
               <br />
-              +49 151 53590868
-              <br />
-              Mannheim, Germany
+              FASHION
+            </h2>
+            <p className="mt-6 max-w-xs text-sm leading-relaxed text-ink/60">
+              Digital couture between sculpture, technology, and futuristic
+              aesthetics.
             </p>
-          </div>
-          <div className="flex flex-col gap-2 text-xs font-medium uppercase tracking-[0.18em]">
             <a
-              href="https://www.instagram.com/m.a.y.a_es/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-between border-t border-ink/10 py-2 hover:text-blood"
+              href="#"
+              className="mt-6 inline-flex w-fit items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] transition-colors hover:text-blood"
             >
-              Instagram <span aria-hidden>↗</span>
-            </a>
-
-            <a
-              href="https://open.spotify.com/artist/4Ps4f6CwOBFmSrqiQQKO7q"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-between border-t border-ink/10 py-2 hover:text-blood"
-            >
-              Spotify <span aria-hidden>↗</span>
-            </a>
-
-            <a
-              href="https://music.youtube.com/channel/UCe0ROKE7s9fwY3u_orDxUDw"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-between border-t border-ink/10 py-2 hover:text-blood"
-            >
-              YouTube Music <span aria-hidden>↗</span>
-            </a>
-
-            <a
-              href="https://www.linkedin.com/in/maya-es-525728150/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-between border-t border-b border-ink/10 py-2 hover:text-blood"
-            >
-              LinkedIn <span aria-hidden>↗</span>
+              Explore Projects <span aria-hidden>↗</span>
             </a>
           </div>
-        </div>
-      </section>
 
-      
-      <footer className="mx-auto flex max-w-[1400px] flex-col-reverse items-center justify-between gap-4 px-6 py-6 text-[11px] uppercase tracking-[0.18em] text-mute md:flex-row md:px-10">
-        <span>© 2026 MAYA ES. All rights reserved.</span>
-        <div className="flex gap-6">
-          <a href="#" className="hover:text-bone">
-            Imprint
-          </a>
-          <a href="#" className="hover:text-bone">
-            Privacy Policy
-          </a>
-        </div>
-      </footer>
+          {/* Art & Story */}
+          <div className="relative flex min-h-[280px] flex-col justify-center overflow-hidden bg-blood p-8 md:p-14">
+            <div className="absolute inset-0 opacity-30">
+              <NoiseTexture />
+            </div>
+            <div className="relative z-10">
+              <h2 className="font-display text-4xl leading-[0.9] text-ink md:text-5xl">
+                ART &amp;
+                <br />
+                STORY
+              </h2>
+              <p className="mt-6 max-w-xs text-sm leading-relaxed text-ink/70">
+                Painting, screenwriting, and visual experiments beyond the
+                boundaries.
+              </p>
+              <a
+                href="#"
+                className="mt-6 inline-flex w-fit items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-ink transition-colors hover:text-ink/60"
+              >
+                Learn More <span aria-hidden>↗</span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* MANIFESTO */}
+        <section className="mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-10 px-6 py-20 md:grid-cols-[1fr_1.2fr_auto] md:px-10">
+          <div className="text-xs uppercase tracking-[0.2em] text-mute">
+            <p>Artist</p>
+            <p>Designer</p>
+            <p>Filmmaker</p>
+            <p>Producer</p>
+          </div>
+
+          <div>
+            <h2 className="font-display text-4xl leading-[0.95] md:text-6xl">
+              I CREATE
+              <br />
+              <span className="text-blood">THE FUTURE.</span>
+            </h2>
+            <p className="mt-6 max-w-md text-sm leading-relaxed text-mute">
+              My work merges artificial intelligence with human emotion to
+              shape new realities. Every project is a journey into the
+              unknown.
+            </p>
+            <a
+              href="#"
+              className="mt-6 inline-flex w-fit items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] transition-colors hover:text-blood"
+            >
+              My Journey <span aria-hidden>↗</span>
+            </a>
+          </div>
+
+          <RotatingBadge />
+        </section>
+
+        {/* CONTACT / FOOTER */}
+        <section className="mx-auto grid max-w-[1400px] grid-cols-1 gap-px bg-white/10 md:grid-cols-[1.1fr_1fr_1fr]">
+          <div className="flex flex-col justify-center bg-blood p-8 text-ink md:p-14">
+            <span className="text-xs font-medium uppercase tracking-[0.2em]">
+              Collaboration
+            </span>
+            <h2 className="font-display mt-4 text-4xl leading-[0.95] md:text-5xl">
+              LET&apos;S CREATE
+              <br />
+              SOMETHING GREAT.
+            </h2>
+            <a
+              href="mailto:mayaes2018@gmail.com"
+              className="mt-6 inline-flex w-fit items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] transition-colors hover:text-ink/60"
+            >
+              Get In Touch <span aria-hidden>↗</span>
+            </a>
+          </div>
+
+          <div className="flex flex-col justify-center bg-ink p-8 md:p-14">
+            <span className="text-xs uppercase tracking-[0.2em] text-mute">
+              Clients &amp; Partners
+            </span>
+            <ul className="mt-6 grid grid-cols-2 gap-x-4 gap-y-5 text-lg font-semibold tracking-tight text-bone/80">
+              {CLIENTS.map((c) => (
+                <li key={c}>{c}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="flex flex-col justify-center gap-6 bg-paper p-8 text-ink md:p-14">
+            <div>
+              <span className="text-xs uppercase tracking-[0.2em] text-ink/50">
+                Contact
+              </span>
+              <p className="mt-3 text-sm leading-relaxed">
+                mayaes2018@gmail.com
+                {/* <br />
+                +49 151 53590868
+                <br />
+                Mannheim, Germany */}
+              </p>
+            </div>
+            <div className="flex flex-col gap-2 text-xs font-medium uppercase tracking-[0.18em]">
+              <a
+                href="https://www.instagram.com/m.a.y.a_es/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between border-t border-ink/10 py-2 hover:text-blood"
+              >
+                Instagram <span aria-hidden>↗</span>
+              </a>
+
+              <a
+                href="https://open.spotify.com/artist/4Ps4f6CwOBFmSrqiQQKO7q"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between border-t border-ink/10 py-2 hover:text-blood"
+              >
+                Spotify <span aria-hidden>↗</span>
+              </a>
+
+              <a
+                href="https://music.youtube.com/channel/UCe0ROKE7s9fwY3u_orDxUDw"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between border-t border-ink/10 py-2 hover:text-blood"
+              >
+                YouTube Music <span aria-hidden>↗</span>
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/maya-es-525728150/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between border-t border-b border-ink/10 py-2 hover:text-blood"
+              >
+                LinkedIn <span aria-hidden>↗</span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+
+        <footer className="mx-auto flex max-w-[1400px] flex-col-reverse items-center justify-between gap-4 px-6 py-6 text-[11px] uppercase tracking-[0.18em] text-mute md:flex-row md:px-10">
+          <span>© 2026 MAYA ES. All rights reserved.</span>
+          <div className="flex gap-6">
+            <a href="#" className="hover:text-bone">
+              Imprint
+            </a>
+            <a href="#" className="hover:text-bone">
+              Privacy Policy
+            </a>
+          </div>
+        </footer>
       </div>
     </main>
   );
@@ -464,7 +464,7 @@ function RotatingBadge() {
   );
 }
 
- 
+
 
 function IntroVideo({
   introVideoRef,
