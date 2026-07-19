@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 
 const NAV_LINKS = ["Work", "About", "Collaboration", "Journal"];
@@ -12,6 +12,8 @@ export default function Home() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [introMuted, setIntroMuted] = useState(true);
+  const introVideoRef = useRef<HTMLVideoElement>(null);
 
   const togglePlay = () => {
   if (!videoRef.current) return;
@@ -25,12 +27,41 @@ export default function Home() {
 
 const toggleMute = () => {
   if (!videoRef.current) return;
-  videoRef.current.muted = !videoRef.current.muted;
-  setIsMuted(videoRef.current.muted);
+  const nextMuted = !videoRef.current.muted;
+  videoRef.current.muted = nextMuted;
+  setIsMuted(nextMuted);
+
+  // beim Entstummen: Intro-Video automatisch stummschalten
+  if (!nextMuted && introVideoRef.current) {
+    introVideoRef.current.muted = true;
+    setIntroMuted(true);
+  }
+};
+
+const toggleIntroMute = () => {
+  if (!introVideoRef.current) return;
+  const nextMuted = !introVideoRef.current.muted;
+  introVideoRef.current.muted = nextMuted;
+  setIntroMuted(nextMuted);
+
+  // beim Entstummen: Featured-Video automatisch stummschalten
+  if (!nextMuted && videoRef.current) {
+    videoRef.current.muted = true;
+    setIsMuted(true);
+  }
 };
 
   return (
-    <main className="bg-ink text-bone">
+  <main className="bg-ink text-bone">
+    <IntroVideo
+      introVideoRef={introVideoRef}
+      introMuted={introMuted}
+      toggleIntroMute={toggleIntroMute}
+    />
+
+    <div className="h-16 bg-ink md:h-24" />
+
+    <div id="site-content">
       {/* HEADER */}
       <header className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-6 md:px-10">
         <a href="#" className="font-display text-2xl tracking-wide">
@@ -346,6 +377,7 @@ const toggleMute = () => {
           </a>
         </div>
       </footer>
+      </div>
     </main>
   );
 }
@@ -429,5 +461,87 @@ function RotatingBadge() {
       </svg>
       <span className="font-display absolute text-3xl text-blood">ES</span>
     </div>
+  );
+}
+
+ 
+
+function IntroVideo({
+  introVideoRef,
+  introMuted,
+  toggleIntroMute,
+}: {
+  introVideoRef: React.RefObject<HTMLVideoElement>;
+  introMuted: boolean;
+  toggleIntroMute: () => void;
+}) {
+  const scrollToContent = () => {
+    document.getElementById("site-content")?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    const videoEl = introVideoRef.current;
+    if (!videoEl) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          videoEl.play().catch(() => {
+            // Browser kann Autoplay blockieren, z.B. wenn der Tab
+            // zwischenzeitlich inaktiv war – kein Problem, einfach ignorieren.
+          });
+        } else {
+          videoEl.pause();
+        }
+      },
+      { threshold: 0.25 }
+    );
+
+    observer.observe(videoEl);
+
+    return () => observer.disconnect();
+  }, [introVideoRef]);
+
+  return (
+    <section className="group relative h-screen w-full overflow-hidden bg-ink">
+      <video
+        ref={introVideoRef}
+        src="https://media.mayaesai.com/reel-website-2.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        onClick={scrollToContent}
+        className="absolute inset-0 h-full w-full cursor-pointer object-cover"
+      />
+
+      <div className="absolute inset-0 bg-black/20" />
+
+      <div className="absolute inset-0 flex items-center justify-center">
+        <h1 className="font-display text-[16vw] tracking-wide text-bone md:text-[6vw]">
+          MAYA ES<span className="text-blood">.</span>
+        </h1>
+      </div>
+
+      {/* Lautstärke-Button oben rechts */}
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          toggleIntroMute();
+        }}
+        aria-label={introMuted ? "Unmute video" : "Mute video"}
+        className="absolute right-6 top-6 z-10 flex h-12 w-12 items-center justify-center rounded-full border border-white/40 bg-black/30 text-sm text-bone backdrop-blur-sm transition-colors hover:border-blood md:right-10 md:top-8"
+      >
+        {introMuted ? "🔇" : "🔊"}
+      </button>
+
+      <div
+        onClick={scrollToContent}
+        className="absolute bottom-8 left-1/2 flex -translate-x-1/2 cursor-pointer flex-col items-center gap-2 text-bone"
+      >
+        <span className="text-[10px] uppercase tracking-[0.3em] opacity-80">Scroll</span>
+        <span className="animate-bounce text-lg">↓</span>
+      </div>
+    </section>
   );
 }
