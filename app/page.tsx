@@ -471,7 +471,7 @@ function IntroVideo({
   introMuted,
   toggleIntroMute,
 }: {
-  introVideoRef: React.RefObject<HTMLVideoElement>;
+  introVideoRef: React.RefObject<HTMLVideoElement | null>;
   introMuted: boolean;
   toggleIntroMute: () => void;
 }) {
