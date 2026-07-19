@@ -1,0 +1,31 @@
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1000 1000" height="1000px" width="1000px">
+    <title>logo</title>
+    <defs>
+        <linearGradient id="linearGradient-1" y2="85.355%" x2="14.645%" y1="14.645%" x1="85.355%">
+            <stop offset="0%" stop-color="#FF2D55"></stop>
+            <stop offset="100%" stop-color="#FFBC5B"></stop>
+        </linearGradient>
+        <linearGradient id="linearGradient-2" y2="100%" x2="49.966%" y1="0%" x1="49.966%">
+            <stop offset="0%" stop-color="#A524B3"></stop>
+            <stop offset="100%" stop-color="#FF2D55"></stop>
+        </linearGradient>
+        <linearGradient id="linearGradient-3" y2="100%" x2="49.966%" y1="0%" x1="49.966%">
+            <stop offset="0%" stop-color="#A524B3"></stop>
+            <stop offset="100%" stop-color="#FF2D55"></stop>
+        </linearGradient>
+    </defs>
+    <g fill-rule="evenodd" fill="none" stroke-width="1" stroke="none" id="Page-1">
+        <g fill-rule="nonzero" id="logo">
+            <circle r="500" cy="500" cx="500" fill="url(#linearGradient-1)" id="Oval"></circle>
+            <polygon points="354.25 325 354.25 700 666.75 700" fill="url(#linearGradient-2)" id="Path"></polygon>
+            <polygon points="41.75 700 354.25 700 354.25 325" fill="#FFFFFF" id="Path"></polygon>
+            <path fill="#FC9965" id="Path" d="M100,800 C128.5,837.75 162.25,871.5 200,900 L800,900 C837.75,871.5 871.5,837.75 900,800 L100,800 Z"></path>
+            <path fill="#FF2D55" id="Path" d="M200,900 C283.5,962.75 387.5,1000 500,1000 C612.5,1000 716.5,962.75 800,900 L200,900 Z"></path>
+            <polygon points="670.75 525 670.75 800 900 800" fill="url(#linearGradient-3)" id="Path"></polygon>
+            <path fill="#FFBC5B" id="Path" d="M670.75,700 L41.75,700 C57.25,735.75 77,769.25 100,800 L671,800 L671,700 L670.75,700 L670.75,700 Z"></path>
+            <polygon points="441.75 800 670.75 800 670.75 525" fill="#FFFFFF" id="Path"></polygon>
+            <circle r="125" cy="325" cx="670.75" fill="#FFC95B" id="Oval"></circle>
+            <circle r="62.5" cy="187.5" cx="354.25" fill="#FFC95B" id="Oval"></circle>
+        </g>
+    </g>
+</svg>

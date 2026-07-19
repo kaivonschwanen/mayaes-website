@@ -5,7 +5,19 @@ import Image from "next/image";
 
 const NAV_LINKS = ["Work", "About", "Collaboration", "Journal"];
 
-const CLIENTS = ["MERIDIAN", "GLASHAUS", "FERNWEH", "UNIT9", "OBLIQUE", "STUDIO KLANG"];
+// const CLIENTS = ["MERIDIAN", "GLASHAUS", "FERNWEH", "UNIT9", "OBLIQUE", "STUDIO KLANG"];
+
+const CLIENTS = [
+  { name: "MERIDIAN", src: "/logos/logo decentraland.svg" },
+  { name: "GLASHAUS", src: "/logos/logo fashion-film-festival-milano.png" },
+  { name: "FERNWEH", src: "/logos/logo pop-akademie mannheim.jpg" },
+  { name: "UNIT9", src: "/logos/logo-dfwny.jpg" },
+  { name: "OBLIQUE", src: "/logos/Logo-Faust-magazine-hopenheart.png" },
+  { name: "STUDIO KLANG", src: "/logos/logo-jitrois.png" },
+  // Hier können Sie das 7. Logo hinzufügen:
+  { name: "LOGO 7", src: "/logos/VNTANA_Logo.jpg" },
+];
+
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -140,9 +152,11 @@ export default function Home() {
               alt="Portrait"
               fill
               priority
-              className="object-cover"
+              className="object-cover border-4 border-white/50 z-10"
               sizes="(min-width: 768px) 50vw, 100vw"
             />
+            {/* Diese "Glasscheibe" blockiert den Zugriff auf das Bild darunter */}
+            <div className="absolute inset-0 z-10 bgs-transparent" />
             <span className="absolute right-4 top-4 z-10 text-[10px] uppercase tracking-[0.3em] text-mute [writing-mode:vertical-rl]">
               MAYA ES / MILAN / IT
             </span>
@@ -305,9 +319,17 @@ export default function Home() {
             <span className="text-xs uppercase tracking-[0.2em] text-mute">
               Clients &amp; Partners
             </span>
-            <ul className="mt-6 grid grid-cols-2 gap-x-4 gap-y-5 text-lg font-semibold tracking-tight text-bone/80">
-              {CLIENTS.map((c) => (
-                <li key={c}>{c}</li>
+            <ul className="mt-6 grid grid-cols-2 items-center gap-x-6 gap-y-8 md:grid-cols-3">
+              {CLIENTS.map((client) => (
+                <li key={client.name} className="relative h-12 w-full max-w-[140px]">
+                  <Image
+                    src={client.src}
+                    alt={`${client.name} Logo`}
+                    fill
+                    sizes="(max-width: 768px) 50vw, 33vw"
+                    className="object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
+                  />
+                </li>
               ))}
             </ul>
           </div>
