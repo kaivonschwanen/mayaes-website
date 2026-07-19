@@ -16,6 +16,8 @@ const CLIENTS = [
   { name: "STUDIO KLANG", src: "/logos/logo-jitrois.png" },
   // Hier können Sie das 7. Logo hinzufügen:
   { name: "LOGO 7", src: "/logos/VNTANA_Logo.jpg" },
+  { name: "LOGO 8", src: "/logos/YouTubeMusic_Logo.png" },
+  { name: "LOGO 9", src: "/logos/spotify logo.png" },
 ];
 
 
