@@ -2,10 +2,8 @@
 
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-
-const NAV_LINKS = ["Work", "About", "Collaboration", "Journal"];
-
-// const CLIENTS = ["MERIDIAN", "GLASHAUS", "FERNWEH", "UNIT9", "OBLIQUE", "STUDIO KLANG"];
+import { useTranslations } from "next-intl";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 const CLIENTS = [
   { name: "MERIDIAN", src: "/logos/logo decentraland.svg" },
@@ -14,20 +12,26 @@ const CLIENTS = [
   { name: "UNIT9", src: "/logos/logo-dfwny.jpg" },
   { name: "OBLIQUE", src: "/logos/Logo-Faust-magazine-hopenheart.png" },
   { name: "STUDIO KLANG", src: "/logos/logo-jitrois.png" },
-  // Hier können Sie das 7. Logo hinzufügen:
   { name: "LOGO 7", src: "/logos/VNTANA_Logo.jpg" },
   { name: "LOGO 8", src: "/logos/YouTubeMusic_Logo.png" },
   { name: "LOGO 9", src: "/logos/spotify logo.png" },
 ];
 
-
 export default function Home() {
+  const t = useTranslations();
   const [menuOpen, setMenuOpen] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [introMuted, setIntroMuted] = useState(true);
   const introVideoRef = useRef<HTMLVideoElement>(null);
+
+  const NAV_LINKS = [
+    t("Nav.work"),
+    t("Nav.about"),
+    t("Nav.collaboration"),
+    t("Nav.journal"),
+  ];
 
   const togglePlay = () => {
     if (!videoRef.current) return;
@@ -45,7 +49,6 @@ export default function Home() {
     videoRef.current.muted = nextMuted;
     setIsMuted(nextMuted);
 
-    // beim Entstummen: Intro-Video automatisch stummschalten
     if (!nextMuted && introVideoRef.current) {
       introVideoRef.current.muted = true;
       setIntroMuted(true);
@@ -58,7 +61,6 @@ export default function Home() {
     introVideoRef.current.muted = nextMuted;
     setIntroMuted(nextMuted);
 
-    // beim Entstummen: Featured-Video automatisch stummschalten
     if (!nextMuted && videoRef.current) {
       videoRef.current.muted = true;
       setIsMuted(true);
@@ -90,15 +92,18 @@ export default function Home() {
             ))}
           </nav>
 
-          <button
-            onClick={() => setMenuOpen((v) => !v)}
-            className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.18em]"
-            aria-expanded={menuOpen}
-            aria-label="Open menu"
-          >
-            Menu
-            <span className="text-lg leading-none">{menuOpen ? "×" : "+"}</span>
-          </button>
+          <div className="flex items-center gap-6">
+            <LanguageSwitcher />
+            <button
+              onClick={() => setMenuOpen((v) => !v)}
+              className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.18em]"
+              aria-expanded={menuOpen}
+              aria-label="Open menu"
+            >
+              {t("Nav.menu")}
+              <span className="text-lg leading-none">{menuOpen ? "×" : "+"}</span>
+            </button>
+          </div>
         </header>
 
         {menuOpen && (
@@ -115,35 +120,33 @@ export default function Home() {
         <section className="relative mx-auto grid max-w-[1400px] grid-cols-1 gap-10 px-6 pb-16 md:grid-cols-2 md:items-start md:px-10 md:pb-24">
           <div className="flex flex-col justify-center">
             <h1 className="font-display text-[15vw] leading-[0.85] tracking-tight md:text-[6.2vw]">
-              FASHION.
+              {t("Hero.line1")}
               <br />
-              FILM.
+              {t("Hero.line2")}
               <br />
-              MUSIC.
+              {t("Hero.line3")}
               <br />
-              <span className="text-blood">3D ART.</span>
+              <span className="text-blood">{t("Hero.line4")}</span>
             </h1>
 
             <p>
               <br />
               <span className="text-2xl font-medium uppercase tracking-[0.8em] text-blood">
-                powered by AI
+                {t("Hero.poweredBy")}
               </span>
             </p>
 
-
             <p className="mt-8 max-w-sm text-sm leading-relaxed text-mute">
-              I build worlds at the intersection of fashion, film, music, and
-              artificial intelligence.
+              {t("Hero.description")}
               <br />
-              <span className="text-blood">Visionary. Creator. Storyteller.</span>
+              <span className="text-blood">{t("Hero.tagline")}</span>
             </p>
 
-            <a
-              href="#work"
+
+            <a href="#work"
               className="mt-8 inline-flex w-fit items-center gap-2 border border-white/25 px-6 py-3 text-xs font-medium uppercase tracking-[0.18em] transition-colors hover:border-blood hover:text-blood"
             >
-              View My Work
+              {t("Hero.cta")}
               <span aria-hidden>↗</span>
             </a>
           </div>
@@ -157,10 +160,9 @@ export default function Home() {
               className="object-cover border-4 border-white/50 z-10"
               sizes="(min-width: 768px) 50vw, 100vw"
             />
-            {/* Diese "Glasscheibe" blockiert den Zugriff auf das Bild darunter */}
             <div className="absolute inset-0 z-10 bgs-transparent" />
             <span className="absolute right-4 top-4 z-10 text-[10px] uppercase tracking-[0.3em] text-mute [writing-mode:vertical-rl]">
-              MAYA ES / MILAN / IT
+              {t("Hero.location")}
             </span>
           </div>
         </section>
@@ -198,47 +200,46 @@ export default function Home() {
               </button>
 
               <span className="text-xs uppercase tracking-[0.2em] text-mute">
-                AI Film &amp; Music
+                {t("Featured.aiFilmMusic")}
               </span>
             </div>
           </div>
 
           <div className="flex flex-col justify-center bg-ink p-8 md:p-14">
             <span className="text-xs font-medium uppercase tracking-[0.2em] text-blood">
-              Featured Project
+              {t("Featured.label")}
             </span>
             <h2 className="font-display mt-4 text-5xl leading-[0.9] md:text-6xl">
-              CASINO
+              {t("Featured.titleLine1")}
               <br />
-              GLAM
+              {t("Featured.titleLine2")}
             </h2>
             <p className="mt-6 max-w-xs text-sm leading-relaxed text-mute">
-              An AI-generated short film paired with an original soundtrack.
+              {t("Featured.description")}
             </p>
-            <a
-              href="#"
+
+            <a href="#"
               className="mt-6 inline-flex w-fit items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-bone transition-colors hover:text-blood"
             >
-              View Project <span aria-hidden>↗</span>
+              {t("Featured.cta")} <span aria-hidden>↗</span>
             </a>
           </div>
 
           {/* 3D Fashion */}
           <div className="flex flex-col justify-center bg-paper p-8 text-ink md:p-14">
             <h2 className="font-display text-4xl leading-[0.9] md:text-5xl">
-              3D
+              {t("Fashion3D.titleLine1")}
               <br />
-              FASHION
+              {t("Fashion3D.titleLine2")}
             </h2>
             <p className="mt-6 max-w-xs text-sm leading-relaxed text-ink/60">
-              Digital couture between sculpture, technology, and futuristic
-              aesthetics.
+              {t("Fashion3D.description")}
             </p>
-            <a
-              href="#"
+
+            <a href="#"
               className="mt-6 inline-flex w-fit items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] transition-colors hover:text-blood"
             >
-              Explore Projects <span aria-hidden>↗</span>
+              {t("Fashion3D.cta")} <span aria-hidden>↗</span>
             </a>
           </div>
 
@@ -249,19 +250,18 @@ export default function Home() {
             </div>
             <div className="relative z-10">
               <h2 className="font-display text-4xl leading-[0.9] text-ink md:text-5xl">
-                ART &amp;
+                {t("ArtStory.titleLine1")}
                 <br />
-                STORY
+                {t("ArtStory.titleLine2")}
               </h2>
               <p className="mt-6 max-w-xs text-sm leading-relaxed text-ink/70">
-                Painting, screenwriting, and visual experiments beyond the
-                boundaries.
+                {t("ArtStory.description")}
               </p>
-              <a
-                href="#"
+
+              <a href="#"
                 className="mt-6 inline-flex w-fit items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-ink transition-colors hover:text-ink/60"
               >
-                Learn More <span aria-hidden>↗</span>
+                {t("ArtStory.cta")} <span aria-hidden>↗</span>
               </a>
             </div>
           </div>
@@ -270,28 +270,25 @@ export default function Home() {
         {/* MANIFESTO */}
         <section className="mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-10 px-6 py-20 md:grid-cols-[1fr_1.2fr_auto] md:px-10">
           <div className="text-xs uppercase tracking-[0.2em] text-mute">
-            <p>Artist</p>
-            <p>Designer</p>
-            <p>Filmmaker</p>
-            <p>Producer</p>
+            {(t.raw("Manifesto.roles") as string[]).map((role) => (
+              <p key={role}>{role}</p>
+            ))}
           </div>
 
           <div>
             <h2 className="font-display text-4xl leading-[0.95] md:text-6xl">
-              I CREATE
+              {t("Manifesto.titleLine1")}
               <br />
-              <span className="text-blood">THE FUTURE.</span>
+              <span className="text-blood">{t("Manifesto.titleLine2")}</span>
             </h2>
             <p className="mt-6 max-w-md text-sm leading-relaxed text-mute">
-              My work merges artificial intelligence with human emotion to
-              shape new realities. Every project is a journey into the
-              unknown.
+              {t("Manifesto.description")}
             </p>
-            <a
-              href="#"
+
+            <a href="#"
               className="mt-6 inline-flex w-fit items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] transition-colors hover:text-blood"
             >
-              My Journey <span aria-hidden>↗</span>
+              {t("Manifesto.cta")} <span aria-hidden>↗</span>
             </a>
           </div>
 
@@ -302,24 +299,24 @@ export default function Home() {
         <section className="mx-auto grid max-w-[1400px] grid-cols-1 gap-px bg-white/10 md:grid-cols-[1.1fr_1fr_1fr]">
           <div className="flex flex-col justify-center bg-blood p-8 text-ink md:p-14">
             <span className="text-xs font-medium uppercase tracking-[0.2em]">
-              Collaboration
+              {t("Contact.collaboration")}
             </span>
             <h2 className="font-display mt-4 text-4xl leading-[0.95] md:text-5xl">
-              LET&apos;S CREATE
+              {t("Contact.titleLine1")}
               <br />
-              SOMETHING GREAT.
+              {t("Contact.titleLine2")}
             </h2>
-            <a
-              href="mailto:mayaes2018@gmail.com"
+
+            <a href="mailto:mayaes2018@gmail.com"
               className="mt-6 inline-flex w-fit items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] transition-colors hover:text-ink/60"
             >
-              Get In Touch <span aria-hidden>↗</span>
+              {t("Contact.cta")} <span aria-hidden>↗</span>
             </a>
           </div>
 
           <div className="flex flex-col justify-center bg-ink p-8 md:p-14">
             <span className="text-xs uppercase tracking-[0.2em] text-mute">
-              Clients &amp; Partners
+              {t("Contact.clientsLabel")}
             </span>
             <ul className="mt-6 grid grid-cols-2 items-center gap-x-6 gap-y-8 md:grid-cols-3">
               {CLIENTS.map((client) => (
@@ -339,19 +336,15 @@ export default function Home() {
           <div className="flex flex-col justify-center gap-6 bg-paper p-8 text-ink md:p-14">
             <div>
               <span className="text-xs uppercase tracking-[0.2em] text-ink/50">
-                Contact
+                {t("Contact.contactLabel")}
               </span>
               <p className="mt-3 text-sm leading-relaxed">
                 mayaes2018@gmail.com
-                {/* <br />
-                +49 151 53590868
-                <br />
-                Mannheim, Germany */}
               </p>
             </div>
             <div className="flex flex-col gap-2 text-xs font-medium uppercase tracking-[0.18em]">
-              <a
-                href="https://www.instagram.com/m.a.y.a_es/"
+
+              <a href="https://www.instagram.com/m.a.y.a_es/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-between border-t border-ink/10 py-2 hover:text-blood"
@@ -359,8 +352,8 @@ export default function Home() {
                 Instagram <span aria-hidden>↗</span>
               </a>
 
-              <a
-                href="https://open.spotify.com/artist/4Ps4f6CwOBFmSrqiQQKO7q"
+
+              <a href="https://open.spotify.com/artist/4Ps4f6CwOBFmSrqiQQKO7q"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-between border-t border-ink/10 py-2 hover:text-blood"
@@ -368,8 +361,8 @@ export default function Home() {
                 Spotify <span aria-hidden>↗</span>
               </a>
 
-              <a
-                href="https://music.youtube.com/channel/UCe0ROKE7s9fwY3u_orDxUDw"
+
+              <a href="https://music.youtube.com/channel/UCe0ROKE7s9fwY3u_orDxUDw"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-between border-t border-ink/10 py-2 hover:text-blood"
@@ -377,8 +370,8 @@ export default function Home() {
                 YouTube Music <span aria-hidden>↗</span>
               </a>
 
-              <a
-                href="https://www.linkedin.com/in/maya-es-525728150/"
+
+              <a href="https://www.linkedin.com/in/maya-es-525728150/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-between border-t border-b border-ink/10 py-2 hover:text-blood"
@@ -389,15 +382,14 @@ export default function Home() {
           </div>
         </section>
 
-
         <footer className="mx-auto flex max-w-[1400px] flex-col-reverse items-center justify-between gap-4 px-6 py-6 text-[11px] uppercase tracking-[0.18em] text-mute md:flex-row md:px-10">
-          <span>© 2026 MAYA ES. All rights reserved.</span>
+          <span>{t("Footer.copyright")}</span>
           <div className="flex gap-6">
             <a href="#" className="hover:text-bone">
-              Imprint
+              {t("Footer.imprint")}
             </a>
             <a href="#" className="hover:text-bone">
-              Privacy Policy
+              {t("Footer.privacy")}
             </a>
           </div>
         </footer>
@@ -407,56 +399,6 @@ export default function Home() {
 }
 
 /* ---------- Signature generative graphics (no stock imagery) ---------- */
-
-function ShardFigure() {
-  return (
-    <svg viewBox="0 0 400 500" className="h-full w-full" aria-hidden>
-      <defs>
-        <linearGradient id="shard-grad" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#3a3a3c" />
-          <stop offset="55%" stopColor="#161617" />
-          <stop offset="100%" stopColor="#e11f26" />
-        </linearGradient>
-      </defs>
-      <g fill="url(#shard-grad)" stroke="#0b0b0c" strokeWidth="1">
-        <polygon points="200,40 260,140 180,160" />
-        <polygon points="260,140 320,220 190,240" />
-        <polygon points="180,160 190,240 100,220" />
-        <polygon points="190,240 250,340 130,340" />
-        <polygon points="100,220 190,240 130,340 60,300" />
-        <polygon points="250,340 320,220 190,240" />
-        <polygon points="130,340 250,340 210,440 150,440" />
-        <polygon points="60,300 130,340 150,440 40,400" />
-      </g>
-      <circle cx="205" cy="70" r="26" fill="#d9d5cc" />
-    </svg>
-  );
-}
-
-function LiquidTexture() {
-  return (
-    <svg viewBox="0 0 400 400" className="h-full w-full" preserveAspectRatio="xMidYMid slice" aria-hidden>
-      <defs>
-        <radialGradient id="liquid-grad" cx="50%" cy="30%" r="70%">
-          <stop offset="0%" stopColor="#2a2a2c" />
-          <stop offset="100%" stopColor="#0b0b0c" />
-        </radialGradient>
-      </defs>
-      <rect width="400" height="400" fill="url(#liquid-grad)" />
-      {[...Array(9)].map((_, i) => (
-        <path
-          key={i}
-          d={`M${40 + i * 40} 60 C ${30 + i * 40} 180, ${55 + i * 40} 260, ${45 + i * 40} 380`}
-          stroke="#e11f26"
-          strokeOpacity="0.25"
-          strokeWidth="10"
-          fill="none"
-          strokeLinecap="round"
-        />
-      ))}
-    </svg>
-  );
-}
 
 function NoiseTexture() {
   return (
@@ -488,8 +430,6 @@ function RotatingBadge() {
   );
 }
 
-
-
 function IntroVideo({
   introVideoRef,
   introMuted,
@@ -510,10 +450,7 @@ function IntroVideo({
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          videoEl.play().catch(() => {
-            // Browser kann Autoplay blockieren, z.B. wenn der Tab
-            // zwischenzeitlich inaktiv war – kein Problem, einfach ignorieren.
-          });
+          videoEl.play().catch(() => { });
         } else {
           videoEl.pause();
         }
@@ -547,7 +484,6 @@ function IntroVideo({
         </h1>
       </div>
 
-      {/* Lautstärke-Button oben rechts */}
       <button
         onClick={(e) => {
           e.stopPropagation();

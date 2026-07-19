@@ -1,0 +1,61 @@
+
+{
+  "Nav": {
+    "work": "Work",
+    "about": "About",
+    "collaboration": "Collaboration",
+    "journal": "Journal",
+    "menu": "Menu"
+  },
+  "Hero": {
+    "line1": "FASHION.",
+    "line2": "FILM.",
+    "line3": "MUSIC.",
+    "line4": "3D ART.",
+    "poweredBy": "powered by AI",
+    "description": "I build worlds at the intersection of fashion, film, music, and artificial intelligence.",
+    "tagline": "Visionary. Creator. Storyteller.",
+    "cta": "View My Work",
+    "location": "MAYA ES / MILAN / IT"
+  },
+  "Featured": {
+    "label": "Featured Project",
+    "titleLine1": "CASINO",
+    "titleLine2": "GLAM",
+    "description": "An AI-generated short film paired with an original soundtrack.",
+    "cta": "View Project",
+    "aiFilmMusic": "AI Film & Music"
+  },
+  "Fashion3D": {
+    "titleLine1": "3D",
+    "titleLine2": "FASHION",
+    "description": "Digital couture between sculpture, technology, and futuristic aesthetics.",
+    "cta": "Explore Projects"
+  },
+  "ArtStory": {
+    "titleLine1": "ART &",
+    "titleLine2": "STORY",
+    "description": "Painting, screenwriting, and visual experiments beyond the boundaries.",
+    "cta": "Learn More"
+  },
+  "Manifesto": {
+    "roles": ["Artist", "Designer", "Filmmaker", "Producer"],
+    "titleLine1": "I CREATE",
+    "titleLine2": "THE FUTURE.",
+    "description": "My work merges artificial intelligence with human emotion to shape new realities. Every project is a journey into the unknown.",
+    "cta": "My Journey"
+  },
+  "Contact": {
+    "collaboration": "Collaboration",
+    "titleLine1": "LET'S CREATE",
+    "titleLine2": "SOMETHING GREAT.",
+    "cta": "Get In Touch",
+    "clientsLabel": "Clients & Partners",
+    "contactLabel": "Contact"
+  },
+  "Footer": {
+    "copyright": "© 2026 MAYA ES. All rights reserved.",
+    "imprint": "Imprint",
+    "privacy": "Privacy Policy"
+  }
+}

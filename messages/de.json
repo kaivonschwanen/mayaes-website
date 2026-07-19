@@ -1,0 +1,61 @@
+
+{
+  "Nav": {
+    "work": "Arbeiten",
+    "about": "Über mich",
+    "collaboration": "Kollaborationen",
+    "journal": "Journal",
+    "menu": "Menü"
+  },
+  "Hero": {
+    "line1": "MODE.",
+    "line2": "FILM.",
+    "line3": "MUSIK.",
+    "line4": "3D KUNST.",
+    "poweredBy": "unterstützt durch KI",
+    "description": "Ich erschaffe Welten an der Schnittstelle von Mode, Film, Musik und künstlicher Intelligenz.",
+    "tagline": "Visionär. Kreativ. Storyteller.",
+    "cta": "Meine Arbeiten ansehen",
+    "location": "MAYA ES / MAILAND / IT"
+  },
+  "Featured": {
+    "label": "Beworbenes Projekt",
+    "titleLine1": "CASINO",
+    "titleLine2": "GLAM",
+    "description": "Ein KI-generierter Kurzfilm mit eigenem Soundtrack.",
+    "cta": "Projekt ansehen",
+    "aiFilmMusic": "AI Film & Music"
+  },
+  "Fashion3D": {
+    "titleLine1": "3D",
+    "titleLine2": "MODE",
+    "description": "Digitale Couture zwischen Skulptur, Technologie und futuristischer Ästhetik.",
+    "cta": "Projekte entdecken"
+  },
+  "ArtStory": {
+    "titleLine1": "KUNST &",
+    "titleLine2": "GESCHICHTEN",
+    "description": "Malerei, Drehbücher und visuelle Experimente jenseits der Grenzen.",
+    "cta": "Mehr erfahren"
+  },
+  "Manifesto": {
+    "roles": ["Künstlerin", "Designerin", "Filmemacherin", "Produzentin"],
+    "titleLine1": "ICH ERSCHAFFE",
+    "titleLine2": "DIE ZUKUNFT.",
+    "description": "Meine Arbeit verbindet künstliche Intelligenz mit menschlicher Emotion, um neue Realitäten zu formen. Jedes Projekt ist eine Reise ins Unbekannte.",
+    "cta": "Meine Reise"
+  },
+  "Contact": {
+    "collaboration": "Kollaboration",
+    "titleLine1": "LASS UNS ETWAS",
+    "titleLine2": "GROSSARTIGES ERSCHAFFEN.",
+    "cta": "Kontakt aufnehmen",
+    "clientsLabel": "Kunden & Partner",
+    "contactLabel": "Kontakt"
+  },
+  "Footer": {
+    "copyright": "© 2026 MAYA ES. Alle Rechte vorbehalten.",
+    "imprint": "Impressum",
+    "privacy": "Datenschutz"
+  }
+}
