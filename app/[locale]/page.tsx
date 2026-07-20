@@ -162,14 +162,16 @@ export default function Home() {
               alt="Portrait"
               fill
               priority
-              className="object-cover border-4 border-white/50 z-10"
+              draggable={false}
+              onContextMenu={(e) => e.preventDefault()}
+              className="object-cover border-4 border-white/50 z-10 select-none [-webkit-touch-callout:none]"
               sizes="(min-width: 768px) 50vw, 100vw"
             />
             <div className="absolute inset-0 z-10 bgs-transparent" />
             <span className="absolute right-4 top-4 z-10 text-[10px] uppercase tracking-[0.3em] text-mute [writing-mode:vertical-rl]">
               {t("Hero.location")}
             </span>
-            <AiLabel position="bottom-left" />
+            <AiLabel position="top-left" />
           </div>
         </section>
 
@@ -179,39 +181,35 @@ export default function Home() {
           <div className="group relative flex min-h-[420px] flex-col justify-end overflow-hidden bg-ink p-8">
             <video
               ref={videoRef}
-              src="https://media.mayaesai.com/Casino Glam-A.mp4"
+              src="https://media.mayaesai.com/Casino-Glam-Website.mp4"
               autoPlay
               loop
               muted
               playsInline
               preload="metadata"
+              draggable={false}
+              controlsList="nodownload noremoteplayback"
+              disablePictureInPicture
               onContextMenu={(e) => e.preventDefault()}
-              className="absolute inset-0 h-full w-full object-cover"
+              className="absolute inset-0 h-full w-full object-cover select-none [-webkit-touch-callout:none]"
             />
-            <AiLabel position="top-right" />
-            <div className="relative z-10 flex items-center gap-4">
-              <button
-                onClick={togglePlay}
-                aria-label={isPlaying ? "Pause video" : "Play video"}
-                className="flex h-12 w-12 items-center justify-center rounded-full border border-white/40 bg-black/30 text-lg backdrop-blur-sm transition-colors hover:border-blood"
-              >
-                {isPlaying ? "❚❚" : "▶"}
-              </button>
 
-              <button
-                onClick={toggleMute}
-                aria-label={isMuted ? "Unmute video" : "Mute video"}
-                className="flex h-12 w-12 items-center justify-center rounded-full border border-white/40 bg-black/30 text-sm backdrop-blur-sm transition-colors hover:border-blood"
-              >
-                {isMuted ? "🔇" : "🔊"}
-              </button>
+            <AiLabel position="top-left" />
 
+            <button
+              onClick={toggleMute}
+              aria-label={isMuted ? "Unmute video" : "Mute video"}
+              className="absolute bottom-4 right-4 z-20 flex h-12 w-12 items-center justify-center rounded-full border border-white/40 bg-black/30 text-sm backdrop-blur-sm transition-colors hover:border-blood"
+            >
+              {isMuted ? "🔇" : "🔊"}
+            </button>
+
+            <div className="relative z-10">
               <span className="text-xs uppercase tracking-[0.2em] text-mute">
                 {t("Featured.aiFilmMusic")}
               </span>
             </div>
           </div>
-
           <div className="flex flex-col justify-center bg-ink p-8 md:p-14">
             <span className="text-xs font-medium uppercase tracking-[0.2em] text-blood">
               {t("Featured.label")}
@@ -482,10 +480,13 @@ function IntroVideo({
         loop
         muted
         playsInline
+        draggable={false}
+        controlsList="nodownload noremoteplayback"
+        disablePictureInPicture
+        onContextMenu={(e) => e.preventDefault()}
         onClick={scrollToContent}
-        className="absolute inset-0 h-full w-full cursor-pointer object-cover"
+        className="absolute inset-0 h-full w-full cursor-pointer object-cover select-none [-webkit-touch-callout:none]"
       />
-
       <div className="absolute inset-0 bg-black/20" />
       <AiLabel position="top-left" />
 
@@ -501,7 +502,7 @@ function IntroVideo({
           toggleIntroMute();
         }}
         aria-label={introMuted ? "Unmute video" : "Mute video"}
-        className="absolute right-6 top-6 z-10 flex h-12 w-12 items-center justify-center rounded-full border border-white/40 bg-black/30 text-sm text-bone backdrop-blur-sm transition-colors hover:border-blood md:right-10 md:top-8"
+        className="absolute bottom-6 right-6 z-20 flex h-12 w-12 items-center justify-center rounded-full border border-white/40 bg-black/30 text-sm text-bone backdrop-blur-sm transition-colors hover:border-blood md:bottom-8 md:right-10"
       >
         {introMuted ? "🔇" : "🔊"}
       </button>
