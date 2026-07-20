@@ -4,6 +4,10 @@ import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import AiLabel from "@/components/AiLabel";
+import Link from "next/link";
+import { useLocale } from "next-intl";
+
 
 const CLIENTS = [
   { name: "MERIDIAN", src: "/logos/logo decentraland.svg" },
@@ -19,6 +23,7 @@ const CLIENTS = [
 
 export default function Home() {
   const t = useTranslations();
+  const locale = useLocale();
   const [menuOpen, setMenuOpen] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
@@ -164,6 +169,7 @@ export default function Home() {
             <span className="absolute right-4 top-4 z-10 text-[10px] uppercase tracking-[0.3em] text-mute [writing-mode:vertical-rl]">
               {t("Hero.location")}
             </span>
+            <AiLabel position="bottom-left" />
           </div>
         </section>
 
@@ -182,6 +188,7 @@ export default function Home() {
               onContextMenu={(e) => e.preventDefault()}
               className="absolute inset-0 h-full w-full object-cover"
             />
+            <AiLabel position="top-right" />
             <div className="relative z-10 flex items-center gap-4">
               <button
                 onClick={togglePlay}
@@ -385,14 +392,17 @@ export default function Home() {
         <footer className="mx-auto flex max-w-[1400px] flex-col-reverse items-center justify-between gap-4 px-6 py-6 text-[11px] uppercase tracking-[0.18em] text-mute md:flex-row md:px-10">
           <span>{t("Footer.copyright")}</span>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-bone">
+            <Link href={`/${locale}/impressum`} className="hover:text-bone">
               {t("Footer.imprint")}
-            </a>
-            <a href="#" className="hover:text-bone">
+            </Link>
+            <Link href={`/${locale}/datenschutz`} className="hover:text-bone">
               {t("Footer.privacy")}
-            </a>
+            </Link>
           </div>
         </footer>
+        <p className="mx-auto max-w-[1400px] px-6 pb-6 text-[10px] normal-case tracking-normal text-mute/70 md:px-10">
+          {t("AiLabel.disclaimer")}
+        </p>
       </div>
     </main>
   );
@@ -477,6 +487,7 @@ function IntroVideo({
       />
 
       <div className="absolute inset-0 bg-black/20" />
+      <AiLabel position="top-left" />
 
       <div className="absolute inset-0 flex items-center justify-center">
         <h1 className="font-display text-[16vw] tracking-wide text-bone md:text-[6vw]">

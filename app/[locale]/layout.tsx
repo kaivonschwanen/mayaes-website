@@ -24,7 +24,7 @@ const specialElite = Special_Elite({
 });
 
 export const metadata: Metadata = {
-  title: "Maya Es",
+  title: "Maya ES",
   description: "Fashion. Film. Music. 3D Art. Powered by AI.",
 };
 

@@ -57,5 +57,9 @@
     "copyright": "© 2026 MAYA ES. All rights reserved.",
     "imprint": "Imprint",
     "privacy": "Privacy Policy"
+  },
+  "AiLabel": {
+  "badge": "AI-generated",
+  "disclaimer": "All images and videos shown on this website were created using AI tools."
   }
 }
