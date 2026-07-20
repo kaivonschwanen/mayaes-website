@@ -74,6 +74,27 @@ export default function Home() {
 
   return (
     <main className="bg-ink text-bone">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            name: "Maya Es",
+            url: "https://mayaesai.com",
+            sameAs: [
+              "https://www.instagram.com/m.a.y.a_es/",
+              "https://open.spotify.com/artist/4Ps4f6CwOBFmSrqiQQKO7q",
+              "https://music.youtube.com/channel/UCe0ROKE7s9fwY3u_orDxUDw",
+              "https://www.linkedin.com/in/maya-es-525728150/",
+              "https://x.com/MayaES3Dfashion",
+              "https://www.tiktok.com/@maya.es.films",
+            ],
+            jobTitle: "AI Fashion Film & Music Artist",
+          }),
+        }}
+      />
+      
       <IntroVideo
         introVideoRef={introVideoRef}
         introMuted={introMuted}
