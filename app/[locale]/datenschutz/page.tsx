@@ -217,7 +217,7 @@ function DatenschutzDE() {
       </H2>
       <P>
         Diese Website enthält Links zu meinen Profilen bei Instagram, Spotify,
-        YouTube Music und LinkedIn. Es handelt sich um reine Verlinkungen
+        YouTube Music, LinkedIn, X (Twitter) und TikTok. Es handelt sich um reine Verlinkungen
         (kein eingebettetes Plug-in), sodass beim Aufruf dieser Website
         keinerlei Daten an diese Anbieter übertragen werden. Erst wenn Sie
         aktiv auf einen dieser Links klicken und die jeweilige Plattform
@@ -411,7 +411,7 @@ function DatenschutzEN() {
       </H2>
       <P>
         This website contains links to my profiles on Instagram, Spotify,
-        YouTube Music, and LinkedIn. These are plain hyperlinks (not embedded
+        YouTube Music, LinkedIn, X (Twitter) and TikTok. These are plain hyperlinks (not embedded
         plug-ins), so no data is transmitted to these providers when you
         visit this website. Only if you actively click one of these links and
         visit the respective platform do that platform's own privacy terms

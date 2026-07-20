@@ -91,9 +91,9 @@ export default function Home() {
 
           <nav className="hidden items-center gap-10 text-base font-medium uppercase tracking-[0.18em] text-mute md:flex">
             {NAV_LINKS.map((link) => (
-              <a key={link} href="#" className="transition-colors hover:text-bone">
+              <Link key={link} href={`/${locale}/coming-soon`} className="transition-colors hover:text-bone">
                 {link}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -114,9 +114,9 @@ export default function Home() {
         {menuOpen && (
           <nav className="mx-6 mb-6 flex flex-col gap-4 border-t border-white/10 pt-6 text-sm uppercase tracking-[0.18em] text-mute md:hidden">
             {NAV_LINKS.map((link) => (
-              <a key={link} href="#" onClick={() => setMenuOpen(false)}>
+              <Link key={link} href={`/${locale}/coming-soon`} onClick={() => setMenuOpen(false)}>
                 {link}
-              </a>
+              </Link>
             ))}
           </nav>
         )}
@@ -158,13 +158,13 @@ export default function Home() {
 
           <div className="relative flex aspect-[1/2] items-center justify-center overflow-hidden border border-white/10 bg-ink-soft">
             <Image
-              src="/Maya Avatar Homepage.jpg"
+              src="/Maya Avatar Homepage colorgraded.jpg"
               alt="Portrait"
               fill
               priority
               draggable={false}
               onContextMenu={(e) => e.preventDefault()}
-              className="object-cover border-4 border-white/50 z-10 select-none [-webkit-touch-callout:none]"
+              className="object-cover border-3 border-white/20 z-10 select-none [-webkit-touch-callout:none]"
               sizes="(min-width: 768px) 50vw, 100vw"
             />
             <div className="absolute inset-0 z-10 bgs-transparent" />
@@ -223,16 +223,14 @@ export default function Home() {
               {t("Featured.description")}
             </p>
 
-            <a href="#"
-              className="mt-6 inline-flex w-fit items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-bone transition-colors hover:text-blood"
-            >
+            <Link href={`/${locale}/coming-soon`} className="mt-6 inline-flex w-fit items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-bone transition-colors hover:text-blood">
               {t("Featured.cta")} <span aria-hidden>↗</span>
-            </a>
+            </Link>
           </div>
 
           {/* 3D Fashion */}
           <div className="flex flex-col justify-center bg-paper p-8 text-ink md:p-14">
-            <h2 className="font-display text-4xl leading-[0.9] md:text-5xl">
+            <h2 className="font-display text-4xl leading-[0.9] text-ink md:text-5xl">
               {t("Fashion3D.titleLine1")}
               <br />
               {t("Fashion3D.titleLine2")}
@@ -241,11 +239,9 @@ export default function Home() {
               {t("Fashion3D.description")}
             </p>
 
-            <a href="#"
-              className="mt-6 inline-flex w-fit items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] transition-colors hover:text-blood"
-            >
+            <Link href={`/${locale}/coming-soon`} className="mt-6 inline-flex w-fit items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-ink transition-colors hover:text-blood">
               {t("Fashion3D.cta")} <span aria-hidden>↗</span>
-            </a>
+            </Link>
           </div>
 
           {/* Art & Story */}
@@ -263,11 +259,11 @@ export default function Home() {
                 {t("ArtStory.description")}
               </p>
 
-              <a href="#"
+              <Link href={`/${locale}/coming-soon`}
                 className="mt-6 inline-flex w-fit items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-ink transition-colors hover:text-ink/60"
               >
                 {t("ArtStory.cta")} <span aria-hidden>↗</span>
-              </a>
+              </Link>
             </div>
           </div>
         </section>
@@ -290,11 +286,9 @@ export default function Home() {
               {t("Manifesto.description")}
             </p>
 
-            <a href="#"
-              className="mt-6 inline-flex w-fit items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] transition-colors hover:text-blood"
-            >
+            <Link href={`/${locale}/coming-soon`} className="mt-6 inline-flex w-fit items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-bone transition-colors hover:text-blood">
               {t("Manifesto.cta")} <span aria-hidden>↗</span>
-            </a>
+            </Link>
           </div>
 
           <RotatingBadge />
@@ -343,9 +337,6 @@ export default function Home() {
               <span className="text-xs uppercase tracking-[0.2em] text-ink/50">
                 {t("Contact.contactLabel")}
               </span>
-              <p className="mt-3 text-sm leading-relaxed">
-                mayaes2018@gmail.com
-              </p>
             </div>
             <div className="flex flex-col gap-2 text-xs font-medium uppercase tracking-[0.18em]">
 
@@ -357,7 +348,6 @@ export default function Home() {
                 Instagram <span aria-hidden>↗</span>
               </a>
 
-
               <a href="https://open.spotify.com/artist/4Ps4f6CwOBFmSrqiQQKO7q"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -365,7 +355,6 @@ export default function Home() {
               >
                 Spotify <span aria-hidden>↗</span>
               </a>
-
 
               <a href="https://music.youtube.com/channel/UCe0ROKE7s9fwY3u_orDxUDw"
                 target="_blank"
@@ -375,13 +364,28 @@ export default function Home() {
                 YouTube Music <span aria-hidden>↗</span>
               </a>
 
-
               <a href="https://www.linkedin.com/in/maya-es-525728150/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between border-t border-ink/10 py-2 hover:text-blood"
+              >
+                LinkedIn <span aria-hidden>↗</span>
+              </a>
+
+              <a href="https://x.com/MayaES3Dfashion"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between border-t border-ink/10 py-2 hover:text-blood"
+              >
+                X (Twitter) <span aria-hidden>↗</span>
+              </a>
+
+              <a href="https://www.tiktok.com/@maya.es.films"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-between border-t border-b border-ink/10 py-2 hover:text-blood"
               >
-                LinkedIn <span aria-hidden>↗</span>
+                TikTok <span aria-hidden>↗</span>
               </a>
             </div>
           </div>

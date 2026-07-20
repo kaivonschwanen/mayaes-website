@@ -23,7 +23,7 @@ const OWNER = {
   zipCity: "68309 Mannheim",
   country: "Deutschland",
   email: "mayaes2018@gmail.com",
-  phone: "", // optional, z.B. "+49 (0) 123 4567890" — leer lassen wenn nicht angegeben
+  phone: "+49 151 53590868", // optional, z.B. "+49 (0) 123 4567890" — leer lassen wenn nicht angegeben
   vatId: "", // optional, z.B. "DE123456789" — leer lassen wenn keine USt-ID vorhanden
 };
 

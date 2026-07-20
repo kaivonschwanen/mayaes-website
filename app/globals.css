@@ -15,15 +15,18 @@
   --color-mute: #8a8a86;
 }
 
-html {
-  scroll-behavior: smooth;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-ink);
+    color: var(--color-bone);
+    font-family: var(--font-body);
+  }
 }
 
-body {
-  background-color: var(--color-ink);
-  color: var(--color-bone);
-  font-family: var(--font-body);
-}
 
 @media (prefers-reduced-motion: reduce) {
   * {
