@@ -48,3 +48,45 @@ button:focus-visible {
   outline: 2px solid var(--color-blood);
   outline-offset: 3px;
 }
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+
+/* optional: Animation pausiert beim Hovern */
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes badge-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.badge-spin {
+  animation: badge-spin 16s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation-duration: 20s !important;
+    animation-iteration-count: infinite !important;
+    animation-timing-function: linear !important;
+  }
+
+  .badge-spin {
+    animation-duration: 16s !important;
+    animation-iteration-count: infinite !important;
+    animation-timing-function: linear !important;
+    animation-play-state: running !important;
+  }
+}

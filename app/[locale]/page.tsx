@@ -7,19 +7,8 @@ import LanguageSwitcher from "@/components/LanguageSwitcher";
 import AiLabel from "@/components/AiLabel";
 import Link from "next/link";
 import { useLocale } from "next-intl";
+import PartnersMarquee from "@/components/PartnersMarquee";
 
-
-const CLIENTS = [
-  { name: "MERIDIAN", src: "/logos/logo decentraland.svg" },
-  { name: "GLASHAUS", src: "/logos/logo fashion-film-festival-milano.png" },
-  { name: "FERNWEH", src: "/logos/logo pop-akademie mannheim.jpg" },
-  { name: "UNIT9", src: "/logos/logo-dfwny.jpg" },
-  { name: "OBLIQUE", src: "/logos/Logo-Faust-magazine-hopenheart.png" },
-  { name: "STUDIO KLANG", src: "/logos/logo-jitrois.png" },
-  { name: "LOGO 7", src: "/logos/VNTANA_Logo.jpg" },
-  { name: "LOGO 8", src: "/logos/YouTubeMusic_Logo.png" },
-  { name: "LOGO 9", src: "/logos/spotify logo.png" },
-];
 
 export default function Home() {
   const t = useTranslations();
@@ -94,7 +83,7 @@ export default function Home() {
           }),
         }}
       />
-      
+
       <IntroVideo
         introVideoRef={introVideoRef}
         introMuted={introMuted}
@@ -334,24 +323,7 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="flex flex-col justify-center bg-ink p-8 md:p-14">
-            <span className="text-xs uppercase tracking-[0.2em] text-mute">
-              {t("Contact.clientsLabel")}
-            </span>
-            <ul className="mt-6 grid grid-cols-2 items-center gap-x-6 gap-y-8 md:grid-cols-3">
-              {CLIENTS.map((client) => (
-                <li key={client.name} className="relative h-12 w-full max-w-[140px]">
-                  <Image
-                    src={client.src}
-                    alt={`${client.name} Logo`}
-                    fill
-                    sizes="(max-width: 768px) 50vw, 33vw"
-                    className="object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
-                  />
-                </li>
-              ))}
-            </ul>
-          </div>
+          <div className="bg-ink" />
 
           <div className="flex flex-col justify-center gap-6 bg-paper p-8 text-ink md:p-14">
             <div>
@@ -412,6 +384,11 @@ export default function Home() {
           </div>
         </section>
 
+        <PartnersMarquee />
+
+        <footer className="mx-auto flex max-w-[1400px] flex-col-reverse items-center justify-between gap-4 px-6 py-6 text-[11px] uppercase tracking-[0.18em] text-mute md:flex-row md:px-10"></footer>
+
+
         <footer className="mx-auto flex max-w-[1400px] flex-col-reverse items-center justify-between gap-4 px-6 py-6 text-[11px] uppercase tracking-[0.18em] text-mute md:flex-row md:px-10">
           <span>{t("Footer.copyright")}</span>
           <div className="flex gap-6">
@@ -427,7 +404,7 @@ export default function Home() {
           {t("AiLabel.disclaimer")}
         </p>
       </div>
-    </main>
+    </main >
   );
 }
 
@@ -448,7 +425,7 @@ function NoiseTexture() {
 function RotatingBadge() {
   return (
     <div className="relative hidden h-32 w-32 shrink-0 items-center justify-center md:flex">
-      <svg viewBox="0 0 200 200" className="h-full w-full animate-[spin_16s_linear_infinite]">
+      <svg viewBox="0 0 200 200" className="badge-spin h-full w-full">
         <defs>
           <path id="badge-circle" d="M100,100 m-75,0 a75,75 0 1,1 150,0 a75,75 0 1,1 -150,0" />
         </defs>
