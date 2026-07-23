@@ -59,7 +59,7 @@ button:focus-visible {
 }
 
 .animate-marquee {
-  animation: marquee 20s linear infinite;
+  animation: marquee 20s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 /* optional: Animation pausiert beim Hovern */

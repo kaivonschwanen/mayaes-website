@@ -2,6 +2,7 @@
 import { defineRouting } from 'next-intl/routing';
 
 export const routing = defineRouting({
-  locales: ['de', 'en'],
-  defaultLocale: 'de'
+  locales: ['en', 'de'],
+  defaultLocale: 'en',
+  localeDetection: false // Stoppt die automatische Umleitung basierend auf der Browsersprache
 });
