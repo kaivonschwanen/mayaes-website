@@ -5,6 +5,8 @@ import { routing } from "@/i18n/routing";
 import type { Metadata } from "next";
 import { Anton, Inter, Special_Elite } from "next/font/google";
 import "../globals.css";
+import SmoothScroll from "@/components/SmoothScroll";
+
 
 const anton = Anton({
   subsets: ["latin"],
@@ -84,7 +86,7 @@ export default async function LocaleLayout({
     <html lang={locale} className={`${anton.variable} ${inter.variable} ${specialElite.variable}`}>
       <body>
         <NextIntlClientProvider messages={messages}>
-          {children}
+          <SmoothScroll>{children}</SmoothScroll>
         </NextIntlClientProvider>
       </body>
     </html>
