@@ -8,24 +8,18 @@ import AiLabel from "@/components/AiLabel";
 import Link from "next/link";
 import { useLocale } from "next-intl";
 import PartnersMarquee from "@/components/PartnersMarquee";
+import Header from "@/components/Header";
 
 
 export default function Home() {
   const t = useTranslations();
   const locale = useLocale();
-  const [menuOpen, setMenuOpen] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [introMuted, setIntroMuted] = useState(true);
   const introVideoRef = useRef<HTMLVideoElement>(null);
 
-  const NAV_LINKS = [
-    t("Nav.work"),
-    t("Nav.about"),
-    t("Nav.collaboration"),
-    t("Nav.journal"),
-  ];
 
   const togglePlay = () => {
     if (!videoRef.current) return;
@@ -84,6 +78,8 @@ export default function Home() {
         }}
       />
 
+      <Header />
+
       <IntroVideo
         introVideoRef={introVideoRef}
         introMuted={introMuted}
@@ -93,43 +89,6 @@ export default function Home() {
       <div className="h-16 bg-ink md:h-24" />
 
       <div id="site-content">
-        {/* HEADER */}
-        <header className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-6 md:px-10">
-          <a href="#" className="font-display text-2xl tracking-wide">
-            MAYA ES<span className="text-blood">.</span>
-          </a>
-
-          <nav className="hidden items-center gap-10 text-base font-medium uppercase tracking-[0.18em] text-mute md:flex">
-            {NAV_LINKS.map((link) => (
-              <Link key={link} href={`/${locale}/coming-soon`} className="transition-colors hover:text-bone">
-                {link}
-              </Link>
-            ))}
-          </nav>
-
-          <div className="flex items-center gap-6">
-            <LanguageSwitcher />
-            <button
-              onClick={() => setMenuOpen((v) => !v)}
-              className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.18em]"
-              aria-expanded={menuOpen}
-              aria-label="Open menu"
-            >
-              {t("Nav.menu")}
-              <span className="text-lg leading-none">{menuOpen ? "×" : "+"}</span>
-            </button>
-          </div>
-        </header>
-
-        {menuOpen && (
-          <nav className="mx-6 mb-6 flex flex-col gap-4 border-t border-white/10 pt-6 text-sm uppercase tracking-[0.18em] text-mute md:hidden">
-            {NAV_LINKS.map((link) => (
-              <Link key={link} href={`/${locale}/coming-soon`} onClick={() => setMenuOpen(false)}>
-                {link}
-              </Link>
-            ))}
-          </nav>
-        )}
 
         {/* HERO */}
         <section className="relative mx-auto grid max-w-[1400px] grid-cols-1 gap-10 px-6 pb-16 md:grid-cols-2 md:items-start md:px-10 md:pb-24">
