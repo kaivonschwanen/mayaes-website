@@ -9,6 +9,7 @@ import Link from "next/link";
 import { useLocale } from "next-intl";
 import PartnersMarquee from "@/components/PartnersMarquee";
 import Header from "@/components/Header";
+import { Volume2, VolumeX } from "lucide-react";
 
 
 export default function Home() {
@@ -63,7 +64,7 @@ export default function Home() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Person",
-            name: "Maya Es",
+            name: "Maya ES",
             url: "https://mayaesai.com",
             sameAs: [
               "https://www.instagram.com/m.a.y.a_es/",
@@ -168,9 +169,13 @@ export default function Home() {
             <button
               onClick={toggleMute}
               aria-label={isMuted ? "Unmute video" : "Mute video"}
-              className="absolute bottom-4 right-4 z-20 flex h-12 w-12 items-center justify-center rounded-full border border-white/40 bg-black/30 text-sm backdrop-blur-sm transition-colors hover:border-blood"
+              className="absolute bottom-4 right-4 z-20 flex items-center justify-center text-bone transition-colors hover:text-blood"
             >
-              {isMuted ? "🔇" : "🔊"}
+              {isMuted ? (
+                <VolumeX className="h-6 w-6" strokeWidth={1.8} />
+              ) : (
+                <Volume2 className="h-6 w-6" strokeWidth={1.8} />
+              )}
             </button>
 
             <div className="relative z-10">
@@ -452,7 +457,8 @@ function IntroVideo({
       <AiLabel position="top-left" />
 
       <div className="absolute inset-0 flex items-center justify-center">
-        <h1 className="font-display text-[16vw] tracking-wide text-bone md:text-[6vw]">
+        <h1 className="animate-hero-logo font-arimo font-bold text-[16vw] tracking-wide text-bone/90 md:text-[6vw]"
+          style={{ transform: "scale(1.20, 1.00)" }}>
           MAYA ES<span className="text-blood">.</span>
         </h1>
       </div>
@@ -463,9 +469,13 @@ function IntroVideo({
           toggleIntroMute();
         }}
         aria-label={introMuted ? "Unmute video" : "Mute video"}
-        className="absolute bottom-6 right-6 z-20 flex h-12 w-12 items-center justify-center rounded-full border border-white/40 bg-black/30 text-sm text-bone backdrop-blur-sm transition-colors hover:border-blood md:bottom-8 md:right-10"
+        className="absolute bottom-6 right-6 z-20 flex items-center justify-center text-bone transition-colors hover:text-blood md:bottom-8 md:right-10"
       >
-        {introMuted ? "🔇" : "🔊"}
+        {introMuted ? (
+          <VolumeX className="h-6 w-6" strokeWidth={1.8} />
+        ) : (
+          <Volume2 className="h-6 w-6" strokeWidth={1.8} />
+        )}
       </button>
 
       <div

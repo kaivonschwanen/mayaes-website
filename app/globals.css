@@ -42,6 +42,10 @@
   letter-spacing: -0.01em;
 }
 
+.font-arimo {
+  font-family: var(--font-arimo);
+}
+
 /* visible keyboard focus, kept consistent across the dark and light sections */
 a:focus-visible,
 button:focus-visible {

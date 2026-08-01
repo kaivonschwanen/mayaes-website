@@ -3,7 +3,7 @@ import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import type { Metadata } from "next";
-import { Anton, Inter, Special_Elite } from "next/font/google";
+import { Anton, Inter, Special_Elite, Arimo } from "next/font/google";
 import "../globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 
@@ -24,6 +24,12 @@ const specialElite = Special_Elite({
   weight: "400",
   variable: "--font-stamp",
 });
+
+const arimo = Arimo({
+  subsets: ["latin"],
+  variable: "--font-arimo",
+});
+
 
 export async function generateMetadata({
   params,
@@ -83,7 +89,7 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className={`${anton.variable} ${inter.variable} ${specialElite.variable}`}>
+    <html lang={locale} className={`${anton.variable} ${inter.variable} ${specialElite.variable} ${arimo.variable}`}>
       <body>
         <NextIntlClientProvider messages={messages}>
           <SmoothScroll>{children}</SmoothScroll>
