@@ -169,7 +169,7 @@ export default function Home() {
             <button
               onClick={toggleMute}
               aria-label={isMuted ? "Unmute video" : "Mute video"}
-              className="absolute bottom-4 right-4 z-20 flex items-center justify-center text-bone transition-colors hover:text-blood"
+              className="absolute bottom-4 right-4 z-20 flex items-center justify-center rounded-[3px] bg-black/35 p-1.5 text-bone shadow-[2px_2px_5px_rgba(0,0,0,0.30)] transition-colors hover:bg-black/50 hover:text-blood"
             >
               {isMuted ? (
                 <VolumeX className="h-6 w-6" strokeWidth={1.8} />
@@ -438,7 +438,8 @@ function IntroVideo({
   }, [introVideoRef]);
 
   return (
-    <section className="group relative h-screen w-full overflow-hidden bg-ink">
+    <section className="group relative h-screen w-full overflow-hidden bg-ink"
+     onContextMenu={(e) => e.preventDefault()}>
       <video
         ref={introVideoRef}
         src="https://media.mayaesai.com/reel-website-2.mp4"
@@ -449,7 +450,7 @@ function IntroVideo({
         draggable={false}
         controlsList="nodownload noremoteplayback"
         disablePictureInPicture
-        onContextMenu={(e) => e.preventDefault()}
+        // onContextMenu={(e) => e.preventDefault()}
         onClick={scrollToContent}
         className="absolute inset-0 h-full w-full cursor-pointer object-cover select-none [-webkit-touch-callout:none]"
       />
@@ -469,7 +470,7 @@ function IntroVideo({
           toggleIntroMute();
         }}
         aria-label={introMuted ? "Unmute video" : "Mute video"}
-        className="absolute bottom-6 right-6 z-20 flex items-center justify-center text-bone transition-colors hover:text-blood md:bottom-8 md:right-10"
+        className="absolute bottom-6 right-6 z-20 flex items-center justify-center rounded-[3px] bg-black/35 p-1.5 text-bone shadow-[2px_2px_5px_rgba(0,0,0,0.30)] transition-colors hover:bg-black/50 hover:text-blood md:bottom-8 md:right-10"
       >
         {introMuted ? (
           <VolumeX className="h-6 w-6" strokeWidth={1.8} />
