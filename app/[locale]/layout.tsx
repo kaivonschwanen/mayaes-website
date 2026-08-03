@@ -6,6 +6,7 @@ import type { Metadata } from "next";
 import { Anton, Inter, Special_Elite, Arimo } from "next/font/google";
 import "../globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
+import SpaceBackground from "@/components/space/SpaceBackground";
 
 
 const anton = Anton({
@@ -92,7 +93,10 @@ export default async function LocaleLayout({
     <html lang={locale} className={`${anton.variable} ${inter.variable} ${specialElite.variable} ${arimo.variable}`}>
       <body>
         <NextIntlClientProvider messages={messages}>
-          <SmoothScroll>{children}</SmoothScroll>
+          <SmoothScroll>
+            <SpaceBackground />
+            {children}
+          </SmoothScroll>
         </NextIntlClientProvider>
       </body>
     </html>

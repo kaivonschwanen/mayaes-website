@@ -24,7 +24,7 @@ export default function PartnersMarquee() {
     const t = useTranslations();
 
     return (
-        <section className="mx-auto mt-16 flex max-w-[1400px] items-stretch bg-ink">
+        <section className="mx-auto mt-16 flex max-w-[1400px] items-stretch ">
             {/* Label links */}
             <div className="flex shrink-0 items-center px-6 py-10 md:px-10">
                 <span className="whitespace-nowrap text-xs uppercase tracking-[0.2em] text-mute">
@@ -36,7 +36,7 @@ export default function PartnersMarquee() {
             <div className="my-6 w-px shrink-0 bg-white/25" />
 
             {/* Scroll-Fenster – Breite steuert, wie viele Logos sichtbar sind (hier: 6) */}
-            <div className="relative w-full max-w-[896px] overflow-hidden py-10">
+            <div className="relative w-full max-w-[1112px] overflow-hidden py-10">
                 <div className="animate-marquee flex w-max gap-6 pl-6">
                     {LOOP_CLIENTS.map((client, i) => (
                         <div

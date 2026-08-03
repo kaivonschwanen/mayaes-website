@@ -11,6 +11,15 @@ import PartnersMarquee from "@/components/PartnersMarquee";
 import Header from "@/components/Header";
 import { Volume2, VolumeX } from "lucide-react";
 
+import {
+  FaInstagram,
+  FaSpotify,
+  FaYoutube,
+  FaLinkedinIn,
+  FaTiktok,
+} from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+
 
 export default function Home() {
   const t = useTranslations();
@@ -57,7 +66,7 @@ export default function Home() {
   };
 
   return (
-    <main className="bg-ink text-bone">
+    <main className=" text-bone">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -146,7 +155,7 @@ export default function Home() {
         </section>
 
         {/* FEATURED WORK GRID */}
-        <section id="work" className="mx-auto grid max-w-[1400px] grid-cols-1 gap-px bg-white/10 md:grid-cols-2">
+        <section id="work" className="mx-auto grid max-w-[1400px] grid-cols-1 gap-px bg-white/5 md:grid-cols-2">
           {/* AI Film & Music */}
           <div className="group relative flex min-h-[420px] flex-col justify-end overflow-hidden bg-ink p-8">
             <video
@@ -184,7 +193,7 @@ export default function Home() {
               </span>
             </div>
           </div>
-          <div className="flex flex-col justify-center bg-ink p-8 md:p-14">
+          <div className="flex flex-col justify-center bg-transparent p-8 md:p-14">
             <span className="text-xs font-medium uppercase tracking-[0.2em] text-blood">
               {t("Featured.label")}
             </span>
@@ -268,8 +277,8 @@ export default function Home() {
           <RotatingBadge />
         </section>
 
-        {/* CONTACT / FOOTER */}
-        <section className="mx-auto grid max-w-[1400px] grid-cols-1 gap-px bg-white/10 md:grid-cols-[1.1fr_1fr_1fr]">
+        {/* CONTACT */}
+        <section className="mx-auto grid max-w-[1400px] grid-cols-1 gap-px md:grid-cols-[1.1fr_1fr_1fr]">
           <div className="flex flex-col justify-center bg-blood p-8 text-ink md:p-14">
             <span className="text-xs font-medium uppercase tracking-[0.2em]">
               {t("Contact.collaboration")}
@@ -287,65 +296,7 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="bg-ink" />
 
-          <div className="flex flex-col justify-center gap-6 bg-paper p-8 text-ink md:p-14">
-            <div>
-              <span className="text-xs uppercase tracking-[0.2em] text-ink/50">
-                {t("Contact.contactLabel")}
-              </span>
-            </div>
-            <div className="flex flex-col gap-2 text-xs font-medium uppercase tracking-[0.18em]">
-
-              <a href="https://www.instagram.com/m.a.y.a_es/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-between border-t border-ink/10 py-2 hover:text-blood"
-              >
-                Instagram <span aria-hidden>↗</span>
-              </a>
-
-              <a href="https://open.spotify.com/artist/4Ps4f6CwOBFmSrqiQQKO7q"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-between border-t border-ink/10 py-2 hover:text-blood"
-              >
-                Spotify <span aria-hidden>↗</span>
-              </a>
-
-              <a href="https://music.youtube.com/channel/UCe0ROKE7s9fwY3u_orDxUDw"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-between border-t border-ink/10 py-2 hover:text-blood"
-              >
-                YouTube Music <span aria-hidden>↗</span>
-              </a>
-
-              <a href="https://www.linkedin.com/in/maya-es-525728150/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-between border-t border-ink/10 py-2 hover:text-blood"
-              >
-                LinkedIn <span aria-hidden>↗</span>
-              </a>
-
-              <a href="https://x.com/MayaES3Dfashion"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-between border-t border-ink/10 py-2 hover:text-blood"
-              >
-                X (Twitter) <span aria-hidden>↗</span>
-              </a>
-
-              <a href="https://www.tiktok.com/@maya.es.films"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-between border-t border-b border-ink/10 py-2 hover:text-blood"
-              >
-                TikTok <span aria-hidden>↗</span>
-              </a>
-            </div>
-          </div>
         </section>
 
         <PartnersMarquee />
@@ -353,16 +304,88 @@ export default function Home() {
         <footer className="mx-auto flex max-w-[1400px] flex-col-reverse items-center justify-between gap-4 px-6 py-6 text-[11px] uppercase tracking-[0.18em] text-mute md:flex-row md:px-10"></footer>
 
 
-        <footer className="mx-auto flex max-w-[1400px] flex-col-reverse items-center justify-between gap-4 px-6 py-6 text-[11px] uppercase tracking-[0.18em] text-mute md:flex-row md:px-10">
+        <footer className="mx-auto flex max-w-[1400px] flex-col gap-5 px-6 py-6 text-[11px] uppercase tracking-[0.18em] text-mute md:flex-row md:items-center md:justify-between md:px-10">
+
           <span>{t("Footer.copyright")}</span>
-          <div className="flex gap-6">
-            <Link href={`/${locale}/impressum`} className="hover:text-bone">
+
+          <div className="flex items-center gap-6">
+            <Link
+              href={`/${locale}/impressum`}
+              className="transition-colors hover:text-bone"
+            >
               {t("Footer.imprint")}
             </Link>
-            <Link href={`/${locale}/datenschutz`} className="hover:text-bone">
+
+            <Link
+              href={`/${locale}/datenschutz`}
+              className="transition-colors hover:text-bone"
+            >
               {t("Footer.privacy")}
             </Link>
           </div>
+
+          <div className="flex items-center gap-4">
+            <a
+              href="https://www.instagram.com/m.a.y.a_es/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="transition-colors hover:text-blood"
+            >
+              <FaInstagram className="h-4 w-4" />
+            </a>
+
+            <a
+              href="https://open.spotify.com/artist/4Ps4f6CwOBFmSrqiQQKO7q"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Spotify"
+              className="transition-colors hover:text-blood"
+            >
+              <FaSpotify className="h-4 w-4" />
+            </a>
+
+            <a
+              href="https://music.youtube.com/channel/UCe0ROKE7s9fwY3u_orDxUDw"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube Music"
+              className="transition-colors hover:text-blood"
+            >
+              <FaYoutube className="h-4 w-4" />
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/maya-es-525728150/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="transition-colors hover:text-blood"
+            >
+              <FaLinkedinIn className="h-4 w-4" />
+            </a>
+
+            <a
+              href="https://x.com/MayaES3Dfashion"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="X"
+              className="transition-colors hover:text-blood"
+            >
+              <FaXTwitter className="h-4 w-4" />
+            </a>
+
+            <a
+              href="https://www.tiktok.com/@maya.es.films"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="TikTok"
+              className="transition-colors hover:text-blood"
+            >
+              <FaTiktok className="h-4 w-4" />
+            </a>
+          </div>
+
         </footer>
         <p className="mx-auto max-w-[1400px] px-6 pb-6 text-[10px] normal-case tracking-normal text-mute/70 md:px-10">
           {t("AiLabel.disclaimer")}
@@ -439,7 +462,7 @@ function IntroVideo({
 
   return (
     <section className="group relative h-screen w-full overflow-hidden bg-ink"
-     onContextMenu={(e) => e.preventDefault()}>
+      onContextMenu={(e) => e.preventDefault()}>
       <video
         ref={introVideoRef}
         src="https://media.mayaesai.com/reel-website-2.mp4"
