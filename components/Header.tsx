@@ -11,11 +11,14 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  // Jeder Link hat jetzt ein eigenes Ziel statt alle pauschal auf
+  // /coming-soon zu schicken. "about" zeigt auf die neue About-Seite,
+  // der Rest bleibt vorerst wie bisher.
   const NAV_LINKS = [
-    t("Nav.work"),
-    t("Nav.about"),
-    t("Nav.collaboration"),
-    t("Nav.journal"),
+    { key: "work", label: t("Nav.work"), href: `/${locale}/coming-soon` },
+    { key: "about", label: t("Nav.about"), href: `/${locale}/about` },
+    { key: "collaboration", label: t("Nav.collaboration"), href: `/${locale}/coming-soon` },
+    { key: "journal", label: t("Nav.journal"), href: `/${locale}/coming-soon` },
   ];
 
   useEffect(() => {
@@ -47,18 +50,18 @@ export default function Header() {
       ].join(" ")}
     >
       <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 md:px-10">
-        <a href="#" className="font-display text-2xl tracking-wide">
+        <a href="#" className="font-arima text-2xl tracking-wide">
           MAYA ES<span className="text-blood">.</span>
         </a>
 
         <nav className="hidden items-center gap-10 text-base font-medium uppercase tracking-[0.18em] text-mute md:flex">
           {NAV_LINKS.map((link) => (
             <Link
-              key={link}
-              href={`/${locale}/coming-soon`}
+              key={link.key}
+              href={link.href}
               className="transition-colors hover:text-bone"
             >
-              {link}
+              {link.label}
             </Link>
           ))}
         </nav>
@@ -81,11 +84,11 @@ export default function Header() {
         <nav className="mx-6 mb-6 flex flex-col gap-4 border-t border-white/10 pt-6 text-sm uppercase tracking-[0.18em] text-mute md:hidden">
           {NAV_LINKS.map((link) => (
             <Link
-              key={link}
-              href={`/${locale}/coming-soon`}
+              key={link.key}
+              href={link.href}
               onClick={() => setMenuOpen(false)}
             >
-              {link}
+              {link.label}
             </Link>
           ))}
         </nav>

@@ -28,7 +28,7 @@ function Shell({
 }) {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-ink px-6 text-center text-bone">
-      <span className="font-display text-2xl tracking-wide">
+      <span className="font-arimo text-2xl tracking-wide">
         MAYA ES<span className="text-blood">.</span>
       </span>
 

@@ -8,7 +8,7 @@ const PARALLAX_STRENGTH_Y = 1.8;
 const LERP_FACTOR = 0.03;
 
 // TEMPORAER zum Debuggen -- danach wieder auf false setzen.
-const DEBUG = true;
+const DEBUG = false;
 
 export default function ParallaxCamera() {
     const { camera } = useThree();

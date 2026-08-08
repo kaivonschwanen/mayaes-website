@@ -9,7 +9,7 @@ import Link from "next/link";
 import { useLocale } from "next-intl";
 import PartnersMarquee from "@/components/PartnersMarquee";
 import Header from "@/components/Header";
-import { Volume2, VolumeX } from "lucide-react";
+import { Volume2, VolumeX, Play } from "lucide-react";
 
 import {
   FaInstagram,
@@ -51,6 +51,47 @@ export default function Home() {
       introVideoRef.current.muted = true;
       setIntroMuted(true);
     }
+  };
+
+  const [isHovering, setIsHovering] = useState(false);
+
+  const handleVideoEnter = () => {
+    setIsHovering(true);
+    const video = videoRef.current;
+    if (!video) return;
+    video.currentTime = 0;
+    video.play().catch(() => { });
+  };
+
+  const handleVideoLeave = () => {
+    setIsHovering(false);
+    const video = videoRef.current;
+    if (!video) return;
+    video.pause();
+    video.currentTime = 0;
+  };
+
+  const handleVideoClick = () => {
+    // Auf Geräten mit echtem Hover (Desktop-Maus) übernimmt das schon
+    // onMouseEnter/onMouseLeave -- hier nichts tun, sonst doppeltes
+    // Toggle bei einem Klick waehrend des Hoverns.
+    const hasHover = window.matchMedia("(hover: hover)").matches;
+    if (hasHover) return;
+
+    setIsHovering((prev) => {
+      const next = !prev;
+      const video = videoRef.current;
+      if (video) {
+        if (next) {
+          video.currentTime = 0;
+          video.play().catch(() => { });
+        } else {
+          video.pause();
+          video.currentTime = 0;
+        }
+      }
+      return next;
+    });
   };
 
   const toggleIntroMute = () => {
@@ -96,7 +137,7 @@ export default function Home() {
         toggleIntroMute={toggleIntroMute}
       />
 
-      <div className="h-16 bg-ink md:h-24" />
+      <div className="h-16 md:h-24" />
 
       <div id="site-content">
 
@@ -115,27 +156,42 @@ export default function Home() {
 
             <p>
               <br />
-              <span className="text-2xl font-medium uppercase tracking-[0.8em] text-blood">
+              <span className="text-2xl font-medium uppercase tracking-[0.5em] text-blood">
                 {t("Hero.poweredBy")}
               </span>
             </p>
 
-            <p className="mt-8 max-w-sm text-sm leading-relaxed text-mute">
-              {t("Hero.description")}
-              <br />
-              <span className="text-blood">{t("Hero.tagline")}</span>
-            </p>
-
-
-            <a href="#work"
-              className="mt-8 inline-flex w-fit items-center gap-2 border border-white/25 px-6 py-3 text-xs font-medium uppercase tracking-[0.18em] transition-colors hover:border-blood hover:text-blood"
+            <span
+              className="mt-16 inline-flex w-fit items-center gap-2 border border-white/25 px-6 py-3 text-xs font-medium uppercase tracking-[0.6em] "
             >
-              {t("Hero.cta")}
-              <span aria-hidden>↗</span>
-            </a>
+              {t("Hero.label1")}
+
+            </span>
+
+
+            <div className="mt-10 max-w-lg text-[17px] leading-[1.8] tracking-[0.01em] text-mute text-justify">
+              <p>{t("Hero.description1")}</p>
+
+              <p className="mt-6">
+                {t("Hero.description2")}
+              </p>
+
+              <p className="mt-6">
+                {t("Hero.description3")}
+              </p>
+
+              <p className="mt-6">
+                {t("Hero.description4")}
+              </p>
+
+              <p className="mt-10 font-medium tracking-[0.08em] text-blood">
+                {t("Hero.tagline")}
+              </p>
+            </div>
+
           </div>
 
-          <div className="relative flex aspect-[1/2] items-center justify-center overflow-hidden border border-white/10 bg-ink-soft">
+          <div className="relative flex aspect-[1/2] scale-[1.00] items-center justify-center overflow-hidden border border-white bg-ink-soft">
             <Image
               src="/Maya Avatar Homepage colorgraded.jpg"
               alt="Portrait"
@@ -157,22 +213,55 @@ export default function Home() {
         {/* FEATURED WORK GRID */}
         <section id="work" className="mx-auto grid max-w-[1400px] grid-cols-1 gap-px bg-white/5 md:grid-cols-2">
           {/* AI Film & Music */}
-          <div className="group relative flex min-h-[420px] flex-col justify-end overflow-hidden bg-ink p-8">
+          <div
+            className="group relative flex min-h-[420px] flex-col justify-end overflow-hidden bg-ink p-8"
+            onMouseEnter={handleVideoEnter}
+            onMouseLeave={handleVideoLeave}
+            onClick={handleVideoClick}
+            onFocus={handleVideoEnter}
+            onBlur={handleVideoLeave}
+            tabIndex={0}
+            role="button"
+            aria-label="Video abspielen"
+          >
+            {/* Poster -- Standardzustand */}
+            <img
+              src="/Casino-Standbild-Website.jpg"
+              alt=""
+              draggable={false}
+              onContextMenu={(e) => e.preventDefault()}
+              className={[
+                "absolute inset-0 h-full w-full object-cover select-none [-webkit-touch-callout:none]",
+                "transition-opacity duration-300",
+                isHovering ? "opacity-0" : "opacity-100",
+              ].join(" ")}
+            />
+
+            {!isHovering && (
+              <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center">
+                <div className="flex h-14 w-14 items-center justify-center rounded-[3px] bg-black/40 backdrop-blur-sm">
+                  <Play className="h-6 w-6 text-bone" fill="currentColor" />
+                </div>
+              </div>
+            )}
+
             <video
               ref={videoRef}
-              src="https://media.mayaesai.com/Casino-Glam-Website.mp4"
-              autoPlay
+              src="https://media.mayaesai.com/Casino scene short.mp4"
               loop
-              muted
+              muted={isMuted}
               playsInline
-              preload="metadata"
+              preload="none"
               draggable={false}
               controlsList="nodownload noremoteplayback"
               disablePictureInPicture
               onContextMenu={(e) => e.preventDefault()}
-              className="absolute inset-0 h-full w-full object-cover select-none [-webkit-touch-callout:none]"
+              className={[
+                "absolute inset-0 h-full w-full object-cover select-none [-webkit-touch-callout:none]",
+                "transition-opacity duration-300",
+                isHovering ? "opacity-100" : "opacity-0",
+              ].join(" ")}
             />
-
             <AiLabel position="top-left" />
 
             <button
@@ -390,7 +479,7 @@ export default function Home() {
         <p className="mx-auto max-w-[1400px] px-6 pb-6 text-[10px] normal-case tracking-normal text-mute/70 md:px-10">
           {t("AiLabel.disclaimer")}
         </p>
-      </div>
+      </div >
     </main >
   );
 }
@@ -422,7 +511,7 @@ function RotatingBadge() {
           </textPath>
         </text>
       </svg>
-      <span className="font-display absolute text-3xl text-blood">ES</span>
+      <span className="font-arimo absolute text-3xl text-blood">ES</span>
     </div>
   );
 }
@@ -465,7 +554,7 @@ function IntroVideo({
       onContextMenu={(e) => e.preventDefault()}>
       <video
         ref={introVideoRef}
-        src="https://media.mayaesai.com/reel-website-2.mp4"
+        src="https://media.mayaesai.com/reel-website-ohne-goere.mp4"
         autoPlay
         loop
         muted

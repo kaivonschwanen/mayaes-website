@@ -94,3 +94,76 @@ button:focus-visible {
     animation-play-state: running !important;
   }
 }
+
+.space-glow {
+  position: absolute;
+  border-radius: 9999px;
+  pointer-events: none;
+  filter: blur(140px);
+  will-change: transform;
+}
+
+.space-glow-1 {
+  width: 65vw;
+  height: 55vw;
+  left: -20vw;
+  top: -15vw;
+  background: rgba(15, 35, 85, 0.18);
+  animation: space-drift-1 26s ease-in-out infinite alternate;
+}
+
+.space-glow-2 {
+  width: 60vw;
+  height: 50vw;
+  right: -20vw;
+  top: 25vh;
+  background: rgba(25, 35, 100, 0.12);
+  animation: space-drift-2 34s ease-in-out infinite alternate;
+}
+
+.space-glow-3 {
+  width: 55vw;
+  height: 45vw;
+  left: 25vw;
+  bottom: -25vw;
+  background: rgba(8, 30, 70, 0.14);
+  animation: space-drift-3 42s ease-in-out infinite alternate;
+}
+
+@keyframes space-drift-1 {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  100% {
+    transform: translate3d(8vw, 5vh, 0) scale(1.12);
+  }
+}
+
+@keyframes space-drift-2 {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  100% {
+    transform: translate3d(-7vw, -4vh, 0) scale(1.15);
+  }
+}
+
+@keyframes space-drift-3 {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  100% {
+    transform: translate3d(5vw, -6vh, 0) scale(1.1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .space-glow-1,
+  .space-glow-2,
+  .space-glow-3 {
+    animation: none;
+  }
+}

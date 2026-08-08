@@ -1,4 +1,3 @@
-
 {
   "Nav": {
     "work": "Arbeiten",
@@ -13,7 +12,11 @@
     "line3": "MUSIK.",
     "line4": "3D KUNST.",
     "poweredBy": "unterstützt durch KI",
-    "description": "Ich erschaffe Welten an der Schnittstelle von Mode, Film, Musik und künstlicher Intelligenz.",
+    "label1": "STATEMENT",
+    "description1": "KI ist ohne große Vorankündigung in unser Leben ein- marschiert, hat sich weltweit etabliert– und strebt nun danach, in nahezu allen Lebensbereichen eine führende Rolle ein- zunehmen. Kultur eingeschlossen.",
+    "description2": "Und doch bleibt KI ein Werkzeug. Ein Werkzeug, dessen Meisterschaft in Film, Mode und Musik längst keine Option mehr ist, sondern eine Notwendigkeit.",
+    "description3": "KI-gestützte kreative Prozesse besitzen das Potenzial zu höchster ästhetischer und kommerzieller Qualität – unter einer entscheidenden Voraussetzung: Sie müssen mit techno- logischem Bewusstsein und ethischer Verantwortung gepaart sein.",
+    "description4": "Basierned auf der langjährigen Erfahrung in der Ästhetik von 3D, Mode, Szenenbild und cinematischen Hintergrundwissen beherrscht Maya ES die Kunst der Prompt-Architektur – und erschafft KI-basierte virtuelle Erzählwelten in Form von Filmen, Musik oder Fashion Shows. Im Idealfall als alles drei zugleich.",
     "tagline": "Visionär. Kreativ. Storyteller.",
     "cta": "Meine Arbeiten ansehen",
     "location": "MAYA ES / MAILAND / IT"
@@ -39,9 +42,14 @@
     "cta": "Mehr erfahren"
   },
   "Manifesto": {
-    "roles": ["Künstlerin", "Designerin", "Filmemacherin", "Produzentin"],
+    "roles": [
+      "Künstlerin",
+      "Designerin",
+      "Filmemacherin",
+      "Produzentin"
+    ],
     "titleLine1": "ICH ERSCHAFFE",
-    "titleLine2": "DIE ZUKUNFT.",
+    "titleLine2": "DIE ZUKUNFTSVISION.",
     "description": "Meine Arbeit verbindet künstliche Intelligenz mit menschlicher Emotion, um neue Realitäten zu formen. Jedes Projekt ist eine Reise ins Unbekannte.",
     "cta": "Meine Reise"
   },
@@ -59,7 +67,17 @@
     "privacy": "Datenschutz"
   },
   "AiLabel": {
-  "badge": "KI-generiert",
-  "disclaimer": "Alle auf dieser Website gezeigten Bilder und Videos wurden mit KI-Tools erstellt."
+    "badge": "KI-generiert",
+    "disclaimer": "Alle auf dieser Website gezeigten Bilder und Videos wurden mit KI-Tools erstellt."
+  },
+  "AboutMe": {
+    "back": "Zurück",
+    "label": "Über",
+    "title": "",
+    "paragraph1": "Die deutsche Übersetzung erscheint bald.",
+    "paragraph2": "",
+    "paragraph3": "",
+    "paragraph4": "",
+    "imageAlt": "Portrait"
   }
 }
