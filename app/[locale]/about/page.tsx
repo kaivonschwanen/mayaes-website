@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 import type { Metadata } from "next";
 import ProtectedImage from "@/components/ProtectedImage";
+import InfoFlip from "@/components/InfoFlip";
 
 export const metadata: Metadata = {
     title: "About Me",
@@ -28,6 +29,13 @@ export const metadata: Metadata = {
 const ROTATION_DEG = 0;
 const IMAGE_SCALE = 1;
 
+// Punkte-Raster
+const DOT_COLS_1 = 35;
+const DOT_ROWS_1 = 10;
+
+const DOT_COLS_2 = 7;
+const DOT_ROWS_2 = 27;
+
 export default async function AboutPage({
     params,
 }: {
@@ -35,6 +43,22 @@ export default async function AboutPage({
 }) {
     const { locale } = await params;
     const t = await getTranslations({ locale, namespace: "AboutMe" });
+
+    /** Fehlt ein Key in den messages, bleibt das Feld leer statt zu werfen */
+    const tx = (key: string, fallback = "") => {
+        try {
+            const has = (t as unknown as { has?: (k: string) => boolean }).has;
+            if (typeof has === "function" && !has.call(t, key)) return fallback;
+            return t(key);
+        } catch {
+            return fallback;
+        }
+    };
+
+    const frontEyebrow = tx("frontEyebrow", tx("infoLabel"));
+    const frontHeadline = tx("frontHeadline");
+    const frontText = tx("frontText");
+    const frontBadge = tx("frontBadge");
 
     return (
         <main className="mx-auto max-w-[1400px] px-6 py-24 text-bone md:px-10">
@@ -45,41 +69,110 @@ export default async function AboutPage({
                 ← {t("back")}
             </Link>
 
-            <div className="grid grid-cols-1 gap-40 md:grid-cols-2 md:items-start">
+
+            <h1 className="font-display mb-20 mt-4 text-[8vw] leading-[0.85] tracking-tight md:text-[4vw]">
+                {t("titleLine3")}
+                <br />
+                <span className="text-blood">{t("titleLine4")}</span>
+            </h1>
+
+            <div className="grid grid-cols-1 gap-40 md:grid-cols-2 md:items-center">
                 {/* Bild -- gleiche visuelle Sprache wie das Hero-Portrait
             (border, bg-ink-soft, overflow-hidden) fuer Konsistenz */}
-                <div className="relative aspect-[3/4] overflow-hidden ">
+                {/* Bild mit Deko-Elementen */}
+                <div className="relative">
+                    {/* Blaues Rechteck -- oben links */}
                     <div
-                        className="absolute inset-0"
-                        style={{
-                            transform: `rotate(${ROTATION_DEG}deg) scale(${IMAGE_SCALE})`,
-                            transformOrigin: "center center",
-                        }}
+                        aria-hidden
+                        className="pointer-events-none absolute -left-8 -bottom-8 z-0 h-56 w-40 bg-[#2f5fd0]"
+                    />
+
+                    {/* Rosa Rechteck -- unten rechts */}
+                    <div
+                        aria-hidden
+                        className="pointer-events-none absolute -top-10 -right-8 z-0 h-64 w-48 bg-[#e8a0b8]"
+                    />
+
+                    {/* Punkte-Raster 10 x 30 -- rechts oben */}
+                    <div
+                        aria-hidden
+                        className="pointer-events-none absolute -right-10 -bottom-11 z-20 grid gap-[6px]"
+                        style={{ gridTemplateColumns: `repeat(${DOT_COLS_1}, 3px)` }}
                     >
-                        <ProtectedImage
-                            src="/Maya Website Quadrat.jpg"
-                            alt={t("imageAlt")}
-                            className="object-contain select-none [-webkit-touch-callout:none]"
-                            sizes="(min-width: 768px) 50vw, 100vw"
-                        />
+                        {Array.from({ length: DOT_COLS_1 * DOT_ROWS_1 }).map((_, i) => (
+                            <span key={i} className="block h-[3px] w-[3px] bg-white/70" />))}
+                    </div>
+                    <div
+                        aria-hidden
+                        className="pointer-events-none absolute -left-8 -top-6 z-20 grid gap-[6px]"
+                        style={{ gridTemplateColumns: `repeat(${DOT_COLS_2}, 3px)` }}
+                    >
+                        {Array.from({ length: DOT_COLS_2 * DOT_ROWS_2 }).map((_, i) => (
+                            <span key={i} className="block h-[3px] w-[3px] bg-white/70" />
+                        ))}
+                    </div>
+
+                    {/* Bild -- liegt darüber */}
+                    <div className="relative z-10 aspect-square overflow-hidden">
+                        <div
+                            className="absolute inset-0"
+                            style={{
+                                transform: `rotate(${ROTATION_DEG}deg) scale(${IMAGE_SCALE})`,
+                                transformOrigin: "center center",
+                            }}
+                        >
+                            <ProtectedImage
+                                src="/Maya Website Quadrat.jpg"
+                                alt={t("imageAlt")}
+                                className="object-cover select-none [-webkit-touch-callout:none]"
+                                sizes="(min-width: 768px) 50vw, 100vw"
+                            />
+                        </div>
                     </div>
                 </div>
 
-                {/* Text */}
-                <div className="flex flex-col justify-center">
-                    <span className="text-xs font-medium uppercase tracking-[0.2em] text-blood">
-                        {t("label")}
-                    </span>
-                    <h1 className="font-display mt-4 text-5xl leading-[1.0] md:text-4xl">
-                        {t("title")}
-                    </h1>
-                    <div className="mt-6 max-w-md space-y-4 text-sm leading-relaxed text-mute text-justify">
+                {/* Flip-Kachel -- Vorderseite transparent mit weisser Schrift */}
+                <InfoFlip
+                    label={t("infoLabel")}
+                    front={
+                        <div className="flex h-full w-full flex-col justify-center overflow-y-auto p-8 md:p-10">
+                            {/* 1 -- rote Zeile */}
+                            <span className="text-xs font-medium uppercase tracking-[0.2em] text-blood">
+                                {frontEyebrow}
+                            </span>
+
+                            {/* 2 -- grosse, fette Zeile in Weiss */}
+                            <h2 className="font-display mt-4 text-3xl font-bold leading-[0.95] text-bone md:text-4xl">
+                                {frontHeadline}
+                            </h2>
+
+                            {/* 3 -- kleinerer Text in Grau */}
+                            {frontText && (
+                                <p className="mt-6 max-w-md text-sm leading-relaxed text-mute">
+                                    {frontText}
+                                </p>
+                            )}
+
+                            {/* 4 -- Rechteck mit Text */}
+                            {frontBadge && (
+                                <span className="mt-8 inline-flex w-fit items-center gap-2 border border-white/25 px-4 py-2 text-[10px] font-medium uppercase tracking-[0.3em] text-bone/70">
+                                    {frontBadge}
+                                </span>
+                            )}
+                        </div>
+                    }
+                >
+                    <div className="space-y-4 text-xs leading-relaxed text-ink text-justify">
                         <p>{t("paragraph1")}</p>
                         <p>{t("paragraph2")}</p>
                         <p>{t("paragraph3")}</p>
                         <p>{t("paragraph4")}</p>
+                        <p>{t("paragraph5")}</p>
+                        <p>{t("paragraph6")}</p>
+                        <p>{t("paragraph7")}</p>
+                        <p>{t("paragraph8")}</p>
                     </div>
-                </div>
+                </InfoFlip>
             </div>
         </main>
     );

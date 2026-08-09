@@ -1,9 +1,9 @@
 {
   "Nav": {
-    "work": "Work",
+    "work": "3D Animation",
     "about": "About",
-    "collaboration": "Collaboration",
-    "journal": "Journal",
+    "collaboration": "AI Filmmaking",
+    "journal": "Podcasts",
     "menu": "Menu"
   },
   "Hero": {
@@ -12,9 +12,9 @@
     "line3": "MUSIC.",
     "line4": "3D ART.",
     "poweredBy": "powered by AI",
-    "label1": "STATEMENT",
+    "label1": "CINEMATIC STORYTELLING",
     "description1": "AI arrived instantly, established itself globally, and now moves to take the leading position in every sphere of life - culture included. ",
-    "description2": "And yet, AI is still a tool. A tool whose mastery, in cinema, fashion, and music, is no longer optional - it's essential. ",
+    "description2": "And yet, AI is still a tool. A tool whose mastery, in cinema, storytelling, fashion, and music, is no longer optional - it's essential. ",
     "description3": "AI-powered creative processes hold the potential to reach the highest aesthetic and commercial value - on one condition: that they are paired with technological and ethical awareness. ",
     "description4": "Backed by extensive experience in 3D, fashion aesthetics, set design, and cinematic background knowledge, Maya ES masters the art of prompt architecture - crafting AI-based virtual stories as films, music, or fashion shows. Ideally, all three at once.",
     "tagline": "Visionary. Creator. Storyteller.",
@@ -50,8 +50,8 @@
     ],
     "titleLine1": "I CREATE",
     "titleLine2": "THE FUTURE VISION.",
-    "description": "My work merges artificial intelligence with human emotion to shape new realities. Every project is a journey into the unknown.",
-    "cta": "My Journey"
+    "description": "Maya ES merges artificial intelligence with human emotion to shape new realities. Every project is a journey into the unknown.",
+    "cta": "See her Journey"
   },
   "Contact": {
     "collaboration": "Collaboration",
@@ -73,11 +73,102 @@
   "AboutMe": {
     "back": "Back",
     "label": "About",
-    "title": "",
-    "paragraph1": "Maya ES is a German 3D artist, digital fashion designer and AI filmmaker. Born into an artist family and trained in fashion and fine art, she found her true medium in 2019, when she began working with 3D animation. It was then that she recognized the game-changing power of 3D software, becoming one of the first-generation (Gen 1) pioneers of digital fashion design. ",
-    "paragraph2": "Her passion for AI took shape in her work for French couturier Jitrois, whose iconic dress she recreated in CG - designing her own accessories and helmet, and presenting it on her own creation, Cassie, Germany's first CG supermodel, inside a fully CG futuristic world created by her. The result was a short 3D film, 'Being a Man': a robot, seeing Cassie in the Jitrois dress at an exhibition, transforms into a man. Every element beyond the dress itself -  world, styling, story, direction - was her own creation. Jitrois published the film, and the collaboration was featured in the Parisian Fashion Magazine FAUST. ",
-    "paragraph3": "She went on to present her own fashion designs at digital fashion weeks in New York, Paris, and London, and at the Milan Art Festival. It was there that she recognized something bigger taking shape. AI was no longer the stuff of childhood fantasies - the worlds she'd once imagined through Asimov, Clarke, and Bradbury. At once it was real, an even more powerful, game-changing tool, already redefining culture itself. Once again, she chose to move first. ",
-    "paragraph4": "Today, AI is not optional in cinema, fashion, and music - it's foundational. For Maya ES, that means pairing technical mastery with ethical clarity, treating prompt architecture as a craft in its own right. The result: AI-driven virtual stories told through film, music, or fashion - and, ideally, all three woven into one. ",
-    "imageAlt": "Portrait"
+    "titleLine3": "From 3D Animation",
+    "titleLine4": "to Artificial intelligence",
+    "infoLabel": "INFORMATION",
+    "paragraph1": "Maya ES is a German digital fashion designer and a 3D / AI filmmaker. Born into an artist family and trained in fashion and fine art, she found her first true medium in 2019, when she began working with 3D animation. It was then that she recognized the game-changing power of 3D software, becoming one of the first pioneers of digital fashion design.",
+    "paragraph2": "Her flair for AI storytelling took shape in her work for French couturier Jitrois, whose iconic dress she recreated in CG – designing her own accessories and helmet, and presenting it on Cassie, her own creation and Germany's first CG supermodel, inside a fully CG futuristic world created by her.",
+    "paragraph3": "The result was a short 3D film, Being a Man: In the far future, a robot – an AI-powered creature – sees Cassie in the Jitrois dress at an exhibition and transforms into a man. Every element beyond the dress itself – the story, virtual world, styling, and film direction – was her own creation. Jitrois published the film, and the collaboration was featured in the Parisian fashion magazine FAUST.",
+    "paragraph4": "She went on to present her own fashion designs at digital fashion weeks in New York, Paris, and London, and at the Fashion Film Festival Milano. It was there that she recognized something bigger taking shape. AI was no longer the stuff of childhood fantasies - the worlds she'd once imagined through Asimov, Clarke, and Bradbury. At once it was real, an even more powerful, game-changing tool, already redefining culture itself. Once again, she chose to move first.",
+    "paragraph5": "Today, AI is not optional in cinema, fashion, and music - it's foundational. For Maya ES, that means pairing technical mastery with ethical clarity, treating prompt architecture as a craft in its own right. The result: AI-driven virtual stories told through film, music, or fashion - and, ideally, all three woven into one.",
+    "paragraph6": "",
+    "paragraph7": "",
+    "paragraph8": "",
+    "imageAlt": "Portrait",
+    "frontEyebrow": "Discover",
+    "frontHeadline": "The Story behind",
+    "frontText": "Maya ES is a German digital ...",
+    "frontBadge": "INFORMATION"
+  },
+  "Animation3D": {
+    "back": "Back",
+    "eyebrow": "3D Animation",
+    "titleLine1": "Moving",
+    "titleLine2": "brand worlds",
+    "intro": "Short intro …",
+    "flipHint": "Hover für Story",
+    "projects": {
+      "casino": {
+        "title": "Project 1",
+        "videoLabel": "Play Video",
+        "storyLabel": "Show project story",
+        "client": "Client One",
+        "headline": "How it started",
+        "story": "The story behind the film …",
+        "role": "Concept · 3D · Direction"
+      },
+      "project-two": {
+        "title": "Project 2",
+        "videoLabel": "Play video",
+        "storyLabel": "Show project story",
+        "client": "Client Two",
+        "headline": "How it started",
+        "story": "The story behind the film …",
+        "role": "Concept · 3D · Direction"
+      }
+    },
+    "Contact": {
+      "collaboration": "Collaboration",
+      "titleLine1": "Let us",
+      "titleLine2": "talk",
+      "cta": "Send message",
+      "note": "…",
+      "secondaryCta": "More work"
+    }
+  },
+  "AiFilmmaking": {
+    "back": "Zurück",
+    "eyebrow": "AI Filmmaking",
+    "titleLine1": "Frames ohne",
+    "titleLine2": "Kamera.",
+    "intro": "Kein Set, keine Crew, kein Drehtag. Was bleibt, ist Regie: Timing, Blick, Rhythmus. Jeder Film entsteht aus Prompt, Schnitt und Sound — und wird behandelt wie jede andere Produktion auch.",
+    "flipHint": "Karte drehen",
+    "Contact": {
+      "collaboration": "Zusammenarbeit",
+      "titleLine1": "Ein Film,",
+      "titleLine2": "der bleibt.",
+      "cta": "Projekt anfragen",
+      "note": "Von der ersten Idee bis zum fertigen Schnitt — Konzept, Bild, Musik und Sound aus einer Hand.",
+      "secondaryCta": "Mehr Arbeiten"
+    },
+    "projects": {
+      "casino": {
+        "title": "Casino Scene",
+        "videoLabel": "Casino Scene abspielen",
+        "storyLabel": "Geschichte zu Casino Scene anzeigen",
+        "client": "Client One",
+        "headline": "Ein Raum voller Einsätze, in dem niemand gewinnt.",
+        "story": "Die Szene ist als eine einzige Bewegung angelegt: Kamera und Kleid ziehen in dieselbe Richtung, während der Raum dagegen kippt. Die Farbwelt bleibt bewusst auf drei Töne reduziert — der Look kommt aus dem Colorgrading, nicht aus dem Prompt.",
+        "role": "Regie · Schnitt · Musik"
+      },
+      "goere": {
+        "title": "Göre",
+        "videoLabel": "Göre abspielen",
+        "storyLabel": "Geschichte zu Göre anzeigen",
+        "client": "Client Two",
+        "headline": "Hochformat als Entscheidung, nicht als Beschnitt.",
+        "story": "Der Bildausschnitt hält die Figur fest, während alles um sie herum aus dem Rahmen fällt. Der Schnitt folgt der Snare, nicht der Handlung: Jede Einstellung endet eine Achtel zu früh.",
+        "role": "Regie · Musik"
+      },
+      "second-skin": {
+        "title": "Second Skin",
+        "videoLabel": "Second Skin abspielen",
+        "storyLabel": "Geschichte zu Second Skin anzeigen",
+        "client": "Client Three",
+        "headline": "Stoff, der sich an Physik nicht gebunden fühlt.",
+        "story": "Ein Laufsteg ohne Publikum. Die Kleidung wird in 3D simuliert und anschließend generativ überschrieben — dazwischen liegt der eigentliche Film. Cinemascope, weil das Format den Körper zwingt, sich horizontal zu bewegen.",
+        "role": "3D · Simulation · Sound Design"
+      }
+    }
   }
 }

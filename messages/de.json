@@ -1,9 +1,9 @@
 {
   "Nav": {
-    "work": "Arbeiten",
+    "work": "3D Animation",
     "about": "Über mich",
-    "collaboration": "Kollaborationen",
-    "journal": "Journal",
+    "collaboration": "KI Filme",
+    "journal": "Podcasts",
     "menu": "Menü"
   },
   "Hero": {
@@ -12,9 +12,9 @@
     "line3": "MUSIK.",
     "line4": "3D KUNST.",
     "poweredBy": "unterstützt durch KI",
-    "label1": "STATEMENT",
-    "description1": "KI ist ohne große Vorankündigung in unser Leben ein- marschiert, hat sich weltweit etabliert– und strebt nun danach, in nahezu allen Lebensbereichen eine führende Rolle ein- zunehmen. Kultur eingeschlossen.",
-    "description2": "Und doch bleibt KI ein Werkzeug. Ein Werkzeug, dessen Meisterschaft in Film, Mode und Musik längst keine Option mehr ist, sondern eine Notwendigkeit.",
+    "label1": "CINEMATIC STORYTELLING",
+    "description1": "KI ist ohne große Vorankündigung in unser Leben ein- marschiert, hat sich weltweit etabliert – und strebt nun danach, in nahezu allen Lebensbereichen eine führende Rolle einzunehmen. Kultur eingeschlossen.",
+    "description2": "Und doch bleibt KI ein Werkzeug. Ein Werkzeug, dessen Meisterschaft in Film, Storytelling, Mode und Musik längst keine Option mehr ist, sondern eine Notwendigkeit.",
     "description3": "KI-gestützte kreative Prozesse besitzen das Potenzial zu höchster ästhetischer und kommerzieller Qualität – unter einer entscheidenden Voraussetzung: Sie müssen mit techno- logischem Bewusstsein und ethischer Verantwortung gepaart sein.",
     "description4": "Basierned auf der langjährigen Erfahrung in der Ästhetik von 3D, Mode, Szenenbild und cinematischen Hintergrundwissen beherrscht Maya ES die Kunst der Prompt-Architektur – und erschafft KI-basierte virtuelle Erzählwelten in Form von Filmen, Musik oder Fashion Shows. Im Idealfall als alles drei zugleich.",
     "tagline": "Visionär. Kreativ. Storyteller.",
@@ -50,8 +50,8 @@
     ],
     "titleLine1": "ICH ERSCHAFFE",
     "titleLine2": "DIE ZUKUNFTSVISION.",
-    "description": "Meine Arbeit verbindet künstliche Intelligenz mit menschlicher Emotion, um neue Realitäten zu formen. Jedes Projekt ist eine Reise ins Unbekannte.",
-    "cta": "Meine Reise"
+    "description": "Maya ES verbindet künstliche Intelligenz mit menschlicher Emotion, um neue Realitäten zu formen. Jedes Projekt ist eine Reise ins Unbekannte.",
+    "cta": "Ihr Werdegang"
   },
   "Contact": {
     "collaboration": "Kollaboration",
@@ -73,11 +73,102 @@
   "AboutMe": {
     "back": "Zurück",
     "label": "Über",
-    "title": "",
-    "paragraph1": "Die deutsche Übersetzung erscheint bald.",
-    "paragraph2": "",
-    "paragraph3": "",
-    "paragraph4": "",
-    "imageAlt": "Portrait"
+    "titleLine3": "Von der 3D Animation",
+    "titleLine4": "zur Künstlichen Intelligenz",
+    "infoLabel": "INFORMATION",
+    "paragraph1": "Maya ES ist eine deutsche digitale Modedesignerin und eine 3D / KI Filmemacherin.",
+    "paragraph2": "In eine Künstlerfamilie hineingeboren, in Mode und Kunst gebildet, entdeckte sie ihr erstes eigentliches Medium, als sie begann, mit 3D-Animation zu arbeiten. Gleich erkannte sie die transformative Kraft der 3D-Software in Mode und wurde zu einer Pionierin des digitalen Fashion Designs.",
+    "paragraph3": "Ihre Veranlagung für KI Storytelling nahm in ihrer Arbeit für den französischen Couturier Jitrois konkrete Gestalt an. Dessen ikonisches Kleid re-konstruierte sie in CG, entwarf dazu ihre eigenen Accessoires und einen Helm und präsentierte die Kreation an Cassie, dem von ihr kreierten Deutschlands erstem CG-Supermodel – eingebettet in einer digitalen futuristischen Welt.",
+    "paragraph4": "Das Ergebnis war ein 3D-Kurzfilm „Being a Man“: In der fernen Zukunft entdeckt ein Roboter - ein KI-gesteurtes Wesen - Cassie in dem Jitrois-Kleid bei einer Ausstellung und verwandelt sich dabei in einen echten Menschen. Alles jenseits des Kleides selbst – die Geschichte, die künstliche Welt, das Styling und die Regie – entstand aus ihrer eigenen Hand. Jitrois veröffentlichte den Film. Von der Zusammenarbeit wurde im Pariser Mode Magazin FAUST berichtet.",
+    "paragraph5": "In der Folge präsentierte sie ihre eigenen Entwürfe auf den Digital Fashion Weeks in New York, Paris und London sowie beim Fashion Film Festival Milano. In dieser Zeit zeichnete sich für sie etwas Größeres ab und sie entschied erneut, von Anfang an bei den Pionieren zu sein.",
+    "paragraph6": "KI war längst nicht mehr der Stoff jener Jugendvisionen, die einst durch Asimov, Clarke und Bradbury befeuert wurden. Plötzlich war sie Realität – ein noch mächtigeres, die Spielregeln veränderndes Werkzeug, das bereits dabei war, die Kultur selbst neu zu definieren.",
+    "paragraph7": "Heute ist KI in Film, Mode und Musik keine Option mehr – sie bildet die Grundlage. Für Maya ES bedeutet das, technologische Meisterschaft mit ethischer Klarheit zu verbinden und die Prompt-Architektur als eigenständiges Tool zu perfektionieren.",
+    "paragraph8": "Das Ergebnis: KI-basierte virtuelle Welten, die sich durch Film, Musik oder Fashion erzählen – und im Idealfall alles drei zu einem einzigen Ganzen verbinden.",
+    "imageAlt": "Portrait",
+    "frontEyebrow": "Entdecke",
+    "frontHeadline": "Die Geschichte dahinter",
+    "frontText": "Maya ES ist eine deutsche digitale ...",
+    "frontBadge": "INFORMATION"
+  },
+  "Animation3D": {
+    "back": "Zurück",
+    "eyebrow": "3D Animation",
+    "titleLine1": "Bewegte",
+    "titleLine2": "Markenwelten",
+    "intro": "Kurzer Einleitungstext …",
+    "flipHint": "Hover für Story",
+    "projects": {
+      "casino": {
+        "title": "Casino Scene",
+        "videoLabel": "Video abspielen",
+        "storyLabel": "Projektgeschichte anzeigen",
+        "client": "Kunde 1",
+        "headline": "Wie das Projekt entstand",
+        "story": "Die Geschichte hinter dem Film …",
+        "role": "Konzept · 3D · Direction"
+      },
+      "project-two": {
+        "title": "Project Two",
+        "videoLabel": "Video abspielen",
+        "storyLabel": "Projektgeschichte anzeigen",
+        "client": "Kunde 2",
+        "headline": "Wie das Projekt entstand",
+        "story": "Die Geschichte hinter dem Film …",
+        "role": "Konzept · 3D · Direction"
+      }
+    },
+    "Contact": {
+      "collaboration": "Kollaboration",
+      "titleLine1": "Lass uns",
+      "titleLine2": "sprechen",
+      "cta": "Anfrage senden",
+      "note": "…",
+      "secondaryCta": "Mehr Arbeiten"
+    }
+  },
+  "AiFilmmaking": {
+    "back": "Back",
+    "eyebrow": "AI Filmmaking",
+    "titleLine1": "Frames without",
+    "titleLine2": "a camera.",
+    "intro": "No set, no crew, no shooting day. What remains is direction: timing, gaze, rhythm. Every film comes out of prompt, edit and sound — and gets treated like any other production.",
+    "flipHint": "Flip the card",
+    "Contact": {
+      "collaboration": "Collaboration",
+      "titleLine1": "A film",
+      "titleLine2": "that stays.",
+      "cta": "Start a project",
+      "note": "From first idea to final cut — concept, image, music and sound from one hand.",
+      "secondaryCta": "More work"
+    },
+    "projects": {
+      "casino": {
+        "title": "Casino Scene",
+        "videoLabel": "Play Casino Scene",
+        "storyLabel": "Show the story behind Casino Scene",
+        "client": "Client One",
+        "headline": "A room full of bets where nobody wins.",
+        "story": "The scene is built as a single movement: camera and dress pull the same way while the room tilts against them. The palette stays deliberately down to three tones — the look comes from the grade, not the prompt.",
+        "role": "Direction · Edit · Music"
+      },
+      "goere": {
+        "title": "Göre",
+        "videoLabel": "Play Göre",
+        "storyLabel": "Show the story behind Göre",
+        "client": "Client Two",
+        "headline": "Vertical by decision, not by crop.",
+        "story": "The frame holds the figure while everything around her falls out of it. The cut follows the snare rather than the plot: every shot ends an eighth too early.",
+        "role": "Direction · Music"
+      },
+      "second-skin": {
+        "title": "Second Skin",
+        "videoLabel": "Play Second Skin",
+        "storyLabel": "Show the story behind Second Skin",
+        "client": "Client Three",
+        "headline": "Fabric that never agreed to physics.",
+        "story": "A runway without an audience. The garment is simulated in 3D and then generatively overwritten — the actual film happens in between. Cinemascope, because the format forces the body to move sideways.",
+        "role": "3D · Simulation · Sound design"
+      }
+    }
   }
 }

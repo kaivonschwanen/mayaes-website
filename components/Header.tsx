@@ -16,9 +16,9 @@ export default function Header() {
   // der Rest bleibt vorerst wie bisher.
   const NAV_LINKS = [
     { key: "work", label: t("Nav.work"), href: `/${locale}/coming-soon` },
-    { key: "about", label: t("Nav.about"), href: `/${locale}/about` },
     { key: "collaboration", label: t("Nav.collaboration"), href: `/${locale}/coming-soon` },
     { key: "journal", label: t("Nav.journal"), href: `/${locale}/coming-soon` },
+    { key: "about", label: t("Nav.about"), href: `/${locale}/about` },
   ];
 
   useEffect(() => {
