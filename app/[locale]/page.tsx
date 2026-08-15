@@ -169,24 +169,40 @@ export default function Home() {
             </span>
 
 
-            <div className="mt-10 max-w-lg text-[17px] leading-[1.8] tracking-[0.01em] text-mute text-justify">
+            <div className="mt-10 max-w-lg text-[22px] leading-[1.8] tracking-[0.01em] text-mute text-justify">
               <p>{t("Hero.description1")}</p>
 
               <p className="mt-6">
                 {t("Hero.description2")}
               </p>
 
-              <p className="mt-6">
-                {t("Hero.description3")}
+              <p>
+                <br />
+                <span className="text-2xl font-medium uppercase tracking-[0.5em] text-blood">
+                  {t("Hero.underline1")}
+                </span>
+                <br />
+                <span className="text-2xl font-medium uppercase tracking-[0.5em] text-blood">
+                  {t("Hero.underline2")}
+                </span>
+              </p>
+
+              <p className="mt-6 text-[16px]" >
+                {t("Hero.underdescription3")}
               </p>
 
               <p className="mt-6">
-                {t("Hero.description4")}
+                {t("Hero.underdescription4")}
               </p>
 
               <p className="mt-10 font-medium tracking-[0.08em] text-blood">
-                {t("Hero.tagline")}
+                {t("Hero.tagline1")}
               </p>
+
+              <p className="font-medium tracking-[0.08em] text-blood">
+                {t("Hero.tagline2")}
+              </p>
+
             </div>
 
           </div>
@@ -211,7 +227,7 @@ export default function Home() {
         </section>
 
         {/* FEATURED WORK GRID */}
-        <section id="work" className="mx-auto grid max-w-[1400px] grid-cols-1 gap-px bg-white/5 md:grid-cols-2">
+        <section id="work" className="mx-auto grid max-w-[1400px] grid-cols-1 gap-px px-6 md:grid-cols-2 md:px-10">
           {/* AI Film & Music */}
           <div
             className="group relative flex min-h-[420px] flex-col justify-end overflow-hidden bg-ink p-8"
@@ -247,7 +263,7 @@ export default function Home() {
 
             <video
               ref={videoRef}
-              src="https://media.mayaesai.com/Casino scene short.mp4"
+              src="https://media.mayaesai.com/Casino scene short1.mp4"
               loop
               muted={isMuted}
               playsInline
@@ -367,7 +383,7 @@ export default function Home() {
         </section>
 
         {/* CONTACT */}
-        <section className="mx-auto grid max-w-[1400px] grid-cols-1 gap-px md:grid-cols-[1.1fr_1fr_1fr]">
+        <section className="mx-auto grid max-w-[1400px] grid-cols-1 gap-px px-6 md:grid-cols-[1.1fr_1fr_1fr] md:px-10">
           <div className="flex flex-col justify-center bg-blood p-8 text-ink md:p-14">
             <span className="text-xs font-medium uppercase tracking-[0.2em]">
               {t("Contact.collaboration")}
@@ -554,7 +570,7 @@ function IntroVideo({
       onContextMenu={(e) => e.preventDefault()}>
       <video
         ref={introVideoRef}
-        src="https://media.mayaesai.com/reel-website-ohne-goere.mp4"
+        src="https://media.mayaesai.com/reel-website-ohne-goere%20und%20listiger%20mann%20im%20profil.mp4"
         autoPlay
         loop
         muted

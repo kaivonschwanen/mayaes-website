@@ -15,8 +15,8 @@ export default function Header() {
   // /coming-soon zu schicken. "about" zeigt auf die neue About-Seite,
   // der Rest bleibt vorerst wie bisher.
   const NAV_LINKS = [
-    { key: "work", label: t("Nav.work"), href: `/${locale}/coming-soon` },
-    { key: "collaboration", label: t("Nav.collaboration"), href: `/${locale}/coming-soon` },
+    { key: "work", label: t("Nav.work"), href: `/${locale}/3d-animation` },
+    { key: "collaboration", label: t("Nav.collaboration"), href: `/${locale}/ai-filmmaking` },
     { key: "journal", label: t("Nav.journal"), href: `/${locale}/coming-soon` },
     { key: "about", label: t("Nav.about"), href: `/${locale}/about` },
   ];

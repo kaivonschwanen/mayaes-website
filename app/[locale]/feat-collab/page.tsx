@@ -7,21 +7,17 @@
  *  - Breitformat: Video oben (volle Breite), Flip-Kachel direkt darunter
  *  - Hochformat:  Video links oder rechts, Flip-Kachel daneben
  *  - Video-Kachel: Standbild, startet im Loop bei Hover (Touch: Tap), leichter Parallax
- *  - Flip-Kachel:  reine Typografie, dreht sich wie eine Spielkarte
- *                  Vorderseite: transparent + Rahmen, 2 Textbloecke
- *                  Rueckseite:  bg-paper, 3 Textbloecke
- *
- * SPRACHEN: Die Texte stehen in de.json / en.json unter
- *   AiFilmmaking.projects.<film.id>.<key>
- * Im FILMS-Array steht pro Block nur der `key` plus das Aussehen.
- * `lines` ist der Notnagel, falls ein Key in den messages fehlt.
+ *  - Flip-Kachel:  Logo weiss auf schwarz, dreht sich wie eine Spielkarte
+ *                  und zeigt die Projektgeschichte
+ * Alles Steuerbare steht im FILMS-Array und in DEFAULT_LAYOUT.
  */
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
+import Header from "@/components/Header";
 import AiLabel from "@/components/AiLabel";
-import AnimLabel from "@/components/3dLabel";
 import { Play, Volume2, VolumeX } from "lucide-react";
 
 /* ==========================================================================
@@ -35,10 +31,8 @@ import { Play, Volume2, VolumeX } from "lucide-react";
                   "tall" = Hochformat, Video und Text nebeneinander
    videoPosition  wide: "top" | "bottom"   ·   tall: "left" | "right"
                   Auf Mobile steht das Video immer oben.
-   aspect         Seitenverhaeltnis des Videofensters. Damit das Video
-                  UNBESCHNITTEN laeuft, muss dieser Wert dem Verhaeltnis der
-                  Quelldatei entsprechen -- bei 1920x1080 also "16 / 9".
-                  Weicht er ab, schneidet "cover" die Differenz weg.
+   aspect         Seitenverhältnis des Videofensters, z. B. "16 / 9",
+                  "2.39 / 1", "9 / 16", "4 / 5". Ohne Angabe: 16/9 bzw. 9/16.
 
    videoZoom      Zoom des Bildinhalts INNERHALB des Fensters. Der Rahmen
                   bleibt dabei exakt gleich gross.
@@ -52,91 +46,27 @@ import { Play, Volume2, VolumeX } from "lucide-react";
                   fuellen und der Zoom bliebe unsichtbar.
    videoFocus     Welcher Ausschnitt beim Beschneiden stehen bleibt:
                   "center" (Standard), "top", "bottom", "50% 30%" …
-   parallax       Staerke der Videoverschiebung beim Scrollen.
+   parallax       Stärke der Videoverschiebung beim Scrollen.
                   0 = aus · 0.12 = dezent · 0.3 = deutlich
-                  ACHTUNG: Solange Parallax an ist, liegt eine Ueberdeckung
-                  von 14 % auf der Bildebene, damit beim Verschieben keine
-                  Luecken an den Raendern entstehen. Das ist ein Beschnitt.
-                  Wer das Bild wirklich unangetastet sehen will, setzt hier 0.
+                  Achtung: Solange Parallax an ist, liegt eine leichte
+                  Ueberdeckung (Faktor 1.14) auf der Bildebene, damit beim
+                  Verschieben keine Luecken an den Raendern entstehen. Zum
+                  echten Verkleinern also `parallax: 0` setzen.
 
-   layout         Groessen; ueberschreibt DEFAULT_LAYOUT fuer diesen Eintrag:
-     maxWidth     Gesamtbreite der Zeile
-     videoSize    Breite des Videofensters
-     textSize     Breite der Flip-Kachel
-     gap          Abstand zwischen Video und Kachel
-                  Video und Kachel teilen sich die Restbreite, deshalb sind
-                  videoSize/textSize als calc() mit --row-gap formuliert --
-                  aendert man den Abstand, passen sich die Breiten mit an.
-     tileHeight   Hoehe der Flip-Kachel NUR AUF MOBILE. Ab md richtet sie
-                  sich automatisch nach der Hoehe des Videos daneben.
-     align        "stretch" = Flip-Kachel uebernimmt im Hochformat exakt die
-                              Videohoehe
-                  "fixed"   = Flip-Kachel behaelt immer tileHeight
-
-   --------------------------------------------------------------------------
-   TEXTE DER FLIP-KACHEL -- ZWEISPRACHIG
-   --------------------------------------------------------------------------
-   Der Text selbst steht NICHT hier, sondern in de.json / en.json unter
-     AiFilmmaking.projects.<film.id>.<key>
-   Zeilenumbruch dort mit \n -- zwei Zeilen ergeben die zweizeilige Kachel.
-
-   Hier im TSX steht nur das Aussehen. Pro Block einstellbar:
-     key          Name des Eintrags in den messages
-     lines        Fallback, falls der Key fehlt. Jeder Eintrag ist EINE Zeile.
-     font         "display" | "arimo" | "sans"          (siehe FONTS)
-     color        "bone" | "mute" | "blood" | "ink" | … (siehe COLORS)
-     size         freier CSS-Wert: "14px", "clamp(28px, 3.4vw, 52px)"
-     tracking     Laufweite, z. B. "0.24em"
-     leading      Zeilenabstand, z. B. "0.9" (eng) oder "1.8" (luftig)
-     weight       Schriftstaerke, z. B. 400 / 700
-     uppercase    true = Grossbuchstaben
-     gap          Abstand nach oben zum Block darueber, z. B. "22px"
+   layout         Größen; überschreibt DEFAULT_LAYOUT für diesen Eintrag:
+     maxWidth     Gesamtbreite der Zeile             "1400px"
+     videoSize    Breite des Videofensters           wide: "100%" · tall: "40%"
+     textSize     Breite der Flip-Kachel             wide: "100%" · tall: "60%"
+     gap          Abstand zwischen den Kacheln       "1px" (Haarlinie), "40px" …
+     tileHeight   Höhe der Flip-Kachel               "clamp(360px,30vw,520px)"
+     align        "stretch" = Flip-Kachel wächst im Hochformat auf Videohöhe
+                  "fixed"   = Flip-Kachel behält immer tileHeight
    ========================================================================== */
-
-/* Breite der ganzen Seite -- Ueberschrift, Filmzeilen und Fusszeile richten
-   sich danach. 94vw laesst links und rechts nur einen schmalen Rand stehen,
-   1720px verhindert, dass es auf sehr breiten Monitoren auseinanderfaellt. */
-const PAGE_MAX = "1400px";
-
 
 type Format = "wide" | "tall";
 type VideoPosition = "top" | "bottom" | "left" | "right";
 type Align = "stretch" | "fixed";
 type VideoFit = "cover" | "contain";
-
-/* Schriftarten und Farben als feste Klassen -- so findet Tailwind sie beim
-   Build. Neue Varianten hier ergaenzen, nicht weiter unten frei bauen. */
-const FONTS = {
-  display: "font-display",
-  arimo: "font-arimo",
-  sans: "font-sans",
-} as const;
-
-const COLORS = {
-  bone: "text-bone",
-  mute: "text-mute",
-  muteSoft: "text-mute/70",
-  blood: "text-blood",
-  ink: "text-ink",
-  inkSoft: "text-ink/60",
-  paper: "text-paper",
-} as const;
-
-type FontKey = keyof typeof FONTS;
-type ColorKey = keyof typeof COLORS;
-
-type TextBlock = {
-  key?: string;
-  lines?: string[];
-  font?: FontKey;
-  color?: ColorKey;
-  size?: string;
-  tracking?: string;
-  leading?: string;
-  weight?: number;
-  uppercase?: boolean;
-  gap?: string;
-};
 
 type LayoutConfig = {
   maxWidth?: string;
@@ -148,21 +78,17 @@ type LayoutConfig = {
 };
 
 type Film = {
-  /** Muss dem Key in de.json / en.json unter projects entsprechen */
+  /** Muss dem Key in den messages-Dateien entsprechen */
   id: string;
   format: Format;
   videoPosition: VideoPosition;
   videoSrc: string;
   poster: string;
-  /** Nur Fallback fuer aria-Labels, wenn die messages nichts liefern */
-  label: string;
+  /** Optional: Pfad zum Logo (SVG/PNG, weiss). Ohne Angabe wird logoText gesetzt */
+  logoSrc?: string;
+  logoText: string;
   year: string;
   aspect?: string;
-
-  /** Vorderseite der Kachel: zwei Textbloecke */
-  front: TextBlock[];
-  /** Rueckseite der Kachel: drei Textbloecke */
-  back: TextBlock[];
 
   /** Zoom des Bildinhalts im Fenster -- 1 = normal, >1 naeher dran, <1 kleiner */
   videoZoom?: number;
@@ -177,138 +103,76 @@ type Film = {
 
 const DEFAULT_LAYOUT: Record<Format, Required<LayoutConfig>> = {
   wide: {
-    maxWidth: PAGE_MAX,
+    maxWidth: "1400px",
     videoSize: "100%",
     textSize: "100%",
-    gap: "clamp(24px, 3vw, 56px)",
+    gap: "1px",
     tileHeight: "clamp(360px, 28vw, 480px)",
     align: "fixed",
   },
   tall: {
-    maxWidth: PAGE_MAX,
-    /* Beide Kacheln teilen sich die Breite abzueglich des Abstands --
-       sonst wuerde die Zeile um genau den Abstand ueberlaufen. */
-    videoSize: "calc(50% - var(--row-gap) / 2)",
-    textSize: "calc(50% - var(--row-gap) / 2)",
-    gap: "clamp(32px, 4vw, 80px)",
-    /* Gilt nur auf Mobile -- ab md kommt die Hoehe vom Video. */
-    tileHeight: "clamp(340px, 80vw, 480px)",
+    maxWidth: "1400px",
+    videoSize: "50%",
+    textSize: "50%",
+    gap: "1px",
+    tileHeight: "clamp(420px, 60vw, 640px)",
     align: "stretch",
   },
 };
 
-/* Aussehen der Textbloecke -- gilt fuer alle Filme gleich, damit die Kacheln
-   eine Familie bleiben. Soll ein Film abweichen, den Block dort einzeln
-   ueberschreiben (siehe Fashion Film Festival Milano weiter unten). */
-const FRONT_STYLE: TextBlock[] = [
-  {
-    key: "frontTitle",
-    font: "display",
-    color: "bone",
-    size: "clamp(28px, 3.2vw, 50px)",
-    leading: "0.9",
-  },
-  {
-    key: "frontMeta",
-    font: "arimo",
-    color: "mute",
-    size: "clamp(11px, 1vw, 13px)",
-    tracking: "0.24em",
-    leading: "2",
-    uppercase: true,
-    gap: "22px",
-  },
-];
-
-const BACK_STYLE: TextBlock[] = [
-  {
-    key: "backEyebrow",
-    font: "arimo",
-    color: "blood",
-    size: "12px",
-    tracking: "0.2em",
-    leading: "1.8",
-    uppercase: true,
-  },
-  {
-    key: "backHeadline",
-    font: "display",
-    color: "ink",
-    size: "clamp(26px, 2.6vw, 40px)",
-    leading: "0.95",
-    gap: "16px",
-  },
-  {
-    key: "backText",
-    font: "sans",
-    color: "inkSoft",
-    size: "14px",
-    leading: "1.7",
-    gap: "24px",
-  },
-];
-
-/* Alle Quellen sind 1920x1080 -- deshalb ueberall "16 / 9", Zoom 1 und
-   Parallax 0. So laeuft jedes Video exakt in seinem Originalausschnitt. */
 const FILMS: Film[] = [
   {
-    id: "digitalFashionWeek",
-    format: "tall",
-    videoPosition: "left",
+    id: "casino",
+    format: "wide",
+    videoPosition: "top",
     videoSrc:
-      "https://media.mayaesai.com/Homepage%20Modeschau%20Fashion%20animation%20websiteMaya%2020%20sekunden%203D.mp4",
-    poster: "/DFW-2022-2055-website.jpg",
-    label: "Digital Fashion Week",
-    year: "2022 - 2025",
+      "https://media.mayaesai.com/jitrois%20being%20a%20man%20remastered%20neue-musik.mp4",
+    poster: "/scene-1.jpg",
+    logoSrc: "/logos/jitrois-logo.jpg",
+    logoText: "3D FASHION DESIGN",
+    year: "2020",
     aspect: "16 / 9",
+    /* Bildinhalt im Fenster: 1 = so wie geliefert */
     videoZoom: 1,
     videoFit: "cover",
     videoFocus: "center",
-    parallax: 0,
-    front: FRONT_STYLE,
-    back: BACK_STYLE,
+    parallax: 0.12,
   },
   {
-    id: "danceOfTheLight",
-    format: "tall",
-    videoPosition: "right",
+    id: "goere",
+    format: "wide",
+    videoPosition: "left",
     videoSrc:
       "https://media.mayaesai.com/Dance%20of%20the%20Lights%20Volume%201%20enhanced-2.mp4",
-    poster: "/dance-of-the-Light-Vorschau-website.jpg",
-    label: "Dance of the Light",
+    poster: "/goere-standbild.jpg",
+    logoText: "DANCE OF THE LIGHT",
     year: "2023",
     aspect: "16 / 9",
-    videoZoom: 1,
+    /* Beispiel: naeher ans Motiv, Ausschnitt im oberen Drittel halten */
+    videoZoom: 1.00,
     videoFit: "cover",
-    videoFocus: "center",
-    parallax: 0,
-    front: FRONT_STYLE,
-    back: BACK_STYLE,
+    videoFocus: "50% 35%",
+    parallax: 0.16,
   },
   {
-    id: "fashionFilmFestivalMilano",
-    format: "tall",
-    videoPosition: "left",
+    id: "FASHION FILM FESTIVAL MILANO",
+    format: "wide",
+    videoPosition: "bottom",
     videoSrc: "https://media.mayaesai.com/Maya-ES-MFFF-Metaverse-a.mp4",
-    poster: "/Vorschau-fffm-website.jpg",
-    label: "Fashion Film Festival Milano",
+    poster: "/FFFM-logo-website.jpg",
+    logoSrc: "/logos/FFFM.png",
+    logoText: "FASHION FILM FESTIVAL MILANO",
     year: "2023",
     aspect: "16 / 9",
-    videoZoom: 1,
-    videoFit: "cover",
-    videoFocus: "center",
+    /* Beispiel zum VERKLEINERN: contain + parallax 0, sonst bleibt es wirkungslos */
+    videoZoom: 1.22,
+    videoFit: "contain",
     parallax: 0,
-    /* Der Titel ist deutlich laenger als bei den anderen -- deshalb hier
-       eine Stufe kleiner, sonst bricht er auf Tablets in drei Zeilen um. */
-    front: [
-      { ...FRONT_STYLE[0], size: "clamp(24px, 2.8vw, 42px)" },
-      FRONT_STYLE[1],
-    ],
-    back: BACK_STYLE,
+    layout: { tileHeight: "clamp(320px, 24vw, 420px)" },
   },
 ];
 
-/** true auf Geraeten mit echtem Maus-Hover */
+/** true auf Geräten mit echtem Maus-Hover */
 const hasHover = () =>
   typeof window !== "undefined" && window.matchMedia("(hover: hover)").matches;
 
@@ -328,53 +192,8 @@ function safeT(t: Translator, key: string, fallback = "") {
   }
 }
 
-/** messages haben Vorrang vor `lines`, Zeilenumbruch dort mit \n */
-function resolveLines(t: Translator, filmId: string, block: TextBlock) {
-  if (block.key) {
-    const value = safeT(t, `projects.${filmId}.${block.key}`, "");
-    if (value) return value.split("\n").map((line) => line.trim());
-  }
-  return block.lines ?? [];
-}
-
-function TextBlockView({
-  block,
-  lines,
-  centered,
-}: {
-  block: TextBlock;
-  lines: string[];
-  centered?: boolean;
-}) {
-  if (!lines.length) return null;
-
-  return (
-    <p
-      className={[
-        FONTS[block.font ?? "sans"],
-        COLORS[block.color ?? "bone"],
-        block.uppercase ? "uppercase" : "",
-        centered ? "text-center" : "",
-      ].join(" ")}
-      style={{
-        fontSize: block.size,
-        letterSpacing: block.tracking,
-        lineHeight: block.leading,
-        fontWeight: block.weight,
-        marginTop: block.gap,
-      }}
-    >
-      {lines.map((line, i) => (
-        <span key={i} className="block">
-          {line}
-        </span>
-      ))}
-    </p>
-  );
-}
-
-export default function AiFilmmakingPage() {
-  const t = useTranslations("AiFilmmaking");
+export default function FeatCollabPage() {
+  const t = useTranslations("FeatCollab");
   const tRoot = useTranslations();
   const locale = useLocale();
 
@@ -387,10 +206,7 @@ export default function AiFilmmakingPage() {
       {/* Der Universum-Parallax liegt im Layout dahinter -- deshalb hier
           bewusst kein deckender Hintergrund auf <main> oder <section>. */}
 
-      <section
-        className="mx-auto w-full px-6 py-24 md:px-10"
-        style={{ maxWidth: PAGE_MAX }}
-      >
+      <section className="mx-auto max-w-[1400px] px-6 py-24 md:px-10">
         <Link
           href="../"
           className="mb-12 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-mute transition-colors hover:text-blood"
@@ -426,11 +242,40 @@ export default function AiFilmmakingPage() {
         ))}
       </div>
 
-      <p
-        className="mx-auto w-full px-6 py-10 text-[10px] normal-case tracking-normal text-mute/70 md:px-10"
-        style={{ maxWidth: PAGE_MAX }}
-      >
-        {tRoot("AnimLabel.disclaimer")}
+      <section className="mx-auto mt-24 grid max-w-[1400px] grid-cols-1 gap-px md:grid-cols-[1.1fr_1fr]">
+        <div className="flex flex-col justify-center bg-blood p-8 text-ink md:p-14">
+          <span className="text-xs font-medium uppercase tracking-[0.2em]">
+            {t("Contact.collaboration")}
+          </span>
+          <h2 className="font-display mt-4 text-4xl leading-[0.95] md:text-5xl">
+            {t("Contact.titleLine1")}
+            <br />
+            {t("Contact.titleLine2")}
+          </h2>
+
+          <a
+            href="mailto:mayaes2018@gmail.com"
+            className="mt-6 inline-flex w-fit items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] transition-colors hover:text-ink/60"
+          >
+            {t("Contact.cta")} <span aria-hidden>↗</span>
+          </a>
+        </div>
+
+        <div className="flex flex-col justify-center p-8 md:p-14">
+          <p className="max-w-xs text-sm leading-relaxed text-mute">
+            {t("Contact.note")}
+          </p>
+          <Link
+            href={`/${locale}/coming-soon`}
+            className="mt-6 inline-flex w-fit items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-bone transition-colors hover:text-blood"
+          >
+            {t("Contact.secondaryCta")} <span aria-hidden>↗</span>
+          </Link>
+        </div>
+      </section>
+
+      <p className="mx-auto max-w-[1400px] px-6 py-10 text-[10px] normal-case tracking-normal text-mute/70 md:px-10">
+        {tRoot("AiLabel.disclaimer")}
       </p>
     </main>
   );
@@ -473,9 +318,9 @@ function FilmRow({
 
   const stretchTile = isTall && L.align === "stretch";
 
-  /* Wichtig: Wenn die Kachel auf Videohoehe mitwachsen soll, muss der Wrapper
+  /* Wichtig: Wenn die Kachel auf Videohöhe mitwachsen soll, muss der Wrapper
      selbst ein Flex-Container sein -- sonst hat die Karte keine definierte
-     Hoehe und die absolut positionierten Seiten fallen auf 0 zusammen. */
+     Höhe und die absolut positionierten Seiten fallen auf 0 zusammen. */
   const tileBoxClass = [
     "w-full",
     isTall
@@ -485,15 +330,13 @@ function FilmRow({
   ].join(" ");
 
   return (
-    /* Bewusst OHNE Hintergrund: Die Kachel ist vorne transparent, ein bg
-       hier wuerde milchig vor dem Sternenhimmel liegen. */
     <section
-      className="mx-auto w-full px-6 md:px-10"
+      className="mx-auto w-full bg-white/5"
       style={{ ...cssVars, maxWidth: L.maxWidth }}
     >
       <div
         className={[
-          "flex flex-col gap-8 md:gap-[var(--row-gap)]",
+          "flex flex-col gap-px md:gap-[var(--row-gap)]",
           directionClass,
         ].join(" ")}
       >
@@ -520,7 +363,7 @@ function VideoTile({
   soundOn: boolean;
   onToggleSound: () => void;
 }) {
-  const t = useTranslations("AiFilmmaking");
+  const t = useTranslations("FeatCollab");
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -529,8 +372,8 @@ function VideoTile({
 
   /* Beim Parallax wandert die Bildebene nach oben und unten. Ohne eine
      leichte Ueberdeckung wuerden dabei an den Raendern Luecken auftauchen --
-     daher der Faktor 1.14. Ist Parallax aus, faellt die Ueberdeckung weg und
-     das Video laeuft im Originalausschnitt. */
+     daher der Faktor 1.14. Ist Parallax aus, faellt die Ueberdeckung weg,
+     erst dann laesst sich mit videoZoom auch wirklich verkleinern. */
   const coverScale = parallaxStrength === 0 ? 1 : 1.14;
 
   /* Bildinhalt im Fenster: Zoom, Fuellverhalten und Ausschnitt.
@@ -563,7 +406,7 @@ function VideoTile({
     video.currentTime = 0;
   };
 
-  /* Auf Touch-Geraeten uebernimmt der Klick das Umschalten,
+  /* Auf Touch-Geräten übernimmt der Klick das Umschalten,
      auf Desktop erledigen das onMouseEnter/onMouseLeave. */
   const handleClick = () => {
     if (hasHover()) return;
@@ -573,9 +416,8 @@ function VideoTile({
   return (
     <div
       /* Das FENSTER: Groesse kommt aus layout.videoSize + aspect.
-         Was darin passiert, steuert mediaStyle weiter unten.
-         Der Rahmen greift die transparente Flip-Kachel daneben auf. */
-      className="group relative flex w-full flex-col justify-end overflow-hidden border border-white/25 bg-ink p-8"
+         Was darin passiert, steuert mediaStyle weiter unten. */
+      className="group relative flex w-full flex-col justify-end overflow-hidden bg-ink p-8"
       style={{
         aspectRatio: film.aspect ?? (film.format === "tall" ? "9 / 16" : "16 / 9"),
       }}
@@ -586,7 +428,7 @@ function VideoTile({
       onClick={handleClick}
       tabIndex={0}
       role="button"
-      aria-label={safeT(t, `projects.${film.id}.videoLabel`, film.label)}
+      aria-label={safeT(t, `projects.${film.id}.videoLabel`, film.logoText)}
     >
       {/* Parallax-Ebene -- nur Bild und Video bewegen sich, die Bedienelemente nicht.
           Verschiebung und Ueberdeckung stecken in einem transform, damit sie
@@ -617,7 +459,7 @@ function VideoTile({
           loop
           muted
           playsInline
-          preload="metadata"
+          preload="none"
           draggable={false}
           controlsList="nodownload noremoteplayback"
           disablePictureInPicture
@@ -639,7 +481,7 @@ function VideoTile({
         </div>
       )}
 
-      <AnimLabel position="top-left" />
+      <AiLabel position="top-left" />
 
       <button
         onClick={(e) => {
@@ -658,7 +500,7 @@ function VideoTile({
 
       <div className="relative z-10">
         <span className="text-xs uppercase tracking-[0.2em] text-mute">
-          {safeT(t, `projects.${film.id}.title`, film.label)}
+          {safeT(t, `projects.${film.id}.title`, film.logoText)}
         </span>
       </div>
     </div>
@@ -668,18 +510,19 @@ function VideoTile({
 /* ---------------- Flip-Kachel ---------------- */
 
 function FlipTile({ film, stretch }: { film: Film; stretch: boolean }) {
-  const t = useTranslations("AiFilmmaking");
+  const t = useTranslations("FeatCollab");
   const [flipped, setFlipped] = useState(false);
 
   const toggle = () => setFlipped((prev) => !prev);
 
-  const storyLabel = safeT(t, `projects.${film.id}.storyLabel`, film.label);
+  const client = safeT(t, `projects.${film.id}.client`);
+  const headline = safeT(t, `projects.${film.id}.headline`, film.logoText);
+  const story = safeT(t, `projects.${film.id}.story`);
+  const role = safeT(t, `projects.${film.id}.role`);
+  const storyLabel = safeT(t, `projects.${film.id}.storyLabel`, film.logoText);
 
-  /* Ab md bewusst KEINE eigene Hoehe: Die Kachel uebernimmt exakt die Hoehe
-     des Videos daneben, egal wie breit das Fenster gerade ist. tileHeight
-     gilt nur untereinander auf Mobile. */
   const heightClass = stretch
-    ? "h-[var(--tile-height)] md:h-auto md:self-stretch"
+    ? "h-[var(--tile-height)] md:h-auto md:self-stretch md:min-h-[var(--tile-height)]"
     : "h-[var(--tile-height)]";
 
   return (
@@ -711,18 +554,25 @@ function FlipTile({ film, stretch }: { film: Film; stretch: boolean }) {
           flipped ? "[transform:rotateY(180deg)]" : "",
         ].join(" ")}
       >
-        {/* Vorderseite -- transparent mit Rahmen, Sternenhimmel sichtbar.
-            translateZ(0.5px) haelt beide Seiten auseinander, sonst flackert
-            es in manchen Browsern, sobald man hindurchschaut. */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center border border-white/25 p-8 [-webkit-backface-visibility:hidden] [backface-visibility:hidden] [text-shadow:0_2px_14px_rgba(0,0,0,0.6)] [transform:translateZ(0.5px)] md:p-14">
-          {film.front.map((block, i) => (
-            <TextBlockView
-              key={i}
-              block={block}
-              lines={resolveLines(t, film.id, block)}
-              centered
-            />
-          ))}
+        {/* Vorderseite -- Logo */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-ink p-8 [-webkit-backface-visibility:hidden] [backface-visibility:hidden] md:p-14">
+          {film.logoSrc ? (
+            <div className="relative h-24 w-full max-w-[320px]">
+              <Image
+                src={film.logoSrc}
+                alt={film.logoText}
+                fill
+                draggable={false}
+                onContextMenu={(e) => e.preventDefault()}
+                className="select-none object-contain brightness-0 invert"
+                sizes="320px"
+              />
+            </div>
+          ) : (
+            <span className="font-arimo text-center text-4xl font-bold tracking-wide text-bone md:text-6xl">
+              {film.logoText}
+            </span>
+          )}
 
           <span className="absolute bottom-8 left-8 text-xs uppercase tracking-[0.2em] text-mute">
             {film.year}
@@ -733,15 +583,29 @@ function FlipTile({ film, stretch }: { film: Film; stretch: boolean }) {
           </span>
         </div>
 
-        {/* Rueckseite -- deckend, drei Textbloecke, linksbuendig */}
-        <div className="absolute inset-0 flex flex-col justify-center overflow-y-auto bg-paper p-8 [-webkit-backface-visibility:hidden] [backface-visibility:hidden] [transform:rotateY(180deg)_translateZ(0.5px)] md:p-14">
-          {film.back.map((block, i) => (
-            <TextBlockView
-              key={i}
-              block={block}
-              lines={resolveLines(t, film.id, block)}
-            />
-          ))}
+        {/* Rückseite -- Geschichte */}
+        <div className="absolute inset-0 flex flex-col justify-center overflow-y-auto bg-paper p-8 text-ink [-webkit-backface-visibility:hidden] [backface-visibility:hidden] [transform:rotateY(180deg)] md:p-14">
+          {client && (
+            <span className="text-xs font-medium uppercase tracking-[0.2em] text-blood">
+              {client}
+            </span>
+          )}
+
+          <h2 className="font-display mt-4 text-3xl leading-[0.95] md:text-4xl">
+            {headline}
+          </h2>
+
+          {story && (
+            <p className="mt-6 max-w-2xl text-sm leading-relaxed text-ink/60">
+              {story}
+            </p>
+          )}
+
+          {role && (
+            <span className="mt-8 inline-flex w-fit items-center gap-2 border border-ink/25 px-4 py-2 text-[10px] font-medium uppercase tracking-[0.3em] text-ink/70">
+              {role}
+            </span>
+          )}
         </div>
       </div>
     </div>

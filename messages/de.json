@@ -1,9 +1,9 @@
 {
   "Nav": {
-    "work": "3D Animation",
-    "about": "Über mich",
-    "collaboration": "KI Filme",
-    "journal": "Podcasts",
+    "work": "",
+    "about": "Über Maya ES",
+    "collaboration": "3D / KI Filme",
+    "journal": "spezielle Kollaborationen",
     "menu": "Menü"
   },
   "Hero": {
@@ -13,11 +13,14 @@
     "line4": "3D KUNST.",
     "poweredBy": "unterstützt durch KI",
     "label1": "CINEMATIC STORYTELLING",
-    "description1": "KI ist ohne große Vorankündigung in unser Leben ein- marschiert, hat sich weltweit etabliert – und strebt nun danach, in nahezu allen Lebensbereichen eine führende Rolle einzunehmen. Kultur eingeschlossen.",
-    "description2": "Und doch bleibt KI ein Werkzeug. Ein Werkzeug, dessen Meisterschaft in Film, Storytelling, Mode und Musik längst keine Option mehr ist, sondern eine Notwendigkeit.",
-    "description3": "KI-gestützte kreative Prozesse besitzen das Potenzial zu höchster ästhetischer und kommerzieller Qualität – unter einer entscheidenden Voraussetzung: Sie müssen mit techno- logischem Bewusstsein und ethischer Verantwortung gepaart sein.",
-    "description4": "Basierned auf der langjährigen Erfahrung in der Ästhetik von 3D, Mode, Szenenbild und cinematischen Hintergrundwissen beherrscht Maya ES die Kunst der Prompt-Architektur – und erschafft KI-basierte virtuelle Erzählwelten in Form von Filmen, Musik oder Fashion Shows. Im Idealfall als alles drei zugleich.",
-    "tagline": "Visionär. Kreativ. Storyteller.",
+    "description1": "KI ist ohne große Vorankündigung in unser Leben einmarschiert, hat sich weltweit etabliert – und strebt nun danach, in nahezu allen Lebensbereichen eine führende Rolle einzu- nehmen. Kultur eingeschlossen.",
+    "description2": "Und doch bleibt KI ein Werkzeug. Ein Werk- zeug, dessen Meisterschaft in Film, Storytelling, Mode und Musik längst keine Option mehr ist, sondern eine Notwendigkeit.",
+    "underline1": "Frames",
+    "underline2": "ohne Kamera.",
+    "underdescription3": "Kein Set, keine Crew, kein Drehtag. Was bleibt, ist Regie: Timing, Blick, Rhythmus. Jeder Film entsteht aus Prompt, Schnitt und Klang — und wird behandelt wie jede andere Produktion.",
+    "underdescription4": "",
+    "tagline1": "",
+    "tagline2": "Maya ES. Vision. Schöpfung. Story. ",
     "cta": "Meine Arbeiten ansehen",
     "location": "MAYA ES / MAILAND / IT"
   },
@@ -69,6 +72,10 @@
   "AiLabel": {
     "badge": "KI-generiert",
     "disclaimer": "Alle auf dieser Website gezeigten Bilder und Videos wurden mit KI-Tools erstellt."
+  },
+  "AnimLabel": {
+    "badge": "3D Animation",
+    "disclaimer": "Alle auf dieser Website gezeigten Bilder und Videos wurden mit 3D Animationssoftware erstellt."
   },
   "AboutMe": {
     "back": "Zurück",
@@ -127,47 +134,50 @@
     }
   },
   "AiFilmmaking": {
-    "back": "Back",
-    "eyebrow": "AI Filmmaking",
-    "titleLine1": "Frames without",
-    "titleLine2": "a camera.",
-    "intro": "No set, no crew, no shooting day. What remains is direction: timing, gaze, rhythm. Every film comes out of prompt, edit and sound — and gets treated like any other production.",
-    "flipHint": "Flip the card",
+    "back": "Zurück",
+    "eyebrow": "3D / KI Filme",
+    "titleLine1": "Digitale Welten:",
+    "titleLine2": "Der Aufbruch in grenzenlose Möglichkeiten",
+    "intro": "",
+    "flipHint": "Karte drehen",
     "Contact": {
-      "collaboration": "Collaboration",
-      "titleLine1": "A film",
-      "titleLine2": "that stays.",
-      "cta": "Start a project",
-      "note": "From first idea to final cut — concept, image, music and sound from one hand.",
-      "secondaryCta": "More work"
+      "collaboration": "Zusammenarbeit",
+      "titleLine1": "Ein Film,",
+      "titleLine2": "der bleibt.",
+      "cta": "Projekt anfragen",
+      "note": "Von der ersten Idee bis zum fertigen Schnitt — Konzept, Bild, Musik und Sound aus einer Hand.",
+      "secondaryCta": "Mehr Arbeiten"
     },
     "projects": {
-      "casino": {
-        "title": "Casino Scene",
-        "videoLabel": "Play Casino Scene",
-        "storyLabel": "Show the story behind Casino Scene",
-        "client": "Client One",
-        "headline": "A room full of bets where nobody wins.",
-        "story": "The scene is built as a single movement: camera and dress pull the same way while the room tilts against them. The palette stays deliberately down to three tones — the look comes from the grade, not the prompt.",
-        "role": "Direction · Edit · Music"
+      "digitalFashionWeek": {
+        "title": "Digital Fashion Week",
+        "videoLabel": "Play Digital Fashion Week",
+        "storyLabel": "Show the story behind Digital Fashion Week",
+        "frontTitle": "DIGITAL FASHION WEEK",
+        "frontMeta": "New York · London · Paris\n",
+        "backEyebrow": "Eigenproduktion\nMaya ES",
+        "backHeadline": "Digitale Haute Couture",
+        "backText": "3D-Supermodel-Avatare aus eigener Kreation, inszeniert in vollständig erschaffenen 3D-Welten. Jedes Kleidungsstück entsteht vollständig am Computer. Der Prozess vereint Schnittsoftware, 3D-Modellierungs- und Animationstools, Avatar-Erstellungssoftware sowie zahlreiche Zwischenschritte des Datenaustauschs."
       },
-      "goere": {
-        "title": "Göre",
-        "videoLabel": "Play Göre",
-        "storyLabel": "Show the story behind Göre",
-        "client": "Client Two",
-        "headline": "Vertical by decision, not by crop.",
-        "story": "The frame holds the figure while everything around her falls out of it. The cut follows the snare rather than the plot: every shot ends an eighth too early.",
-        "role": "Direction · Music"
+      "danceOfTheLight": {
+        "title": "Dance of the Light",
+        "videoLabel": "Play Dance of the Light",
+        "storyLabel": "Show the story behind Dance of the Light",
+        "frontTitle": "DANCE OF\nTHE LIGHT",
+        "frontMeta": "Beitrag für\nFashion Film Festival Milano",
+        "backEyebrow": "Kurzfilm\nRegie und Animation",
+        "backHeadline": "Prisma. Licht. Regenbogen.",
+        "backText": "Cassie repräsentiert hier allegorisch das Licht. Das Glasprisma auf ihrem Kopf hat das Licht bereits gebrochen und in einen Regenbogen verwandelt."
       },
-      "second-skin": {
-        "title": "Second Skin",
-        "videoLabel": "Play Second Skin",
-        "storyLabel": "Show the story behind Second Skin",
-        "client": "Client Three",
-        "headline": "Fabric that never agreed to physics.",
-        "story": "A runway without an audience. The garment is simulated in 3D and then generatively overwritten — the actual film happens in between. Cinemascope, because the format forces the body to move sideways.",
-        "role": "3D · Simulation · Sound design"
+      "fashionFilmFestivalMilano": {
+        "title": "Fashion Film Festival Milano",
+        "videoLabel": "Play Fashion Film Festival Milano",
+        "storyLabel": "Show the story behind Fashion Film Festival Milano",
+        "frontTitle": "FASHION FILM\nFESTIVAL MILANO",
+        "frontMeta": "WEB3 / Metaverse Selektion\nOffizielle Teilnahme",
+        "backEyebrow": "Mailand\nAuswahl 2023",
+        "backHeadline": "Ein Laufsteg\nim Metaverse",
+        "backText": "Alle drei eingereichten Filme von ihr  wurden von der Jury ausgewählt und in der Metaverse-Kategorie des Festivals gezeigt. Bühnenbild, Kostüm und Animation wurden vollständig digital, mithilfe von 3D-Modellierungs- und Animationssoftware, kreiert."
       }
     }
   }

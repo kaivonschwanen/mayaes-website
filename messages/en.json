@@ -1,9 +1,9 @@
 {
   "Nav": {
-    "work": "3D Animation",
+    "work": "",
     "about": "About",
-    "collaboration": "AI Filmmaking",
-    "journal": "Podcasts",
+    "collaboration": "3D / AI Filmmaking",
+    "journal": "featured Collaborations",
     "menu": "Menu"
   },
   "Hero": {
@@ -13,11 +13,14 @@
     "line4": "3D ART.",
     "poweredBy": "powered by AI",
     "label1": "CINEMATIC STORYTELLING",
-    "description1": "AI arrived instantly, established itself globally, and now moves to take the leading position in every sphere of life - culture included. ",
-    "description2": "And yet, AI is still a tool. A tool whose mastery, in cinema, storytelling, fashion, and music, is no longer optional - it's essential. ",
-    "description3": "AI-powered creative processes hold the potential to reach the highest aesthetic and commercial value - on one condition: that they are paired with technological and ethical awareness. ",
-    "description4": "Backed by extensive experience in 3D, fashion aesthetics, set design, and cinematic background knowledge, Maya ES masters the art of prompt architecture - crafting AI-based virtual stories as films, music, or fashion shows. Ideally, all three at once.",
-    "tagline": "Visionary. Creator. Storyteller.",
+    "description1": "AI is redefining culture - and mastering it takes more than tools; it takes vision. ",
+    "description2": "With deep expertise in 3D fashion aesthetics, set design, and cinematic storytelling, Maya ES builds AI-driven worlds where film, music, and fashion converge into one experience. ",
+    "underline1": "Frames without",
+    "underline2": "a camera.",
+    "underdescription3": "No set, no crew, no shooting day. What remains is direction: timing, gaze, rhythm. Every film comes out of prompt, edit and sound - and gets treated like any other production.",
+    "underdescription4": "",
+    "tagline1": "",
+    "tagline2": "Maya ES. Visionary. Creator. Storyteller.",
     "cta": "View My Work",
     "location": "MAYA ES / MILAN / IT"
   },
@@ -25,8 +28,8 @@
     "label": "Featured Project",
     "titleLine1": "CASINO",
     "titleLine2": "GLAM",
-    "description": "An AI-generated short film paired with an original soundtrack.",
-    "cta": "View Project",
+    "description": "Step into the world of Casino Glam - a sophisticated celebration of glamour, entertainment, and high-end casino culture.",
+    "cta": "Premiered on Roku TV in April 2025",
     "aiFilmMusic": "AI Film & Music"
   },
   "Fashion3D": {
@@ -69,6 +72,10 @@
   "AiLabel": {
     "badge": "AI-generated",
     "disclaimer": "All images and videos shown on this website were created using AI tools."
+  },
+  "AnimLabel": {
+    "badge": "3D Animation",
+    "disclaimer": "All images and videos shown on this website were created using 3D animation tools."
   },
   "AboutMe": {
     "back": "Back",
@@ -127,47 +134,95 @@
     }
   },
   "AiFilmmaking": {
-    "back": "Zurück",
-    "eyebrow": "AI Filmmaking",
-    "titleLine1": "Frames ohne",
-    "titleLine2": "Kamera.",
-    "intro": "Kein Set, keine Crew, kein Drehtag. Was bleibt, ist Regie: Timing, Blick, Rhythmus. Jeder Film entsteht aus Prompt, Schnitt und Sound — und wird behandelt wie jede andere Produktion auch.",
-    "flipHint": "Karte drehen",
+    "back": "Back",
+    "eyebrow": "3D / AI Filmmaking",
+    "titleLine1": "Digital worlds:",
+    "titleLine2": "The Frontier of Unlimited Possibilities",
+    "intro": "",
+    "flipHint": "Flip the card",
     "Contact": {
-      "collaboration": "Zusammenarbeit",
-      "titleLine1": "Ein Film,",
-      "titleLine2": "der bleibt.",
-      "cta": "Projekt anfragen",
-      "note": "Von der ersten Idee bis zum fertigen Schnitt — Konzept, Bild, Musik und Sound aus einer Hand.",
-      "secondaryCta": "Mehr Arbeiten"
+      "collaboration": "Collaboration",
+      "titleLine1": "A film",
+      "titleLine2": "that stays.",
+      "cta": "Start a project",
+      "note": "From first idea to final cut — concept, image, music and sound from one hand.",
+      "secondaryCta": "More work"
+    },
+    "projects": {
+      "digitalFashionWeek": {
+        "title": "Digital Fashion Week",
+        "videoLabel": "Play Digital Fashion Week",
+        "storyLabel": "Show the story behind Digital Fashion Week",
+        "frontTitle": "DIGITAL FASHION WEEK",
+        "frontMeta": "New York · London · Paris\n",
+        "backEyebrow": "Own production\nMaya ES",
+        "backHeadline": "Digital Haute Couture",
+        "backText": "3D supermodel avatars of her own creation, staged within fully built 3D universes. Every garment is built entirely on the computer. The process combines pattern-making software, 3D modelling and animation tools, avatar creation software, and numerous intermediate exchange steps between them."
+      },
+      "danceOfTheLight": {
+        "title": "Dance of the Light",
+        "videoLabel": "Play Dance of the Light",
+        "storyLabel": "Show the story behind Dance of the Light",
+        "frontTitle": "DANCE OF\nTHE LIGHT",
+        "frontMeta": "Contribution to\nFashion Film Festival Milano",
+        "backEyebrow": "Short film\nDirection and animation",
+        "backHeadline": "Prism. Light. Rainbow.",
+        "backText": "Cassie acts here as an allegorical representation of light. The glass prism on her head has already broken the light, turning it into a rainbow. \n- \nScreened at the Fashion Film Festival Milano, 2023."
+      },
+      "fashionFilmFestivalMilano": {
+        "title": "Fashion Film Festival Milano",
+        "videoLabel": "Play Fashion Film Festival Milano",
+        "storyLabel": "Show the story behind Fashion Film Festival Milano",
+        "frontTitle": "FASHION FILM\nFESTIVAL MILANO",
+        "frontMeta": "WEB3 / Metaverse Selection\nOfficial entry",
+        "backEyebrow": "Milan\nSelection 2023",
+        "backHeadline": "A runway\nin the metaverse",
+        "backText": "All the three of her films were selected by the jury and screened in the festival's metaverse section. Set design, costume, and animation were created entirely digitally, using 3D modelling and animation software."
+      }
+    }
+  },
+  "FeatCollab": {
+    "back": "Back",
+    "eyebrow": "featured Collaborations",
+    "titleLine1": "Frames without",
+    "titleLine2": "a camera.",
+    "intro": "No set, no crew, no shooting day. What remains is direction: timing, gaze, rhythm. Every film comes out of prompt, edit and sound — and gets treated like any other production.",
+    "flipHint": "Flip the card",
+    "Contact": {
+      "collaboration": "Collaboration",
+      "titleLine1": "A film",
+      "titleLine2": "that stays.",
+      "cta": "Start a project",
+      "note": "From first idea to final cut — concept, image, music and sound from one hand.",
+      "secondaryCta": "More work"
     },
     "projects": {
       "casino": {
         "title": "Casino Scene",
-        "videoLabel": "Casino Scene abspielen",
-        "storyLabel": "Geschichte zu Casino Scene anzeigen",
+        "videoLabel": "Play Casino Scene",
+        "storyLabel": "Show the story behind Casino Scene",
         "client": "Client One",
-        "headline": "Ein Raum voller Einsätze, in dem niemand gewinnt.",
-        "story": "Die Szene ist als eine einzige Bewegung angelegt: Kamera und Kleid ziehen in dieselbe Richtung, während der Raum dagegen kippt. Die Farbwelt bleibt bewusst auf drei Töne reduziert — der Look kommt aus dem Colorgrading, nicht aus dem Prompt.",
-        "role": "Regie · Schnitt · Musik"
+        "headline": "A room full of bets where nobody wins.",
+        "story": "The scene is built as a single movement: camera and dress pull the same way while the room tilts against them. The palette stays deliberately down to three tones — the look comes from the grade, not the prompt.",
+        "role": "Direction · Edit · Music"
       },
       "goere": {
         "title": "Göre",
-        "videoLabel": "Göre abspielen",
-        "storyLabel": "Geschichte zu Göre anzeigen",
+        "videoLabel": "Play Göre",
+        "storyLabel": "Show the story behind Göre",
         "client": "Client Two",
-        "headline": "Hochformat als Entscheidung, nicht als Beschnitt.",
-        "story": "Der Bildausschnitt hält die Figur fest, während alles um sie herum aus dem Rahmen fällt. Der Schnitt folgt der Snare, nicht der Handlung: Jede Einstellung endet eine Achtel zu früh.",
-        "role": "Regie · Musik"
+        "headline": "Vertical by decision, not by crop.",
+        "story": "The frame holds the figure while everything around her falls out of it. The cut follows the snare rather than the plot: every shot ends an eighth too early.",
+        "role": "Direction · Music"
       },
       "second-skin": {
         "title": "Second Skin",
-        "videoLabel": "Second Skin abspielen",
-        "storyLabel": "Geschichte zu Second Skin anzeigen",
+        "videoLabel": "Play Second Skin",
+        "storyLabel": "Show the story behind Second Skin",
         "client": "Client Three",
-        "headline": "Stoff, der sich an Physik nicht gebunden fühlt.",
-        "story": "Ein Laufsteg ohne Publikum. Die Kleidung wird in 3D simuliert und anschließend generativ überschrieben — dazwischen liegt der eigentliche Film. Cinemascope, weil das Format den Körper zwingt, sich horizontal zu bewegen.",
-        "role": "3D · Simulation · Sound Design"
+        "headline": "Fabric that never agreed to physics.",
+        "story": "A runway without an audience. The garment is simulated in 3D and then generatively overwritten — the actual film happens in between. Cinemascope, because the format forces the body to move sideways.",
+        "role": "3D · Simulation · Sound design"
       }
     }
   }
