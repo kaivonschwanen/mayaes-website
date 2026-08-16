@@ -10,6 +10,7 @@ import { useLocale } from "next-intl";
 import PartnersMarquee from "@/components/PartnersMarquee";
 import Header from "@/components/Header";
 import { Volume2, VolumeX, Play } from "lucide-react";
+import { useHls } from "@/hooks/useHls";
 
 import {
   FaInstagram,
@@ -545,6 +546,12 @@ function IntroVideo({
     document.getElementById("site-content")?.scrollIntoView({ behavior: "smooth" });
   };
 
+  useHls(
+    introVideoRef,
+    "https://media.mayaesai.com/IntroVideoWebsite/master.m3u8",
+    { startLevel: 0, capToPlayerSize: false, maxBufferLength: 20 },
+  );
+
   useEffect(() => {
     const videoEl = introVideoRef.current;
     if (!videoEl) return;
@@ -570,7 +577,7 @@ function IntroVideo({
       onContextMenu={(e) => e.preventDefault()}>
       <video
         ref={introVideoRef}
-        src="https://media.mayaesai.com/reel-website-ohne-goere%20und%20listiger%20mann%20im%20profil.mp4"
+        poster="/IntroVideoWebsite-poster.jpg"
         autoPlay
         loop
         muted
