@@ -7,6 +7,7 @@ import { Anton, Inter, Special_Elite, Arimo } from "next/font/google";
 import "../globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import SpaceBackground from "@/components/space/SpaceBackground";
+import { Analytics } from "@vercel/analytics/next"
 
 
 const anton = Anton({
@@ -98,6 +99,7 @@ export default async function LocaleLayout({
             {children}
           </SmoothScroll>
         </NextIntlClientProvider>
+        <Analytics />
       </body>
     </html>
   );

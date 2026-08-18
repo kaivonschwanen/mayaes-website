@@ -23,6 +23,7 @@ import { useLocale, useTranslations } from "next-intl";
 import AiLabel from "@/components/AiLabel";
 import AnimLabel from "@/components/3dLabel";
 import { Play, Volume2, VolumeX } from "lucide-react";
+import { useHls } from "@/hooks/useHls";
 
 /* ==========================================================================
    PARAMETER
@@ -153,6 +154,8 @@ type Film = {
   format: Format;
   videoPosition: VideoPosition;
   videoSrc: string;
+  /** Pfad zur master.m3u8 auf R2. Ohne Angabe wird videoSrc (MP4) genutzt. */
+  hlsSrc?: string;
   poster: string;
   /** Nur Fallback fuer aria-Labels, wenn die messages nichts liefern */
   label: string;
@@ -257,6 +260,7 @@ const FILMS: Film[] = [
     videoPosition: "left",
     videoSrc:
       "https://media.mayaesai.com/Homepage%20Modeschau%20Fashion%20animation%20websiteMaya%2020%20sekunden%203D.mp4",
+    hlsSrc: "https://media.mayaesai.com/FashionAnimationWebsite/master.m3u8",  
     poster: "/DFW-2022-2055-website.jpg",
     label: "Digital Fashion Week",
     year: "2022 - 2025",
@@ -274,6 +278,7 @@ const FILMS: Film[] = [
     videoPosition: "right",
     videoSrc:
       "https://media.mayaesai.com/Dance%20of%20the%20Lights%20Volume%201%20enhanced-2.mp4",
+    hlsSrc: "https://media.mayaesai.com/DanceOfTheLightsWebsite/master.m3u8",  
     poster: "/dance-of-the-Light-Vorschau-website.jpg",
     label: "Dance of the Light",
     year: "2023",
@@ -290,6 +295,7 @@ const FILMS: Film[] = [
     format: "tall",
     videoPosition: "left",
     videoSrc: "https://media.mayaesai.com/Maya-ES-MFFF-Metaverse-a.mp4",
+    hlsSrc: "https://media.mayaesai.com/FashionFilmFestivalMilanoWebsite/master.m3u8",  
     poster: "/Vorschau-fffm-website.jpg",
     label: "Fashion Film Festival Milano",
     year: "2023",
@@ -524,6 +530,8 @@ function VideoTile({
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
+  useHls(videoRef, film.hlsSrc ?? film.videoSrc);
+  
   const parallaxStrength = film.parallax ?? 0.12;
   const parallax = useParallax<HTMLDivElement>(parallaxStrength);
 

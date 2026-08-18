@@ -31,6 +31,7 @@ export default function Home() {
   const [introMuted, setIntroMuted] = useState(true);
   const introVideoRef = useRef<HTMLVideoElement>(null);
 
+  useHls(videoRef, "https://media.mayaesai.com/CasinoGlamWebsite/master.m3u8");
 
   const togglePlay = () => {
     if (!videoRef.current) return;
@@ -264,11 +265,9 @@ export default function Home() {
 
             <video
               ref={videoRef}
-              src="https://media.mayaesai.com/Casino scene short1.mp4"
               loop
               muted={isMuted}
               playsInline
-              preload="none"
               draggable={false}
               controlsList="nodownload noremoteplayback"
               disablePictureInPicture
@@ -312,9 +311,9 @@ export default function Home() {
               {t("Featured.description")}
             </p>
 
-            <Link href={`/${locale}/coming-soon`} className="mt-6 inline-flex w-fit items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-bone transition-colors hover:text-blood">
-              {t("Featured.cta")} <span aria-hidden>↗</span>
-            </Link>
+            <p className="mt-6 text-xs font-medium uppercase tracking-[0.18em] text-bone">
+              {t("Featured.cta")}
+            </p>
           </div>
 
           {/* 3D Fashion */}
@@ -328,7 +327,7 @@ export default function Home() {
               {t("Fashion3D.description")}
             </p>
 
-            <Link href={`/${locale}/coming-soon`} className="mt-6 inline-flex w-fit items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-ink transition-colors hover:text-blood">
+            <Link href={`/${locale}/ai-filmmaking`} className="mt-6 inline-flex w-fit items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-ink transition-colors hover:text-blood">
               {t("Fashion3D.cta")} <span aria-hidden>↗</span>
             </Link>
           </div>
@@ -348,7 +347,7 @@ export default function Home() {
                 {t("ArtStory.description")}
               </p>
 
-              <Link href={`/${locale}/coming-soon`}
+              <Link href={`/${locale}/feat-collab`}
                 className="mt-6 inline-flex w-fit items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-ink transition-colors hover:text-ink/60"
               >
                 {t("ArtStory.cta")} <span aria-hidden>↗</span>
@@ -375,7 +374,7 @@ export default function Home() {
               {t("Manifesto.description")}
             </p>
 
-            <Link href={`/${locale}/coming-soon`} className="mt-6 inline-flex w-fit items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-bone transition-colors hover:text-blood">
+            <Link href={`/${locale}/about`} className="mt-6 inline-flex w-fit items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-bone transition-colors hover:text-blood">
               {t("Manifesto.cta")} <span aria-hidden>↗</span>
             </Link>
           </div>

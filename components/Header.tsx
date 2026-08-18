@@ -17,7 +17,7 @@ export default function Header() {
   const NAV_LINKS = [
     { key: "work", label: t("Nav.work"), href: `/${locale}/3d-animation` },
     { key: "collaboration", label: t("Nav.collaboration"), href: `/${locale}/ai-filmmaking` },
-    { key: "journal", label: t("Nav.journal"), href: `/${locale}/coming-soon` },
+    { key: "journal", label: t("Nav.journal"), href: `/${locale}/feat-collab` },
     { key: "about", label: t("Nav.about"), href: `/${locale}/about` },
   ];
 

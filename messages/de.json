@@ -85,7 +85,7 @@
     "infoLabel": "INFORMATION",
     "paragraph1": "Maya ES ist eine deutsche digitale Modedesignerin und eine 3D / KI Filmemacherin.",
     "paragraph2": "In eine Künstlerfamilie hineingeboren, in Mode und Kunst gebildet, entdeckte sie ihr erstes eigentliches Medium, als sie begann, mit 3D-Animation zu arbeiten. Gleich erkannte sie die transformative Kraft der 3D-Software in Mode und wurde zu einer Pionierin des digitalen Fashion Designs.",
-    "paragraph3": "Ihre Veranlagung für KI Storytelling nahm in ihrer Arbeit für den französischen Couturier Jitrois konkrete Gestalt an. Dessen ikonisches Kleid re-konstruierte sie in CG, entwarf dazu ihre eigenen Accessoires und einen Helm und präsentierte die Kreation an Cassie, dem von ihr kreierten Deutschlands erstem CG-Supermodel – eingebettet in einer digitalen futuristischen Welt.",
+    "paragraph3": "Ihre Veranlagung für KI Storytelling nahm in ihrer Arbeit für den französischen Couturier Jean-Claude Jitrois konkrete Gestalt an. Dessen ikonisches Kleid re-konstruierte sie in CG, entwarf dazu ihre eigenen Accessoires und einen Helm und präsentierte die Kreation an Cassie, dem von ihr kreierten Deutschlands erstem CG-Supermodel – eingebettet in einer digitalen futuristischen Welt.",
     "paragraph4": "Das Ergebnis war ein 3D-Kurzfilm „Being a Man“: In der fernen Zukunft entdeckt ein Roboter - ein KI-gesteurtes Wesen - Cassie in dem Jitrois-Kleid bei einer Ausstellung und verwandelt sich dabei in einen echten Menschen. Alles jenseits des Kleides selbst – die Geschichte, die künstliche Welt, das Styling und die Regie – entstand aus ihrer eigenen Hand. Jitrois veröffentlichte den Film. Von der Zusammenarbeit wurde im Pariser Mode Magazin FAUST berichtet.",
     "paragraph5": "In der Folge präsentierte sie ihre eigenen Entwürfe auf den Digital Fashion Weeks in New York, Paris und London sowie beim Fashion Film Festival Milano. In dieser Zeit zeichnete sich für sie etwas Größeres ab und sie entschied erneut, von Anfang an bei den Pionieren zu sein.",
     "paragraph6": "KI war längst nicht mehr der Stoff jener Jugendvisionen, die einst durch Asimov, Clarke und Bradbury befeuert wurden. Plötzlich war sie Realität – ein noch mächtigeres, die Spielregeln veränderndes Werkzeug, das bereits dabei war, die Kultur selbst neu zu definieren.",
@@ -178,6 +178,54 @@
         "backEyebrow": "Mailand\nAuswahl 2023",
         "backHeadline": "Ein Laufsteg\nim Metaverse",
         "backText": "Alle drei eingereichten Filme von ihr  wurden von der Jury ausgewählt und in der Metaverse-Kategorie des Festivals gezeigt. Bühnenbild, Kostüm und Animation wurden vollständig digital, mithilfe von 3D-Modellierungs- und Animationssoftware, kreiert."
+      }
+    }
+  },
+  "FeatCollab": {
+    "back": "Zurueck",
+    "eyebrow": "Features & Kollaborationen",
+    "titleLine1": "Eine Liebesgeschichte",
+    "titleLine2": "um das Couture Kleid",
+    "intro": "Aaron, ein KI-getriebenes Wesen, verfällt der Faszination des Haute-Couture-Kleides auf dem Supermodel Cassie - und wird dabei zum Menschen.",
+    "flipHint": "Mehr",
+    "projects": {
+      "collabFilm": {
+        "rowTitle": "Film",
+        "title": "Werbung jitrois - The Advantage of Being a man",
+        "videoLabel": "Video: Titel des Films",
+        "storyLabel": "Hintergrund zum Film",
+        "frontTitle": "Maya ES.\n-\nJITROIS.",
+        "frontMeta": "PARIS",
+        "backEyebrow": "Zusammenarbeit",
+        "backHeadline": "Alles beginnt\nmit einer Geschichte.",
+        "backText": "Die puristische Eleganz, die von Jitrois' ikonischer Haute-Couture-Kreation ausgeht, brachte Maya ES dazu, das Kleid in ihren Kurzfilm 'The Advantage of Being a Man' zu integrieren. Sie rekonstruierte das Kleid in einer selbst geschaffenen CG-Umgebung. Avatar Cassie - Deutschlands erstes CG-Supermodel - sowie sämtliche Accessoires sind ebenfalls ihre eigenen Entwürfe."
+      },
+      "photosDuo": {
+        "rowTitle": "Jitrois' Social Media Auswahl",
+        "photo1": "",
+        "photo2": ""
+      },
+      "magazineFeature": {
+        "rowTitle": "Magazin",
+        "storyLabel": "Hintergrund zur Veroeffentlichung",
+        "spreadCaption": "Seite 96 / 97",
+        "frontTitle": "FAUST\nMagazin",
+        "frontMeta": "Printmedien\nAusgabe #11",
+        "backEyebrow": "Veröffentlichung",
+        "backHeadline": "Haute-Couture-Magazin\nFaust, Paris",
+        "backText": "Die Zusammenarbeit mit Jitrois - eine völlig neue Form, Haute Couture zu präsentieren - erschien auf Jitrois' eigener Website und wurde in der Ausgabe #11 des Haute-Couture-Magazins Faust, Paris, vorgestellt."
+      },
+      "photosEditorial": {
+        "rowTitle": "Editorial",
+        "photo1": "",
+        "photo2": "",
+        "photo3": ""
+      },
+      "photosCampaign": {
+        "rowTitle": "",
+        "photo1": "",
+        "photo2": "",
+        "photo3": ""
       }
     }
   }

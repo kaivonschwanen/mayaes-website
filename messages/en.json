@@ -84,7 +84,7 @@
     "titleLine4": "to Artificial intelligence",
     "infoLabel": "INFORMATION",
     "paragraph1": "Maya ES is a German digital fashion designer and a 3D / AI filmmaker. Born into an artist family and trained in fashion and fine art, she found her first true medium in 2019, when she began working with 3D animation. It was then that she recognized the game-changing power of 3D software, becoming one of the first pioneers of digital fashion design.",
-    "paragraph2": "Her flair for AI storytelling took shape in her work for French couturier Jitrois, whose iconic dress she recreated in CG – designing her own accessories and helmet, and presenting it on Cassie, her own creation and Germany's first CG supermodel, inside a fully CG futuristic world created by her.",
+    "paragraph2": "Her flair for AI storytelling took shape in her work for French couturier Jean-Claude Jitrois, whose iconic dress she recreated in CG – designing her own accessories and helmet, and presenting it on Cassie, her own creation and Germany's first CG supermodel, inside a fully CG futuristic world created by her.",
     "paragraph3": "The result was a short 3D film, Being a Man: In the far future, a robot – an AI-powered creature – sees Cassie in the Jitrois dress at an exhibition and transforms into a man. Every element beyond the dress itself – the story, virtual world, styling, and film direction – was her own creation. Jitrois published the film, and the collaboration was featured in the Parisian fashion magazine FAUST.",
     "paragraph4": "She went on to present her own fashion designs at digital fashion weeks in New York, Paris, and London, and at the Fashion Film Festival Milano. It was there that she recognized something bigger taking shape. AI was no longer the stuff of childhood fantasies - the worlds she'd once imagined through Asimov, Clarke, and Bradbury. At once it was real, an even more powerful, game-changing tool, already redefining culture itself. Once again, she chose to move first.",
     "paragraph5": "Today, AI is not optional in cinema, fashion, and music - it's foundational. For Maya ES, that means pairing technical mastery with ethical clarity, treating prompt architecture as a craft in its own right. The result: AI-driven virtual stories told through film, music, or fashion - and, ideally, all three woven into one.",
@@ -183,46 +183,49 @@
   },
   "FeatCollab": {
     "back": "Back",
-    "eyebrow": "featured Collaborations",
-    "titleLine1": "Frames without",
-    "titleLine2": "a camera.",
-    "intro": "No set, no crew, no shooting day. What remains is direction: timing, gaze, rhythm. Every film comes out of prompt, edit and sound — and gets treated like any other production.",
-    "flipHint": "Flip the card",
-    "Contact": {
-      "collaboration": "Collaboration",
-      "titleLine1": "A film",
-      "titleLine2": "that stays.",
-      "cta": "Start a project",
-      "note": "From first idea to final cut — concept, image, music and sound from one hand.",
-      "secondaryCta": "More work"
-    },
+    "eyebrow": "Features & Collaborations",
+    "titleLine1": "A Love Story",
+    "titleLine2": "around the Couture Dress",
+    "intro": "Aaron, an AI-driven creature, becomes fascinated by the haute couture dress on the supermodel Cassie - and turns into a human being.",
+    "flipHint": "More",
     "projects": {
-      "casino": {
-        "title": "Casino Scene",
-        "videoLabel": "Play Casino Scene",
-        "storyLabel": "Show the story behind Casino Scene",
-        "client": "Client One",
-        "headline": "A room full of bets where nobody wins.",
-        "story": "The scene is built as a single movement: camera and dress pull the same way while the room tilts against them. The palette stays deliberately down to three tones — the look comes from the grade, not the prompt.",
-        "role": "Direction · Edit · Music"
+      "collabFilm": {
+        "rowTitle": "Film",
+        "title": "Jitrois Promotion - The Advantage of Being a man",
+        "videoLabel": "Video: film title",
+        "storyLabel": "Background on the film",
+        "frontTitle": "Maya ES.\n-\nJITROIS.",
+        "frontMeta": "PARIS",
+        "backEyebrow": "Collaboration",
+        "backHeadline": "Everything begins\nwith a story.",
+        "backText": "The puristic sleekness radiating from Jitrois' iconic haute couture creation led Maya ES to integrate the dress into her short love story film, 'The Advantage of Being a Man'. She reconstructed the dress in a CG environment of her own making. Avatar Cassie - Germany's first CG supermodel - and all accessories are her own designs as well."
       },
-      "goere": {
-        "title": "Göre",
-        "videoLabel": "Play Göre",
-        "storyLabel": "Show the story behind Göre",
-        "client": "Client Two",
-        "headline": "Vertical by decision, not by crop.",
-        "story": "The frame holds the figure while everything around her falls out of it. The cut follows the snare rather than the plot: every shot ends an eighth too early.",
-        "role": "Direction · Music"
+      "photosDuo": {
+        "rowTitle": "Jitrois' Social Media Selection",
+        "photo1": "",
+        "photo2": ""
       },
-      "second-skin": {
-        "title": "Second Skin",
-        "videoLabel": "Play Second Skin",
-        "storyLabel": "Show the story behind Second Skin",
-        "client": "Client Three",
-        "headline": "Fabric that never agreed to physics.",
-        "story": "A runway without an audience. The garment is simulated in 3D and then generatively overwritten — the actual film happens in between. Cinemascope, because the format forces the body to move sideways.",
-        "role": "3D · Simulation · Sound design"
+      "magazineFeature": {
+        "rowTitle": "Magazine",
+        "storyLabel": "Background on the feature",
+        "spreadCaption": "Pages 96 / 97",
+        "frontTitle": "FAUST\nMagazine",
+        "frontMeta": "Printed Media\nIssue #11",
+        "backEyebrow": "Publication",
+        "backHeadline": "Haute Couture Magazine\nFaust, Paris",
+        "backText": "The collaboration with Jitrois - an entirely new form of presenting haute couture - was published on Jitrois' own site and featured in the issue #11 of Faust, Haute Couture Magazine, Paris."
+      },
+      "photosEditorial": {
+        "rowTitle": "Editorial",
+        "photo1": "",
+        "photo2": "",
+        "photo3": ""
+      },
+      "photosCampaign": {
+        "rowTitle": "",
+        "photo1": "",
+        "photo2": "",
+        "photo3": ""
       }
     }
   }
